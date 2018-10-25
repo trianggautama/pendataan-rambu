@@ -45,3 +45,15 @@ Route::get('/jenis-rambu/hapus/{id}','RambuController@jenis_rambu_hapus')
 ->name('jenis-rambu-hapus');
 
 
+
+//jenis kecamatan
+Route::get('/lokasi/kecamatan', 'LokasiController@kecamatan_index')
+->name('kecamatan-index');
+Route::POST('/lokasi/kecamatan','LokasiController@kecamatan_tambah')
+->name('tambah-kecamatan');
+Route::get('/lokasi/kecamatan/{id}','LokasiController@kecamatan_detail')
+->name('kecamatan-detail');
+Route::post('/lokasi/kecamatan/update/{id}','LokasiController@kecamatan_update')
+->name('kecamatan-update');
+Route::get('/lokasi/kecamatan/hapus/{id}','LokasiController@kecamatan_hapus')
+->name('kecamatan-hapus');
