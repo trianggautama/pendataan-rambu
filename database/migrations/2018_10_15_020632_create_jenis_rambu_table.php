@@ -14,7 +14,7 @@ class CreateJenisRambuTable extends Migration
     public function up()
     {
         Schema::create('jenis_rambu', function (Blueprint $table) {
-            $table->increments('id_jenisrambu');
+            $table->increments('id');
             $table->string('nama_jenis')->length('60');
             $table->timestamps();
         });

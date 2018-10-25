@@ -17,7 +17,7 @@ class CreateRambuTable extends Migration
             $table->increments('id');
             $table->string('kode_rambu')->length('10');
             $table->string('nama_rambu')->length('25');
-            $table->integer('jenis_id');
+            $table->integer('jenis_rambu_id');
             $table->text('keterangan');
             $table->string('gambar');
             $table->timestamps();
