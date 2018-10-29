@@ -66,7 +66,8 @@ class RambuController extends Controller
         $rambu->nama_rambu= $request->nama_rambu;
         $rambu->keterangan= $request->keterangan;
         $rambu->update();
-        return redirect(route('rambu-detail'));
+        return view('rambu.rambu_detail',['rambu'=>$rambu]);
+
        }
 
        public function rambu_hapus($id){
@@ -99,6 +100,25 @@ class RambuController extends Controller
         $jenis_rambu->save();
        
           return redirect(route('jenis-rambu-index'));
+      }
+
+      public function jenis_rambu_edit($id){
+        $jenis_rambu = jenis_rambu::findOrFail($id);
+
+        return view('rambu.ubah_jenis_rambu',compact('jenis_rambu'));
+       }
+
+     
+       public function jenis_rambu_update(Request $request, $id){
+        $jenis_rambu = jenis_rambu::findOrFail($id);
+
+        $this->validate(request(),[
+           'nama_jenis'=>'required'
+       ]);
+       $jenis_rambu->nama_jenis= $request->nama_jenis;
+       $jenis_rambu->update();
+       return redirect(route('jenis-rambu-index'));
+ 
       }
 
     public function jenis_rambu_detail($id){

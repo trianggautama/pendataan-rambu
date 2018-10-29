@@ -7,7 +7,7 @@
     <section class="content">
     <div class="box">
             <div class="box-header">
-            <h3 class="box-title">Data Kelurahan pada  kecamatan {{$kecamatan->nama_kecamatan}}</h3>
+            <h3 class="box-title"> Data rambu pada kelurahan {{$kelurahan->nama_kelurahan}}</h3>
               <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
 
             </div>
@@ -16,21 +16,22 @@
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID Kelurahan</th>
-                  <th>Nama Kelurahan</th>
+                  <th>Kode Rambu </th>
+                  <th>Nama Rambu</th>
+                  <th>Alamat </th>
+
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
-                <tbody>
-              @foreach($kelurahan as $kel)
+                <tbody>        
                 <tr>
-                  <td>{{$kel->id}}</td>
-                  <td>{{$kel->nama_kelurahan}}</td>
+                  <td>a33</td>
+                  <td>persimpangan berganda</td>
+                  <td>Jl.Sidodadi 1 depan bengkel</td>
                   <td class="text-center"> 
                     <a href="#" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
                   </td>
                 </tr>
-              @endforeach
                 </tfoot>
               </table>
             </div>

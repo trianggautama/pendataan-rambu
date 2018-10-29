@@ -37,10 +37,11 @@
                 <tbody>
                 @foreach($jenis_rambu as $jr)
                 <tr>
-                  <td>{{$jr->id_jenisrambu}}</td>
+                  <td>{{$jr->id}}</td>
                   <td>{{$jr->nama_jenis}} </td>
                   <td class="text-center"> 
                   <a href="{{route('jenis-rambu-detail', ['id' => $jr->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('jenis-rambu-edit',['id'=>$jr->id])}}" class="btn btn-sm btn-warning" > <i class=" fa fa-edit"></i></a>
                   <a href="{{route('jenis-rambu-hapus',['id'=>$jr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $jr->nama_jenis; ?>?')"> <i class=" fa fa-trash"></i></a>
 
                   </td>

@@ -6,7 +6,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-Kecamatan        <small>yang ada di kota Banjarbaru</small>
+        Data Kelurahan
+        <small>yang ada di kota Banjarbaru</small>
         </h1>
         <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -21,27 +22,28 @@ Kecamatan        <small>yang ada di kota Banjarbaru</small>
               <h3 class="box-title">Tabel Data</h3>
               <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
               <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
-
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Nama Kecamatan</th>
+                  <th>Kode Kelurahan</th>
+                  <th>Nama Kelurahan</th>
+                  <th>Kecamatan</th>
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($kecamatan as $k)
+                  @foreach ($kelurahan as $kel)
+                      
                 <tr>
-                  <td>{{$k->id}}</td>
-                  <td>{{$k->nama_kecamatan}} </td>
-                  <td class="text-center"> 
-                      <a href="{{route('kecamatan-detail', ['id' => $k->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                      <a href="{{route('kecamatan-edit', ['id' => $k->id ])}}" class="btn btn-sm btn-warning"> <i class=" fa fa-edit "></i></a>
-                      <a href="{{route('kecamatan-hapus',['id'=>$k->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data kecamatan <?php echo $k->nama_kecamatan; ?>?')"> <i class=" fa fa-trash"></i></a>    
+                  <td>{{$kel->id}}</td>
+                  <td>{{$kel->nama_kelurahan}}</td>
+                  <td>{{$kel->kecamatan->nama_kecamatan}}</td>
+                  <td class="text-center">
+                  <a href="{{route('kelurahan-detail', ['id' => $kel->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('kelurahan-hapus',['id'=>$kel->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $kel->nama_kelurahan; ?>?')"> <i class=" fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach
@@ -62,12 +64,22 @@ Kecamatan        <small>yang ada di kota Banjarbaru</small>
     
         <div class="modal-body">
           <!-- form login -->
-          <form  method="post" action="">
+          <form  method="post" action="" enctype="multipart/form-data">
+ 
             <div class="form-group">
-              <p>Nama Kecamatan</p>
-              <input type="text" name="nama_kecamatan"  class="form-control" />
+              <p>Nama Kelurahan</p>
+              <input type="text" name="nama_kelurahan"  class="form-control" />
             </div>
-           
+            <div class="form-group">
+              <p>Kecamatan</p>
+                  <select class="form-control" name="kecamatan_id">
+                    <option value="">---</option>
+                  @foreach($kecamatan as $k)
+                    <option value="{{$k->id}}">{{$k->nama_kecamatan}}</option>
+                  @endforeach
+                  </select>
+                </div>
+             
              <div class="text-right">
 
                <input class="btn btn-primary" type="submit" name="submit" value="Submit">

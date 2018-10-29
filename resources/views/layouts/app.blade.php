@@ -91,7 +91,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle-o"></i> Data Kebutuhan Rambu</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Data Rambu terpasang</a></li>
+            <li><a href="{{ route('rambu-terpasang-index') }}"><i class="fa fa-circle-o"></i> Data Rambu terpasang</a></li>
           </ul>
         </li>
         
@@ -103,8 +103,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Kecamatan</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
+            <li><a href="{{ route('kecamatan-index') }}"><i class="fa fa-circle-o"></i> Kecamatan</a></li>
+            <li><a href="{{ route('kelurahan-index') }}"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
           </ul>
         </li>
         <li class="treeview">

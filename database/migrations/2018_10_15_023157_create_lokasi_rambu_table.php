@@ -14,7 +14,7 @@ class CreateLokasiRambuTable extends Migration
     public function up()
     {
         Schema::create('lokasi_rambu', function (Blueprint $table) {
-            $table->increments('id_lokasi_kebutuhan_rambu');
+            $table->increments('id');
             $table->integer('kelurahan_id');
             $table->integer('rambu_id');
             $table->float('lat');
