@@ -19,7 +19,7 @@
     <div class="box">
             <div class="box-header">
               <h3 class="box-title">Tabel Data</h3>
-            <a href="{{route('rambu-terpasang-tambah')}}" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
+            <a href="{{route('kebutuhan-rambu-tambah')}}" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
               <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
             </div>
             <!-- /.box-header -->
@@ -43,8 +43,8 @@
                   <td>{{$lr->alamat}}</td>
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
                   <td class="text-center">
-                   <a href="" class="btn btn-sm btn-success"> Terpasang</a>
-                  <a href="{{route('rambu-detail', ['id' => $lr->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('kebutuhan-rambu-ubah', ['id' => $lr->id ])}}" class="btn btn-sm btn-primary"> tidak terpasang</a>
+                  <a href="{{route('kebutuhan-rambu-detail', ['id' => $lr->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
                   <a href="{{route('rambu-hapus',['id'=>$lr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini ?')"> <i class=" fa fa-trash"></i></a>
                   </td>
                 </tr>

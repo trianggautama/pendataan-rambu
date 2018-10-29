@@ -90,7 +90,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Data Kebutuhan Rambu</a></li>
+            <li><a href="{{ route('kebutuhan-rambu-index') }}"><i class="fa fa-circle-o"></i> Data Kebutuhan Rambu</a></li>
             <li><a href="{{ route('rambu-terpasang-index') }}"><i class="fa fa-circle-o"></i> Data Rambu terpasang</a></li>
           </ul>
         </li>

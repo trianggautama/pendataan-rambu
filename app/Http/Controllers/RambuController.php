@@ -6,6 +6,7 @@ Use File;
 use DB;
 use App\jenis_rambu;
 use App\rambu;
+use App\lokasi_rambu;
 use Illuminate\Http\Request;
 
 class RambuController extends Controller
@@ -49,8 +50,8 @@ class RambuController extends Controller
       public function rambu_detail($id){
         $rambu = rambu::findOrFail($id);
         //$rambu = rambu::where('jenis_rambu_id',$id)->get();
-
-        return view('rambu.rambu_detail',compact('rambu'));
+        $lokasi_rambu = lokasi_rambu::where('rambu_id', $id)->get();
+        return view('rambu.rambu_detail',compact('rambu','lokasi_rambu'));
        }
 
        public function rambu_update(Request $request, $id){
@@ -66,15 +67,14 @@ class RambuController extends Controller
         $rambu->nama_rambu= $request->nama_rambu;
         $rambu->keterangan= $request->keterangan;
         $rambu->update();
-        return view('rambu.rambu_detail',['rambu'=>$rambu]);
-
+        return redirect(route('rambu-index'));
        }
 
        public function rambu_hapus($id){
         $rambu=rambu::findOrFail($id);
         File::delete('images/rambu/'.$rambu->gambar);
         $rambu->delete();
-        return redirect(route('jenis-rambu-index'));
+        return redirect(route('rambu-index'));
 
     }
 

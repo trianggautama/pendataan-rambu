@@ -107,7 +107,7 @@ class LokasiController extends Controller
 
     //rambu terpasang
     public function rambu_terpasang_index(){
-        $lokasi_rambu = lokasi_rambu::where('status_pasang' ,0)->get();
+        $lokasi_rambu = lokasi_rambu::where('status_pasang' ,1)->get();
 
         return view('lokasi.rambu_terpasang',compact('lokasi_rambu'));
     }
@@ -132,15 +132,23 @@ class LokasiController extends Controller
           $rambu_terpasang->rambu_id= $request->rambu_id;
           $rambu_terpasang->lat= $request->lat;
           $rambu_terpasang->lang= $request->lang;
+          $rambu_terpasang->status_pasang= $request->status_pasang;
           $rambu_terpasang->alamat= $request->alamat;
           $rambu_terpasang->save();
          
             return redirect(route('rambu-terpasang-index'));
     }
 
+    public function rambu_terpasang_ubah($id){
+        $rambu_terasang = lokasi_rambu::findOrFail($id);
+        $rambu_terasang->status_pasang = 0;
+        $rambu_terasang->save();
+        return redirect(route('rambu-terpasang-index'));
+    }
+
        //kebutuhan rambu 
     public function kebutuhan_rambu_index(){
-        $lokasi_rambu = lokasi_rambu::where('status_pasang' ,0)->get();
+        $lokasi_rambu = lokasi_rambu::where('status_pasang' , 0 )->get();
 
         return view('lokasi.kebutuhan_rambu',compact('lokasi_rambu'));
     }
@@ -172,4 +180,11 @@ class LokasiController extends Controller
             return redirect(route('kebutuhan-rambu-index'));
     }
 
+    public function kebutuhan_rambu_ubah($id){
+        $lokasi_rambu = lokasi_rambu::findOrFail($id);
+        $lokasi_rambu->status_pasang = 1;
+        $lokasi_rambu->save();
+        return redirect(route('kebutuhan-rambu-index'));
+    }
+    
 }

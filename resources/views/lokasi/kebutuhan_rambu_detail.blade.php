@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Tambah Lokasi Rambu Terpasang
+        Detail Lokasi Rambu Terpasang
         </h1>
         <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -18,7 +18,7 @@
     <section class="content">
     <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Tabel Data</h3>
+              <h3 class="box-title">Form Input</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

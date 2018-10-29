@@ -103,23 +103,32 @@
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Kode Rambu</th>
-                  <th>Nama Rambu</th>
+                  <th>Kelurahan</th>
                   <th>Alamat</th>
-                  <th class="text-center">Action</th>
+                  <th>Status</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>A6625</td>
-                  <td>Dilarang Masuk</td>
-                  <td>Jl.Ro Ulin km 33</td>
-                  <td class="text-center"> 
-                  <a href="#" class="btn btn-sm btn-info"> <i class=" fa fa-eye"></i></a>
-                  <a href="#" class="btn btn-sm btn-danger"> <i class=" fa fa-trash"></i></a>
-
+                  @foreach ($lokasi_rambu as $lr)
+                  <tr>
+                  <td>{{$lr->kelurahan->nama_kelurahan}}</td>
+                  <td>{{$lr->alamat}}</td>
+                  <td>
+                    @if ($lr->status_pasang == 0)
+                      <a href="#" class="btn btn-primary"> tidak terpasang</a>
+                    @else
+                        <a href="#" class="btn btn-success"> terpasang</a>
+                    @endif
                   </td>
-                </tr>
+                      <td class="text-center"> 
+                      <a href="#" class="btn btn-sm btn-info"> <i class=" fa fa-eye"></i></a>
+                      <a href="#" class="btn btn-sm btn-danger"> <i class=" fa fa-trash"></i></a>
+    
+                      </td>
+                    </tr> 
+                  @endforeach
+             
                 </tfoot>
               </table>
             </div>
