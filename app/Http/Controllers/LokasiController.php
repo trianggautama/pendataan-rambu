@@ -7,7 +7,7 @@ use App\kecamatan;
 use App\kelurahan;
 use App\lokasi_rambu;
 use App\rambu;
-
+use Carbon\Carbon;
 
 class LokasiController extends Controller
 {
@@ -93,8 +93,8 @@ class LokasiController extends Controller
 
       public function kelurahan_detail($id){
         $kelurahan = kelurahan::findOrFail($id);
-
-        return view('lokasi.kelurahan_detail',compact('kelurahan'));
+        $lokasi_rambu= lokasi_rambu::where('kelurahan_id',$id)->get();
+        return view('lokasi.kelurahan_detail',compact('kelurahan','lokasi_rambu'));
        }
 
        public function kelurahan_hapus($id){
@@ -122,6 +122,7 @@ class LokasiController extends Controller
         $this->validate(request(),[
             'kelurahan_id'=>'required',
             'rambu_id'=>'required',
+            'apbn'=>'required',
             'lat'=>'required',
             'lang'=>'required',
             'alamat'=>'required'
@@ -130,6 +131,7 @@ class LokasiController extends Controller
           $rambu_terpasang = new lokasi_rambu;
           $rambu_terpasang->kelurahan_id= $request->kelurahan_id;
           $rambu_terpasang->rambu_id= $request->rambu_id;
+          $rambu_terpasang->apbn= $request->apbn;
           $rambu_terpasang->lat= $request->lat;
           $rambu_terpasang->lang= $request->lang;
           $rambu_terpasang->status_pasang= $request->status_pasang;
@@ -142,9 +144,18 @@ class LokasiController extends Controller
     public function rambu_terpasang_ubah($id){
         $rambu_terasang = lokasi_rambu::findOrFail($id);
         $rambu_terasang->status_pasang = 0;
+        $rambu_terasang->apbn = NULL;
         $rambu_terasang->save();
         return redirect(route('rambu-terpasang-index'));
     }
+
+    public function lokasi_rambu_hapus($id){
+        
+        $lokasi_rambu=lokasi_rambu::findOrFail($id);
+        $lokasi_rambu->delete();
+        return redirect(route('rambu-terpasang-index'));
+
+    }  
 
        //kebutuhan rambu 
     public function kebutuhan_rambu_index(){
@@ -161,7 +172,7 @@ class LokasiController extends Controller
     }
 
     public function kebutuhan_rambu_store(Request $request){
-      
+
         $this->validate(request(),[
             'kelurahan_id'=>'required',
             'rambu_id'=>'required',
@@ -183,6 +194,7 @@ class LokasiController extends Controller
     public function kebutuhan_rambu_ubah($id){
         $lokasi_rambu = lokasi_rambu::findOrFail($id);
         $lokasi_rambu->status_pasang = 1;
+        $lokasi_rambu->apbn = Carbon::now()->format('Y');
         $lokasi_rambu->save();
         return redirect(route('kebutuhan-rambu-index'));
     }

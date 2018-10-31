@@ -84,13 +84,17 @@ Route::POST('/lokasi/rambu_terpasang/tambah', 'LokasiController@rambu_terpasang_
 ->name('rambu-terpasang-store');
 Route::get('/lokasi/rambu_terpasang/ubah/{id}', 'LokasiController@rambu_terpasang_ubah')
 ->name('rambu-terpasang-ubah');
+Route::get('/lokasi/rambu_terpasang/hapus/{id}','LokasiController@lokasi_rambu_hapus')
+->name('lokasi-rambu-hapus');
 
 //kebutuhan rambu
 Route::get('/lokasi/kebutuhan_rambu', 'LokasiController@kebutuhan_rambu_index')
 ->name('kebutuhan-rambu-index');
 Route::get('/lokasi/kebutuhan_rambu/tambah', 'LokasiController@kebutuhan_rambu_tambah')
 ->name('kebutuhan-rambu-tambah');
-Route::POST('/lokasi/kebutuhan_rambu/store', 'LokasiController@rambu_terpasang_store')
-->name('rambu-terpasang-store');
+Route::POST('/lokasi/kebutuhan_rambu/tambah', 'LokasiController@kebutuhan_rambu_store')
+->name('kebutuhan-rambu-store');
 Route::get('/lokasi/kebutuhan_rambu/ubah/{id}', 'LokasiController@kebutuhan_rambu_ubah')
 ->name('kebutuhan-rambu-ubah');
+Route::get('/lokasi/kebutuhan_rambu/detail/{id}', 'LokasiController@kebutuhan_rambu_ubah')
+->name('kebutuhan-rambu-detail');

@@ -6,7 +6,7 @@
  */
 
 :root {
-  --blue: #007bff;
+  --blue: #708dac;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -19,14 +19,14 @@
   --white: #fff;
   --gray: #868e96;
   --gray-dark: #343a40;
-  --primary: #007bff;
+  --primary: #97aed4;
   --secondary: #868e96;
-  --success: #28a745;
-  --info: #17a2b8;
+  --success: #27db2a;
+  --info: #02b1cc;
   --warning: #ffc107;
   --danger: #dc3545;
   --light: #f8f9fa;
-  --dark: #343a40;
+  --dark: #43484d;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;

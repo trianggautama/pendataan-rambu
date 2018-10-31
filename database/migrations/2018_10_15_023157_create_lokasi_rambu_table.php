@@ -17,6 +17,7 @@ class CreateLokasiRambuTable extends Migration
             $table->increments('id');
             $table->integer('kelurahan_id');
             $table->integer('rambu_id');
+            $table->integer('apbn')->length(5)->nullable();
             $table->float('lat');
             $table->float('lang');
             $table->text('alamat');

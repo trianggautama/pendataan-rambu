@@ -29,6 +29,7 @@
                 <tr>
                   <th>Nama Rambu</th>
                   <th>Jenis</th>
+                  <th class="text-center">Tahun APBN</th>
                   <th>Alamat</th>
                   <th>kelurahan</th>
                   <th class="text-center">Action</th>
@@ -40,12 +41,13 @@
                 <tr>
                   <td>{{$lr->rambu->nama_rambu}}</td>
                   <td>{{$lr->rambu->jenis->nama_jenis}}</td>
+                <td class="text-center">{{$lr->apbn}}</td>
                   <td>{{$lr->alamat}}</td>
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
                   <td class="text-center">
                    <a href="{{route('rambu-terpasang-ubah', ['id' => $lr->id ])}}" class="btn btn-sm btn-success"> Terpasang</a>
                   <a href="{{route('rambu-detail', ['id' => $lr->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('rambu-hapus',['id'=>$lr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini ?')"> <i class=" fa fa-trash"></i></a>
+                  <a href="{{route('lokasi-rambu-hapus',['id'=>$lr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini ?')"> <i class=" fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

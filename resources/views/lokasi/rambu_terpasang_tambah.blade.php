@@ -18,7 +18,7 @@
     <section class="content">
     <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Tabel Data</h3>
+              <h3 class="box-title">Form Data</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -53,6 +53,10 @@
                                     @endforeach  
                                     </select>
                             </div>
+                            <div class="form-group">
+                                    <p>Tahun APBN</p>
+                                    <input type="text" name="apbn"  class="form-control" />
+                                </div> 
                             <div class="form-group">
                                  
                                     <input type="hidden" name="status_pasang"  value="1" class="form-control" />

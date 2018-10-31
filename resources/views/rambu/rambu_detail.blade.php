@@ -94,7 +94,7 @@
     <section class="content">
     <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Tabel Data</h3>
+              <h3 class="box-title">Lokasi Rambu</h3>
               <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
 
             </div>

@@ -45,7 +45,7 @@
                   <td class="text-center">
                   <a href="{{route('kebutuhan-rambu-ubah', ['id' => $lr->id ])}}" class="btn btn-sm btn-primary"> tidak terpasang</a>
                   <a href="{{route('kebutuhan-rambu-detail', ['id' => $lr->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('rambu-hapus',['id'=>$lr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini ?')"> <i class=" fa fa-trash"></i></a>
+                  <a href="{{route('lokasi-rambu-hapus',['id'=>$lr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini ?')"> <i class=" fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

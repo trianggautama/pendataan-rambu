@@ -16,22 +16,32 @@
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Kode Rambu </th>
+                  <th>Jenis Rambu</th>
                   <th>Nama Rambu</th>
                   <th>Alamat </th>
+                  <th>Status</th>
 
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
-                <tbody>        
-                <tr>
-                  <td>a33</td>
-                  <td>persimpangan berganda</td>
-                  <td>Jl.Sidodadi 1 depan bengkel</td>
-                  <td class="text-center"> 
-                    <a href="#" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  </td>
-                </tr>
+                <tbody>     
+                  @foreach ($lokasi_rambu as $lr)
+                  <tr>
+                  <td>{{$lr->rambu->jenis->nama_jenis}}</td>
+                  <td>{{$lr->rambu->nama_rambu}}</td>
+                  <td>{{$lr->alamat}}</td>
+                  <td>
+                      @if ($lr->status_pasang == 0)
+                        <a href="#" class="btn btn-primary"> tidak terpasang</a>
+                      @else
+                          <a href="#" class="btn btn-success"> terpasang</a>
+                      @endif
+                    </td>
+                      <td class="text-center"> 
+                        <a href="#" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                      </td>
+                    </tr>
+                  @endforeach   
                 </tfoot>
               </table>
             </div>
