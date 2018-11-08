@@ -74,6 +74,8 @@ Route::post('/lokasi/kelurahan/update/{id}','LokasiController@kelurahan_update')
 ->name('kelurahan-update');
 Route::get('/lokasi/kelurahan/hapus/{id}','LokasiController@kelurahan_hapus')
 ->name('kelurahan-hapus');
+Route::get('/laporan/kelurahan','pdfController@laporan_kelurahan')
+->name('laporan-kelurahan');
 
 //titik rambu terpasang
 Route::get('/lokasi/rambu_terpasang', 'LokasiController@rambu_terpasang_index')
