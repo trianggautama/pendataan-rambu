@@ -21,7 +21,7 @@
             <div class="box-header">
               <h3 class="box-title">Tabel Data</h3>
               <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
-              <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+              <a href="{{route('laporan-kelurahan')}}" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

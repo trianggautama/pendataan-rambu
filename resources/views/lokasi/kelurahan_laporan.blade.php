@@ -5,30 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body{
+
+        }
+          table{
+        border-collapse: collapse;
+        width:100%;
+      }
+
+         table, th, td{
+        border: 1px solid #708090;
+      }
+      th{
+        background-color: darkslategray;
+        text-align: center;
+        color: aliceblue;
+      }
+      td{
+        text-align: center;
+      }
+      br{
+          margin-bottom: 5px !important;
+      }
+     .judul{
+         text-align: center;
+     }
+     .header{
+         margin-bottom: 0px;
+         text-align: center;
+         height: 150px;
+         padding: 0px;
+     }
+     .pemko{
+         width:70px;
+     }
+     .logo{
+         float: left;
+         margin-right: 0px;
+         width: 15%;
+         padding:0px;
+         text-align: right; 
+     }
+     .headtext{
+         float:right;
+         margin-left: 0px;
+         width: 75%;
+         padding-left:0px;
+         padding-right:10%;
+     }
+     hr{
+         margin-top: 10%;
+         height: 3px;
+         background-color: black;
+        
+     }
+     .tgl{
+         width:100%;
+         text-align:right;
+         margin-top:0px;
+         margin-bottom:50px;
+         margin-right:10%;
+     }
+    </style>
 </head>
 <body>
-        <table id="example1" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>Kode Kelurahan</th>
-                  <th>Nama Kelurahan</th>
-                  <th>Kecamatan</th>
-                  <th class="text-center">Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                  @foreach ($kelurahan as $kel)
-                      
-                <tr>
-                  <td>{{$kel->id}}</td>
-                  <td>{{$kel->nama_kelurahan}}</td>
-                  <td>{{$kel->kecamatan->nama_kecamatan}}</td>
-                  <td class="text-center">
-                  <a href="{{route('kelurahan-detail', ['id' => $kel->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('kelurahan-hapus',['id'=>$kel->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $kel->nama_kelurahan; ?>?')"> <i class=" fa fa-trash"></i></a>
-                  </td>
-                </tr>
-                @endforeach
-                </tfoot>
-              </table></body>
+    <div class="header">
+            <div class="logo">
+                    <img  class="pemko" src="images/dll/pemko.png" " >
+            </div>
+            <div class="headtext">
+                <h3 style="margin:0px;">PEMERINTAH KOTA BANJARBARU</h3>
+                <h1 style="margin:0px;">DINAS PERHUBUNGAN</h1>
+                <p style="margin:0px;">Alamat : Jl.Jend Sudirman No.3 Telp.(0511)6749034 Banjarbaru 70713</p>
+            </div>
+            <hr>
+            <div class="tgl">
+                    <p>Banjarbaru, {{$tgl}}</p>
+                  </div>
+    </div>
+ 
+    <div class="container">
+        <div class="isi">
+            <h2 style="text-align:center;">DATA KELURAHAN</h2>
+                <table  class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                          <th>Kode Kelurahan</th>
+                          <th>Nama Kelurahan</th>
+                          <th>Kecamatan</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          @foreach ($kelurahan as $kel)
+                              
+                        <tr>
+                          <td>{{$kel->id}}</td>
+                          <td>{{$kel->nama_kelurahan}}</td>
+                          <td>{{$kel->kecamatan->nama_kecamatan}}</td>
+                        </tr>
+                        @endforeach
+                        </tfoot>
+                      </table>
+                    </div>
+                  
+        </div>
+       
+            </body>
 </html>
