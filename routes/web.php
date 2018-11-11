@@ -102,4 +102,19 @@ Route::get('/lokasi/kebutuhan_rambu/ubah/{id}', 'LokasiController@kebutuhan_ramb
 ->name('kebutuhan-rambu-ubah');
 Route::get('/lokasi/kebutuhan_rambu/detail/{id}', 'LokasiController@kebutuhan_rambu_ubah')
 ->name('kebutuhan-rambu-detail');
+
+
+//pejabbat strutural
+Route::get('/pejabat struktural', 'LokasiController@pejabat struktural_index')
+->name('pejabat-struktural-index');
+Route::get('/lokasi/kebutuhan_rambu/tambah', 'LokasiController@kebutuhan_rambu_tambah')
+->name('kebutuhan-rambu-tambah');
+Route::POST('/lokasi/kebutuhan_rambu/tambah', 'LokasiController@kebutuhan_rambu_store')
+->name('kebutuhan-rambu-store');
+Route::get('/lokasi/kebutuhan_rambu/ubah/{id}', 'LokasiController@kebutuhan_rambu_ubah')
+->name('kebutuhan-rambu-ubah');
+Route::get('/lokasi/kebutuhan_rambu/detail/{id}', 'LokasiController@kebutuhan_rambu_ubah')
+->name('kebutuhan-rambu-detail');
+
+
 });
