@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['middleware'=> 'auth'],function(){
+
 // rambu
 Route::get('/rambu/', 'RambuController@rambu_index')
 ->name('rambu-index');
@@ -100,3 +102,4 @@ Route::get('/lokasi/kebutuhan_rambu/ubah/{id}', 'LokasiController@kebutuhan_ramb
 ->name('kebutuhan-rambu-ubah');
 Route::get('/lokasi/kebutuhan_rambu/detail/{id}', 'LokasiController@kebutuhan_rambu_ubah')
 ->name('kebutuhan-rambu-detail');
+});
