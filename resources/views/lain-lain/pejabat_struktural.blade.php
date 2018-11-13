@@ -18,6 +18,7 @@
     <!-- Main content -->
     <section class="content">
     <div class="box">
+        @include('layouts.errors')
             <div class="box-header">
               <h3 class="box-title">Tabel Data</h3>
               <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
@@ -28,22 +29,21 @@
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Kode Kelurahan</th>
-                  <th>Nama Kelurahan</th>
-                  <th>Kecamatan</th>
+                  <th>NIP</th>
+                  <th>Nama</th>
+                  <th>Jabatan</th>
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                  @foreach ($kelurahan as $kel)
+                  @foreach ($pejabat_struktural as $ps)
                       
                 <tr>
-                  <td>{{$kel->id}}</td>
-                  <td>{{$kel->nama_kelurahan}}</td>
-                  <td>{{$kel->kecamatan->nama_kecamatan}}</td>
+                  <td>{{$ps->NIP}}</td>
+                  <td>{{$ps->nama}}</td>
+                  <td>{{$ps->jabatan}}</td>
                   <td class="text-center">
-                  <a href="{{route('kelurahan-detail', ['id' => $kel->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('kelurahan-hapus',['id'=>$kel->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $kel->nama_kelurahan; ?>?')"> <i class=" fa fa-trash"></i></a>
+                  <a href="{{route('pejabat-struktural-edit', ['id' => $ps->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-edit"></i></a>
                   </td>
                 </tr>
                 @endforeach
@@ -64,25 +64,24 @@
     
         <div class="modal-body">
           <!-- form login -->
-          <form  method="post" action="" enctype="multipart/form-data">
- 
+          <form  method="post" action="" >
             <div class="form-group">
-              <p>Nama Kelurahan</p>
-              <input type="text" name="nama_kelurahan"  class="form-control" />
+              <p>NIP</p>
+              <input type="text" name="NIP"  class="form-control" />
             </div>
             <div class="form-group">
-              <p>Kecamatan</p>
-                  <select class="form-control" name="kecamatan_id">
-                    <option value="">---</option>
-                  @foreach($kecamatan as $k)
-                    <option value="{{$k->id}}">{{$k->nama_kecamatan}}</option>
-                  @endforeach
-                  </select>
-                </div>
+              <p>Nama</p>
+              <input type="text" name="nama"  class="form-control" />
+            </div>
+             
+            <div class="form-group">
+              <p>Jabatan</p>
+              <input type="text" name="jabatan"  class="form-control" />
+            </div>
              
              <div class="text-right">
 
-               <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+               <input class="btn btn-primary" type="submit" name="submit" value="Simpan">
                {{csrf_field() }}
              </div>
            </div>

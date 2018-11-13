@@ -17,6 +17,7 @@
 
     <!-- Main content -->
     <section class="content">
+        @include('layouts.errors')
     <div class="box">
             <div class="box-header">
               <h3 class="box-title">Tabel Data</h3>
@@ -55,24 +56,28 @@
   <div id="tambahdata" class="modal fade" tabindex="-1" role="dialog" >
     <div class="modal-dialog" role="document" >
       <div class="modal-content">
-        <div class="modal-header">
-          <h4>Tambah Data</h4>
-          <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+          <div class="modal-header">
+              <div class="row">
+                <div class="col-md-10">
+                    <h4>Tambah Data</h4>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="close pull-right " data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+              </div>
+            </div>
     
         <div class="modal-body">
           <!-- form login -->
           <form  method="post" action=""enctype="multipart/form-data">
  
             <div class="form-group">
-            <p>Kode Rambu</p>
-              <input type="text" name="kode_rambu"  class="form-control" />
+              <input type="text" name="kode_rambu"  class="form-control"  placeholder="kode rambu"/>
             </div>
             <div class="form-group">
-              <p>Nama Rambu</p>
-              <input type="text" name="nama_rambu"  class="form-control" />
+              <input type="text" name="nama_rambu"  class="form-control"  placeholder="nama rambu"/>
             </div>
             <div class="form-group">
               <p>Jenis Rambu</p>
@@ -88,7 +93,7 @@
             </div>
             <div class="form-group">
                    <p>Keterangan</p>
-                   <textarea class="form-control" rows="3" placeholder="Enter ..." name="keterangan"></textarea>
+                   <textarea class="form-control" rows="3" placeholder="Enter ..." name="keterangan" ></textarea>
                  </div>
              <div class="text-right">
 

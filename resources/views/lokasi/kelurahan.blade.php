@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@include('layouts.errors')
     <div class="content-wrapper" style="padding-bottom:0px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">

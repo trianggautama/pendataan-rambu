@@ -17,6 +17,7 @@
     <!-- Main content -->
     <section class="content">
     <div class="box">
+            @include('layouts.errors')
             <div class="box-header">
               <h3 class="box-title">Tabel Data</h3>
             </div>

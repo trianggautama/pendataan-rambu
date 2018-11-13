@@ -41,9 +41,9 @@
         <ul class="nav navbar-nav">
           <!-- Control Sidebar Toggle Button -->
           <li>
-          <a href="{{ route('logout') }}"
+          <a style="color:black" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();" class="a_1"></i>
+                               document.getElementById('logout-form').submit();" class="a_1"> <i class="fa fa-sign-out"></i>
                       Logout
                   </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -65,7 +65,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel text-center">
 
-          <h4  style="padding:5px">Rekayasa Lalu lintas</h4>
+          <h4  style="padding:5px; color:white; ">Rekayasa Lalu lintas</h4>
           <hr>
 
       </div>
@@ -116,7 +116,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> User</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Pejabat Struktural</a></li>
+          <li><a href="{{ route('pejabat-struktural-index')}}"><i class="fa fa-circle-o"></i> Pejabat Struktural</a></li>
           </ul>
         </li>
    
@@ -242,7 +242,7 @@
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
-      'searching'   : false,
+      'searching'   : true,
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false

@@ -26,7 +26,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-hover">
+              <table id="example1" class="table  table-hover">
                 <thead>
                 <tr>
                   <th>ID</th>
@@ -41,7 +41,7 @@
                   <td>{{$jr->nama_jenis}} </td>
                   <td class="text-center"> 
                   <a href="{{route('jenis-rambu-detail', ['id' => $jr->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('jenis-rambu-edit',['id'=>$jr->id])}}" class="btn btn-sm btn-warning" > <i class=" fa fa-edit"></i></a>
+                  <a href="{{route('jenis-rambu-edit',['id'=>$jr->id])}}" class="btn btn-sm btn-primary" > <i class=" fa fa-edit"></i></a>
                   <a href="{{route('jenis-rambu-hapus',['id'=>$jr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $jr->nama_jenis; ?>?')"> <i class=" fa fa-trash"></i></a>
 
                   </td>
@@ -56,10 +56,16 @@
     <div class="modal-dialog" role="document" >
       <div class="modal-content">
         <div class="modal-header">
-          <h4>Tambah Data</h4>
-          <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <div class="row">
+            <div class="col-md-10">
+                <h4>Tambah Data</h4>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="close pull-right " data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+          </div>
         </div>
     
         <div class="modal-body">
