@@ -27,8 +27,8 @@
                   <td>{{$kel->id}}</td>
                   <td>{{$kel->nama_kelurahan}}</td>
                   <td class="text-center"> 
-                    <a href="#" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  </td>
+                      <a href="{{route('kelurahan-detail', ['id' => $kel->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                    </td>
                 </tr>
               @endforeach
                 </tfoot>

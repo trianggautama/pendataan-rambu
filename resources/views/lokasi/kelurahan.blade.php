@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('layouts.errors')
+
     <div class="content-wrapper" style="padding-bottom:0px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -18,6 +18,7 @@
     <!-- Main content -->
     <section class="content">
     <div class="box">
+        @include('layouts.errors')
             <div class="box-header">
               <h3 class="box-title">Tabel Data</h3>
               <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>

@@ -2496,8 +2496,8 @@ a:hover, a:active, a:focus {
 }
 
 .btn-primary {
-  background-color: #0087d4;
-  border-color: #0c79b8;
+  background-color: #0a96e7;
+  border-color:none;
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary.hover {
@@ -2505,8 +2505,8 @@ a:hover, a:active, a:focus {
 }
 
 .btn-success {
-  background-color: #00a65a;
-  border-color: #008d4c
+  background-color: #02b665;
+  border-color: none
 }
 
 .btn-success:hover, .btn-success:active, .btn-success.hover {
@@ -2532,8 +2532,8 @@ a:hover, a:active, a:focus {
 }
 
 .btn-warning {
-  background-color: #f39c12;
-  border-color: #e08e0b
+  background-color: #f3ca12;
+  border-color: none
 }
 
 .btn-warning:hover, .btn-warning:active, .btn-warning.hover {

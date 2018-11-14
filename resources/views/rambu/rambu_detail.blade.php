@@ -36,7 +36,8 @@
 
   </div>
   <!-- /.col -->
-  <div class="col-md-9">
+  <div class="col-md-9" >
+    <div class="box">
     <div class="nav-tabs-custom" style="height:350px;">
       <ul class="nav nav-tabs" style="padding-right:7px; padding-top:5px">
         <li ><a href="#activity" data-toggle="tab">Keterangan</a></li>
@@ -84,6 +85,7 @@
     </div>
     <!-- /.nav-tabs-custom -->
   </div>
+</div>
   <!-- /.col -->
 </div>
 <!-- /.row -->
