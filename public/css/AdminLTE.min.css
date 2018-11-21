@@ -5929,3 +5929,15 @@ table.text-center, table.text-center td, table.text-center th {
     white-space: normal !important
   }
 }
+
+.dashboard-image{
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: 0.25s;
+}
+
+.dashboard-image:hover{
+  box-shadow:4px 4px 10px grey; 
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
