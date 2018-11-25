@@ -25,97 +25,97 @@ Route::get('/index', 'HomeController@index')
 ->name('dashboard');
 
 // rambu
-Route::get('/rambu/', 'RambuController@rambu_index')
+Route::get('/rambu/', 'adminController@rambu_index')
 ->name('rambu-index');
-Route::POST('/rambu/','RambuController@rambu_tambah')
+Route::POST('/rambu/','adminController@rambu_tambah')
 ->name('tambah-rambu');
-Route::get('/rambu/detail/{id}','RambuController@rambu_detail')
+Route::get('/rambu/detail/{id}','adminController@rambu_detail')
 ->name('rambu-detail');
-Route::put('/rambu/detail/{id}','RambuController@rambu_update')
+Route::put('/rambu/detail/{id}','adminController@rambu_update')
 ->name('rambu-update');
-Route::get('/rambu/hapus/{id}','RambuController@rambu_hapus')
+Route::get('/rambu/hapus/{id}','adminController@rambu_hapus')
 ->name('rambu-hapus');
 
 
 //jenis rambu
-Route::get('/jenis-rambu/', 'RambuController@jenis_rambu_index')
+Route::get('/jenis-rambu/', 'adminController@jenis_rambu_index')
 ->name('jenis-rambu-index');
-Route::POST('/jenis-rambu/','RambuController@jenis_rambu_tambah')
+Route::POST('/jenis-rambu/','adminController@jenis_rambu_tambah')
 ->name('tambah-jenis-rambu');
-Route::get('/jenis-rambu/detail/{id}','RambuController@jenis_rambu_detail')
+Route::get('/jenis-rambu/detail/{id}','adminController@jenis_rambu_detail')
 ->name('jenis-rambu-detail');
-Route::get('/jenis-rambu/edit/{id}','RambuController@jenis_rambu_edit')
+Route::get('/jenis-rambu/edit/{id}','adminController@jenis_rambu_edit')
 ->name('jenis-rambu-edit');
-Route::put('/jenis-rambu/edit/{id}','RambuController@jenis_rambu_update')
+Route::put('/jenis-rambu/edit/{id}','adminController@jenis_rambu_update')
 ->name('jenis-rambu-update');
-Route::get('/jenis-rambu/hapus/{id}','RambuController@jenis_rambu_hapus')
+Route::get('/jenis-rambu/hapus/{id}','adminController@jenis_rambu_hapus')
 ->name('jenis-rambu-hapus');
 
 
 
 // kecamatan
-Route::get('/lokasi/kecamatan', 'LokasiController@kecamatan_index')
+Route::get('/lokasi/kecamatan', 'adminController@kecamatan_index')
 ->name('kecamatan-index');
-Route::POST('/lokasi/kecamatan','LokasiController@kecamatan_tambah')
+Route::POST('/lokasi/kecamatan','adminController@kecamatan_tambah')
 ->name('tambah-kecamatan');
-Route::get('/lokasi/kecamatan/{id}','LokasiController@kecamatan_detail')
+Route::get('/lokasi/kecamatan/{id}','adminController@kecamatan_detail')
 ->name('kecamatan-detail');
-Route::get('/lokasi/kecamatan/edit/{id}','LokasiController@kecamatan_edit')
+Route::get('/lokasi/kecamatan/edit/{id}','adminController@kecamatan_edit')
 ->name('kecamatan-edit');
-Route::put('/lokasi/kecamatan/edit/{id}','LokasiController@kecamatan_update')
+Route::put('/lokasi/kecamatan/edit/{id}','adminController@kecamatan_update')
 ->name('kecamatan-update');
-Route::get('/lokasi/kecamatan/hapus/{id}','LokasiController@kecamatan_hapus')
+Route::get('/lokasi/kecamatan/hapus/{id}','adminController@kecamatan_hapus')
 ->name('kecamatan-hapus');
 
 
 // kelurahan
-Route::get('/lokasi/kelurahan', 'LokasiController@kelurahan_index')
+Route::get('/lokasi/kelurahan', 'adminController@kelurahan_index')
 ->name('kelurahan-index');
-Route::POST('/lokasi/kelurahan','LokasiController@kelurahan_tambah')
+Route::POST('/lokasi/kelurahan','adminController@kelurahan_tambah')
 ->name('tambah-kelurahan');
-Route::get('/lokasi/kelurahan/{id}','LokasiController@kelurahan_detail')
+Route::get('/lokasi/kelurahan/{id}','adminController@kelurahan_detail')
 ->name('kelurahan-detail');
-Route::post('/lokasi/kelurahan/update/{id}','LokasiController@kelurahan_update')
+Route::post('/lokasi/kelurahan/update/{id}','adminController@kelurahan_update')
 ->name('kelurahan-update');
-Route::get('/lokasi/kelurahan/hapus/{id}','LokasiController@kelurahan_hapus')
+Route::get('/lokasi/kelurahan/hapus/{id}','adminController@kelurahan_hapus')
 ->name('kelurahan-hapus');
-Route::get('/laporan/kelurahan','pdfController@laporan_kelurahan')
+Route::get('/laporan/kelurahan','adminController@laporan_kelurahan')
 ->name('laporan-kelurahan');
 
 //titik rambu terpasang
-Route::get('/lokasi/rambu_terpasang', 'LokasiController@rambu_terpasang_index')
+Route::get('/lokasi/rambu_terpasang', 'adminController@rambu_terpasang_index')
 ->name('rambu-terpasang-index');
-Route::get('/lokasi/rambu_terpasang/tambah', 'LokasiController@rambu_terpasang_tambah')
+Route::get('/lokasi/rambu_terpasang/tambah', 'adminController@rambu_terpasang_tambah')
 ->name('rambu-terpasang-tambah');
-Route::POST('/lokasi/rambu_terpasang/tambah', 'LokasiController@rambu_terpasang_store')
+Route::POST('/lokasi/rambu_terpasang/tambah', 'adminController@rambu_terpasang_store')
 ->name('rambu-terpasang-store');
-Route::get('/lokasi/rambu_terpasang/ubah/{id}', 'LokasiController@rambu_terpasang_ubah_status')
+Route::get('/lokasi/rambu_terpasang/ubah/{id}', 'adminController@rambu_terpasang_ubah_status')
 ->name('rambu-terpasang-ubah');
-Route::get('/lokasi/rambu_terpasang/edit/{id}', 'LokasiController@rambu_terpasang_edit')
+Route::get('/lokasi/rambu_terpasang/edit/{id}', 'adminController@rambu_terpasang_edit')
 ->name('rambu-terpasang-edit');
-Route::put('/lokasi/rambu_terpasang/edit/{id}','LokasiController@rambu_terpasang_update')
+Route::put('/lokasi/rambu_terpasang/edit/{id}','adminController@rambu_terpasang_update')
 ->name('rambu-terpasang-update');
-Route::get('/lokasi/rambu_terpasang/hapus/{id}','LokasiController@lokasi_rambu_hapus')
+Route::get('/lokasi/rambu_terpasang/hapus/{id}','adminController@lokasi_rambu_hapus')
 ->name('lokasi-rambu-hapus');
-Route::get('/laporan/rambu_terpasang','pdfController@laporan_rambu_terpasang')
+Route::get('/laporan/rambu_terpasang','adminController@laporan_rambu_terpasang')
 ->name('laporan-rambu-terpasang');
 
 
 //kebutuhan rambu
 
-Route::get('/lokasi/kebutuhan_rambu/api', 'LokasiController@kebutuhan_rambu_api')
+Route::get('/lokasi/kebutuhan_rambu/api', 'adminController@kebutuhan_rambu_api')
 ->name('kebutuhan-rambu-api');
-Route::get('/lokasi/kebutuhan_rambu', 'LokasiController@kebutuhan_rambu_index')
+Route::get('/lokasi/kebutuhan_rambu', 'adminController@kebutuhan_rambu_index')
 ->name('kebutuhan-rambu-index');
-Route::get('/lokasi/kebutuhan_rambu/tambah', 'LokasiController@kebutuhan_rambu_tambah')
+Route::get('/lokasi/kebutuhan_rambu/tambah', 'adminController@kebutuhan_rambu_tambah')
 ->name('kebutuhan-rambu-tambah');
-Route::POST('/lokasi/kebutuhan_rambu/tambah', 'LokasiController@kebutuhan_rambu_store')
+Route::POST('/lokasi/kebutuhan_rambu/tambah', 'adminController@kebutuhan_rambu_store')
 ->name('kebutuhan-rambu-store');
-Route::get('/lokasi/kebutuhan_rambu/ubah/{id}', 'LokasiController@kebutuhan_rambu_ubah')
+Route::get('/lokasi/kebutuhan_rambu/ubah/{id}', 'adminController@kebutuhan_rambu_ubah')
 ->name('kebutuhan-rambu-ubah');
-Route::get('/lokasi/kebutuhan_rambu/detail/{id}', 'LokasiController@kebutuhan_rambu_ubah')
+Route::get('/lokasi/kebutuhan_rambu/detail/{id}', 'adminController@kebutuhan_rambu_ubah')
 ->name('kebutuhan-rambu-detail');
-Route::get('/laporan/kebutuhan_rambu','pdfController@laporan_kebutuhan_rambu')
+Route::get('/laporan/kebutuhan_rambu','adminController@laporan_kebutuhan_rambu')
 ->name('laporan-kebutuhan-rambu');
 
 //pejabbat strutural
