@@ -17,18 +17,13 @@
     <section class="content">
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
 
     <!-- Profile Image -->
-    <div class="box box-primary"  width:260px;">
-      <div class="box-body box-profile">
-      <img class=" img-responsive "  style="width:" src="/images/rambu/{{$rambu->gambar}}"  >
-      <h3 class="profile-username text-center">{{ $rambu->nama_rambu}}</h3>
-
-      <p class="text-muted text-center">{{$rambu->jenis->nama_jenis}}</p>
-
-
-      <a href="#" class="btn btn-primary btn-block"><b>{{$rambu->kode_rambu}}</b></a>
+    <div class="box box-primary "  style="height:350px;">
+      <div class="box-body box-profile text-center" style="padding:10px;">
+      <img class=" img-responsive "  style="width:100%" src="/images/rambu/{{$rambu->gambar}}"  >
+      
       </div>
       <!-- /.box-body -->
     </div>
@@ -36,7 +31,7 @@
 
   </div>
   <!-- /.col -->
-  <div class="col-md-9" >
+  <div class="col-md-8 pull-right" >
     <div class="box">
     <div class="nav-tabs-custom" style="height:350px;">
       <ul class="nav nav-tabs" style="padding-right:7px; padding-top:5px">
@@ -46,8 +41,10 @@
       </ul>
       <div class="tab-content" >
         <div class="active tab-pane" style="padding:10px;" id="activity">
-
-      <h4>{{$rambu->keterangan}}</h4>
+         <h4>Kode Rambu  : {{$rambu->kode_rambu}}</h4>
+         <h4>Nama Rambu  : {{$rambu->nama_rambu}}</h4>
+         <h4>Jenis Rambu : {{$rambu->jenis->nama_jenis}}</h4> 
+         <h4>Keterangan &nbsp : {{$rambu->keterangan}}</h4>
         </div>
 
         <div class="tab-pane" id="settings">
@@ -66,7 +63,7 @@
             </div>
             <div class="form-group">
               <div class="col-sm-12">
-              <textarea name="keterangan" id="" cols="125" rows="5" style="padding:10px;">{{$rambu->keterangan}}"</textarea>
+              <textarea name="keterangan"  class="form-control" id="" cols="102" rows="5" style="padding:10px;">{{$rambu->keterangan}}"</textarea>
               </div>
             </div>
            

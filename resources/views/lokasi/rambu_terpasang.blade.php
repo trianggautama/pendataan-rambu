@@ -24,7 +24,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table  table-hover">
+              <table id="example2" class="table  table-hover">
                 <thead>
                 <tr>
                   <th>Nama Rambu</th>
@@ -46,7 +46,7 @@
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
                   <td class="text-center">
                    <a href="{{route('rambu-terpasang-ubah', ['id' => $lr->id ])}}" class="btn btn-sm btn-success"> Terpasang</a>
-                  <a href="{{route('rambu-detail', ['id' => $lr->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('rambu-terpasang-edit', ['id' => $lr->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
                   <a href="{{route('lokasi-rambu-hapus',['id'=>$lr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini ?')"> <i class=" fa fa-trash"></i></a>
                   </td>
                 </tr>

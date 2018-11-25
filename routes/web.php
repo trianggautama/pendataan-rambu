@@ -89,8 +89,12 @@ Route::get('/lokasi/rambu_terpasang/tambah', 'LokasiController@rambu_terpasang_t
 ->name('rambu-terpasang-tambah');
 Route::POST('/lokasi/rambu_terpasang/tambah', 'LokasiController@rambu_terpasang_store')
 ->name('rambu-terpasang-store');
-Route::get('/lokasi/rambu_terpasang/ubah/{id}', 'LokasiController@rambu_terpasang_ubah')
+Route::get('/lokasi/rambu_terpasang/ubah/{id}', 'LokasiController@rambu_terpasang_ubah_status')
 ->name('rambu-terpasang-ubah');
+Route::get('/lokasi/rambu_terpasang/edit/{id}', 'LokasiController@rambu_terpasang_edit')
+->name('rambu-terpasang-edit');
+Route::put('/lokasi/rambu_terpasang/edit/{id}','LokasiController@rambu_terpasang_update')
+->name('rambu-terpasang-update');
 Route::get('/lokasi/rambu_terpasang/hapus/{id}','LokasiController@lokasi_rambu_hapus')
 ->name('lokasi-rambu-hapus');
 Route::get('/laporan/rambu_terpasang','pdfController@laporan_rambu_terpasang')
@@ -98,6 +102,9 @@ Route::get('/laporan/rambu_terpasang','pdfController@laporan_rambu_terpasang')
 
 
 //kebutuhan rambu
+
+Route::get('/lokasi/kebutuhan_rambu/api', 'LokasiController@kebutuhan_rambu_api')
+->name('kebutuhan-rambu-api');
 Route::get('/lokasi/kebutuhan_rambu', 'LokasiController@kebutuhan_rambu_index')
 ->name('kebutuhan-rambu-index');
 Route::get('/lokasi/kebutuhan_rambu/tambah', 'LokasiController@kebutuhan_rambu_tambah')

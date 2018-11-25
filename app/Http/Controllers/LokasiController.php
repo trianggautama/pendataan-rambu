@@ -142,14 +142,33 @@ class LokasiController extends Controller
             return redirect(route('rambu-terpasang-index'));
     }
 
-    public function rambu_terpasang_ubah($id){
+    public function rambu_terpasang_ubah_status($id){
         $rambu_terasang = lokasi_rambu::findOrFail($id);
         $rambu_terasang->status_pasang = 0;
         $rambu_terasang->apbn = NULL;
         $rambu_terasang->save();
         return redirect(route('rambu-terpasang-index'));
     }
-
+    public function rambu_terpasang_edit($id){
+        
+        $lokasi_rambu = lokasi_rambu::findOrFail($id);
+        $rambu = rambu::all();
+        $kelurahan = kelurahan::all();
+        return view('lokasi.rambu_terpasang_detail',compact('rambu','kelurahan','lokasi_rambu'));
+    }
+    public function rambu_terpasang_update(Request $request, $id){
+       // dd($request->kelurahan_id);
+        $lokasi_rambu = lokasi_rambu::findOrFail($id);
+        $lokasi_rambu->kelurahan_id= $request->kelurahan_id;
+        $lokasi_rambu->rambu_id= $request->rambu_id;
+        $lokasi_rambu->apbn= $request->apbn;
+        $lokasi_rambu->lat= $request->lat;
+        $lokasi_rambu->lang= $request->lang;
+        $lokasi_rambu->status_pasang= $request->status_pasang;
+        $lokasi_rambu->alamat= $request->alamat;
+        $lokasi_rambu->update();
+        return redirect(route('rambu-terpasang-index'));
+    }
     public function lokasi_rambu_hapus($id){
         
         $lokasi_rambu=lokasi_rambu::findOrFail($id);
@@ -159,10 +178,18 @@ class LokasiController extends Controller
     }  
 
        //kebutuhan rambu 
-    public function kebutuhan_rambu_index(){
-        $lokasi_rambu = lokasi_rambu::where('status_pasang' , 0 )->get();
+       public function kebutuhan_rambu_api(){
+        $kebutuhanrambus = lokasi_rambu:: with('rambu')
+                                       ->with('kelurahan')
+                                       ->where('status_pasang','0')
+                                       ->get();
+        return $kebutuhanrambus ;
+       }
 
-        return view('lokasi.kebutuhan_rambu',compact('lokasi_rambu'));
+    public function kebutuhan_rambu_index(){
+      
+
+        return view('lokasi.kebutuhan_rambu');
     }
    
     public function kebutuhan_rambu_tambah(){
