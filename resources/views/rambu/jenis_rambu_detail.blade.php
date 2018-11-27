@@ -27,7 +27,7 @@
                   <td>{{$r->kode_rambu}}</td>
                   <td>{{$r->nama_rambu}}</td>
                   <td class="text-center"> 
-                    <a href="{{route('rambu-detail', ['id' => $r->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                    <a href="{{route('rambu-detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
                   </td>
                 </tr>
               @endforeach

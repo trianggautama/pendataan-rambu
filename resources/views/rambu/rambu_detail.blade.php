@@ -17,13 +17,13 @@
     <section class="content">
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-lg-4 col-md-4 col-xs-12">
 
     <!-- Profile Image -->
-    <div class="box box-primary "  style="height:350px;">
+    <div class="box box-primary text-center " >
       <div class="box-body box-profile text-center" style="padding:10px;">
-      <img class=" img-responsive "  style="width:100%" src="/images/rambu/{{$rambu->gambar}}"  >
-      
+      <img class=" img-responsive" style="width:100%; height:auto" src="/images/rambu/{{$rambu->gambar}}"  >
+      <h4 style="margin-top:18px"><b>Gambar Rambu</b></h4>
       </div>
       <!-- /.box-body -->
     </div>
@@ -31,7 +31,7 @@
 
   </div>
   <!-- /.col -->
-  <div class="col-md-8 pull-right" >
+  <div class="col-md-8 pull-right col-xs-12" >
     <div class="box">
     <div class="nav-tabs-custom" style="height:350px;">
       <ul class="nav nav-tabs" style="padding-right:7px; padding-top:5px">

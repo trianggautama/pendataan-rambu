@@ -47528,7 +47528,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("table", { staticClass: "table table-hover" }, [
+    _c("table", { staticClass: "table table-bordered table-hover" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(
@@ -47537,9 +47537,9 @@ var render = function() {
           return _c("tr", [
             _c("td", [_vm._v(_vm._s(kebutuhanrambu.rambu.nama_rambu))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(kebutuhanrambu.kelurahan.nama_kelurahan))]),
-            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(kebutuhanrambu.alamat))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(kebutuhanrambu.kelurahan.nama_kelurahan))]),
             _vm._v(" "),
             _vm._m(1, true)
           ])
@@ -47554,13 +47554,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("th", [_vm._v("Nama Rambu")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Alamat")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("kelurahan")]),
-      _vm._v(" "),
-      _c("th", { staticClass: "text-center" }, [_vm._v("Action")])
+      _c("tr", [
+        _c("th", [_vm._v("Nama Rambu")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Alamat")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("kelurahan")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("Action")])
+      ])
     ])
   },
   function() {
@@ -47579,10 +47581,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c(
         "button",
-        {
-          staticClass: "button btn btn-sm btn-info   ",
-          attrs: { title: "edit" }
-        },
+        { staticClass: "button btn btn-sm btn-info", attrs: { title: "edit" } },
         [_c("i", { staticClass: "fa fa-edit" })]
       ),
       _vm._v(" "),

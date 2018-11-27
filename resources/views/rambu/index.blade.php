@@ -3,30 +3,30 @@
 @section('content')
 
     <div class="content-wrapper" style="padding-bottom:0px;">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-        Data Rambu
-        <small>yang ada di kota Banjarbaru</small>
-        </h1>
-        <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-        </ol>
-    </section>
 
     <!-- Main content -->
     <section class="content">
         @include('layouts.errors')
     <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Tabel Data</h3>
-              <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
-              <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
-            </div>
+        <div class="box-header "style="padding:10px">
+            <div class="row" >
+              <div class="col-md-6">
+                  <div class="title">   
+                      <h2  style="margin-bottom:3px;"><b>Data</b> Rambu</h2>
+                     </div>
+              </div>     
+              <div class="col-md-6"style="margin-top:20px;">
+                <div class="button" >
+                    <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
+                    <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+                    
+                </div>
+                </div>              
+                  </div>
+                </div>   
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table  table-hover">
+              <table id="example1" class="table table-bordered  table-hover">
                 <thead>
                 <tr>
                   <th>Kode rambu</th>
@@ -43,8 +43,8 @@
                   <td>{{$r->nama_rambu}}</td>
                   <td>{{$r->jenis->nama_jenis}}</td>
                   <td class="text-center">
-                  <a href="{{route('rambu-detail', ['id' => $r->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('rambu-hapus',['id'=>$r->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $r->nama_rambu; ?>?')"> <i class=" fa fa-trash"></i></a>
+                  <a href="{{route('rambu-detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('rambu-hapus', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $r->nama_rambu; ?>?')"> <i class=" fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

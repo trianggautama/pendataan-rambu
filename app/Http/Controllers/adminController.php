@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 Use File;
 use DB;
+use IDCrypt;
+use PDF;
 use App\jenis_rambu;
 use App\rambu;
 use App\lokasi_rambu;
@@ -49,12 +51,15 @@ class adminController extends Controller
 
       
       public function rambu_detail($id){
+        $id = IDCrypt::Decrypt($id);
         $rambu = rambu::findOrFail($id);
+       
         $lokasi_rambu = lokasi_rambu::where('rambu_id', $id)->get();
         return view('rambu.rambu_detail',compact('rambu','lokasi_rambu'));
        }//fungsi menampilkan detail data rambu
 
        public function rambu_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
          $rambu = rambu::findOrFail($id);
 
          $this->validate(request(),[
@@ -71,6 +76,7 @@ class adminController extends Controller
        }//fungi mengubah data rambu 
 
        public function rambu_hapus($id){
+        $id = IDCrypt::Decrypt($id);
         $rambu=rambu::findOrFail($id);
         File::delete('images/rambu/'.$rambu->gambar);
         $rambu->delete();
@@ -103,6 +109,7 @@ class adminController extends Controller
       }//fungsi menambah data jenis rambu
 
       public function jenis_rambu_edit($id){
+        $id = IDCrypt::Decrypt($id);
         $jenis_rambu = jenis_rambu::findOrFail($id);
 
         return view('rambu.ubah_jenis_rambu',compact('jenis_rambu'));
@@ -110,6 +117,7 @@ class adminController extends Controller
 
      
        public function jenis_rambu_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
         $jenis_rambu = jenis_rambu::findOrFail($id);
 
         $this->validate(request(),[
@@ -121,6 +129,7 @@ class adminController extends Controller
       }//fungsi mengubah data jenis rambu
 
     public function jenis_rambu_detail($id){
+        $id = IDCrypt::Decrypt($id);
         $jenis_rambu = jenis_rambu::findOrFail($id);
         $rambu = rambu::where('jenis_rambu_id',$id)->get();
 
@@ -128,7 +137,7 @@ class adminController extends Controller
        }//melihat data rambu pada kategori jenis rambu tertentu 
 
     public function jenis_rambu_hapus($id){
-        
+        $id = IDCrypt::Decrypt($id);
         $jenis_rambu=jenis_rambu::findOrFail($id);
         $jenis_rambu->delete();
         return redirect(route('jenis-rambu-index'));
@@ -155,16 +164,18 @@ class adminController extends Controller
         $kecamatan->nama_kecamatan= $request->nama_kecamatan;
         $kecamatan->save();
        
-          return redirect(route('kecamatan-index'));
+          return redirect(route('kecamatan-index'))->with('success', 'Data kecamatan '.$request->nama_kecamatan.' Berhasil di Tambahkan');
       }//menambahkan data kecamatan
 
       public function kecamatan_edit($id){
+        $id = IDCrypt::Decrypt($id);
         $kecamatan = kecamatan::findOrFail($id);
 
         return view('lokasi.kecamatan_edit',compact('kecamatan'));
        }//menampikan halaman edit kecamatan
 
       public function kecamatan_detail($id){
+        $id = IDCrypt::Decrypt($id);
         $kecamatan = kecamatan::findOrFail($id);
         $kelurahan = kelurahan::where('kecamatan_id',$id)->get();
 
@@ -172,6 +183,7 @@ class adminController extends Controller
        }//melihat data kelurahan pada kecamatan tertentu
 
        public function kecamatan_update(Request $request, $id){
+        $id = IDCrypt::Decrypt($id);
         $kecamatan = kecamatan::findOrFail($id);
 
         $this->validate(request(),[
@@ -183,10 +195,12 @@ class adminController extends Controller
       }//mengubah data kecamatan
 
        public function kecamatan_hapus($id){
-        
-        $kecamatan=kecamatan::findOrFail($id);
-        $kecamatan->delete();
-        return redirect(route('kecamatan-index'));
+        $id = IDCrypt::Decrypt($id);
+            $kecamatan=kecamatan::findOrFail($id);
+            $namakecamatan=$kecamatan->nama_kecamatan;
+            $kecamatan->delete();
+            return redirect(route('kecamatan-index'))->with('success', 'Data Merk '.$namakecamatan.' Berhasil di Hapus');
+       
     }  //menghapus data  kecamatan
 
 
@@ -218,13 +232,14 @@ class adminController extends Controller
       }//menambah data kelurahan
 
       public function kelurahan_detail($id){
+        $id = IDCrypt::Decrypt($id);
         $kelurahan = kelurahan::findOrFail($id);
         $lokasi_rambu= lokasi_rambu::where('kelurahan_id',$id)->get();
         return view('lokasi.kelurahan_detail',compact('kelurahan','lokasi_rambu'));
        }//melihat data rambu pada elurahan tertentu
 
        public function kelurahan_hapus($id){
-        
+        $id = IDCrypt::Decrypt($id);
         $kelurahan=kelurahan::findOrFail($id);
         $kelurahan->delete();
         return redirect(route('kelurahan-index'));
@@ -271,6 +286,7 @@ class adminController extends Controller
     }//menambah data rambu terpasang
 
     public function rambu_terpasang_ubah_status($id){
+        $id = IDCrypt::Decrypt($id);
         $rambu_terasang = lokasi_rambu::findOrFail($id);
         $rambu_terasang->status_pasang = 0;
         $rambu_terasang->apbn = NULL;
@@ -279,7 +295,7 @@ class adminController extends Controller
     }//mengubah status rambu terpasang menjadi belum terpasang
 
     public function rambu_terpasang_edit($id){
-        
+        $id = IDCrypt::Decrypt($id);
         $lokasi_rambu = lokasi_rambu::findOrFail($id);
         $rambu = rambu::all();
         $kelurahan = kelurahan::all();
@@ -288,6 +304,7 @@ class adminController extends Controller
 
     public function rambu_terpasang_update(Request $request, $id){
        // dd($request->kelurahan_id);
+       $id = IDCrypt::Decrypt($id);
         $lokasi_rambu = lokasi_rambu::findOrFail($id);
         $lokasi_rambu->kelurahan_id= $request->kelurahan_id;
         $lokasi_rambu->rambu_id= $request->rambu_id;
@@ -301,7 +318,7 @@ class adminController extends Controller
     }//mengubah data rambu terpasang
 
     public function lokasi_rambu_hapus($id){
-        
+        $id = IDCrypt::Decrypt($id);
         $lokasi_rambu=lokasi_rambu::findOrFail($id);
         $lokasi_rambu->delete();
         return redirect(route('rambu-terpasang-index'));
@@ -350,6 +367,7 @@ class adminController extends Controller
     }//menambah data kebutuhan rambu 
 
     public function kebutuhan_rambu_ubah($id){
+        $id = IDCrypt::Decrypt($id);
         $lokasi_rambu = lokasi_rambu::findOrFail($id);
         $lokasi_rambu->status_pasang = 1;
         $lokasi_rambu->apbn = Carbon::now()->format('Y');

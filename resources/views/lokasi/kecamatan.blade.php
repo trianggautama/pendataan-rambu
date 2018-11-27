@@ -4,26 +4,41 @@
 
     <div class="content-wrapper" style="padding-bottom:0px;">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-Kecamatan        <small>yang ada di kota Banjarbaru</small>
-        </h1>
-        <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-        </ol>
-    </section>
 
     <!-- Main content -->
     <section class="content">
     <div class="box">
         @include('layouts.errors')
-            <div class="box-header">
-              <h3 class="box-title">Tabel Data</h3>
-              <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
-              <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+            <div class="box-header "style="padding:10px">
+                  <div class="row" >
+                    <div class="col-md-6">
+                        <div class="title">   
+                            <h2  style="margin-bottom:3px;"><b>Data</b> Kecamatan</h2>
+                           </div>
+                    </div>     
+                    <div class="col-md-6"style="margin-top:20px;">
+                      <div class="button" >
+                          <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
+                          <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+                          
+                      </div>
+                      </div>              
+                        </div>
+                      </div>    
 
-            </div>
+  
+             {{-- ALERT !!! --}}
+    <script>
+        @if (session('success'))
+        swal({
+           position: 'top-end',
+           type: 'success',
+           title: '{{session('success')}}',
+           showConfirmButton: false,
+           timer: 1800
+        })
+        @endif
+        </script>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover">
@@ -40,10 +55,11 @@ Kecamatan        <small>yang ada di kota Banjarbaru</small>
                   <td>{{$k->id}}</td>
                   <td>{{$k->nama_kecamatan}} </td>
                   <td class="text-center"> 
-                      <a href="{{route('kecamatan-detail', ['id' => $k->id ])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                      <a href="{{route('kecamatan-edit', ['id' => $k->id ])}}" class="btn btn-sm btn-warning"> <i class=" fa fa-edit "></i></a>
-                      <a href="{{route('kecamatan-hapus',['id'=>$k->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data kecamatan <?php echo $k->nama_kecamatan; ?>?')"> <i class=" fa fa-trash"></i></a>    
-                  </td>
+                      <a href="{{route('kecamatan-detail', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                      
+                      <button type="button" class="btn btn-danger"
+                      onclick="Hapus('{{Crypt::encryptString($k->id)}}','{{$k->nama_kecamatan}}')"><b><i class="fa fa-trash-o"></i></b></button>
+                    </td>
                 </tr>
                 @endforeach
                 </tfoot>
@@ -89,3 +105,74 @@ Kecamatan        <small>yang ada di kota Banjarbaru</small>
     <!-- /.content-wrapper -->
   
 @endsection
+<script>
+
+
+function Hapus(id,nama_kecamatan)
+{
+ /*
+})
+  swal({
+    title   : "Hapus",
+    text    : "Yakin Ingin Menghapus Data Kecamatan '"+nama_kecamatan+"' ?",
+    icon    : "warning",
+    showCancelButton: true,
+    buttons : [
+      "Batal",
+      "Hapus",
+    ],
+  })
+  .then((hapus) => {
+    if (hapus) {
+      swal({
+        title  : "Hapus",
+        text   : "Data Kecamatan '"+nama_kecamatan+"' Akan di Hapus",
+        icon   : "info",
+        timer  : 2500,
+      });
+      window.location = " /lokasi/kecamatan/hapus/"+id;
+    } else {
+      swal({
+        title  : "Batal Hapus",
+        text   : "Data Kecamatan '"+nama_kecamatan+"' Batal di Hapus",
+        icon   : "info",
+        timer  : 2500,
+      })
+    }
+  });*/ 
+  const swalWithBootstrapButtons = swal.mixin({
+  confirmButtonClass: 'btn btn-success',
+  cancelButtonClass: 'btn btn-danger',
+  buttonsStyling: false,
+})
+
+swalWithBootstrapButtons({
+  title: 'Are you sure?',
+  text:  "Yakin Ingin Menghapus Data Kecamatan '"+nama_kecamatan+"' ?",
+  type: 'question',
+  showCancelButton: true,
+  confirmButtonText: 'Yes, delete it!',
+  cancelButtonText: 'No, cancel!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.value) {
+    swalWithBootstrapButtons(
+      'Deleted!',
+      "Data Kecamatan '"+nama_kecamatan+"' Akan di Hapus",
+      'success'
+    );
+     window.location = " /lokasi/kecamatan/hapus/"+id;
+  } else if (
+    // Read more about handling dismissals
+    result.dismiss === swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons(
+      'Cancelled',
+      'Your imaginary file is safe :)',
+      'error'
+    )
+  }
+})
+  
+}
+</script>

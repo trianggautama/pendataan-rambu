@@ -11,7 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+      <!-- sweet alert -->
 
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.1/dist/sweetalert2.all.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -53,7 +55,10 @@
                   <ul class="nav navbar-nav">
                     <!-- Control Sidebar Toggle Button -->
                     <li>
-                    <a style="color:black" href="{{ route('logout') }}"
+                        <!-- Control Sidebar Toggle Button
+                        <button class="btn btn-default btn-flat" onclick="logout()">Logout</button>
+                     -->
+                    <a style="color:#0064a7" href="{{ route('logout') }}" 
                                 onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();" class="a_1"> <i class="fa fa-sign-out"></i>
                                 Logout
@@ -61,6 +66,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
+                            
                     </li>
                     <li>
                       <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
@@ -151,97 +157,6 @@
           
             <!-- Control Sidebar -->
           
-            <aside class="control-sidebar control-sidebar-dark">
-              <!-- Create the tabs -->
-              <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-              </ul>
-              <!-- Tab panes -->
-              <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane" id="control-sidebar-home-tab">
-          
-          
-                </div>
-                <!-- /.tab-pane -->
-          
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                  <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
-          
-                    <div class="form-group">
-                      <label class="control-sidebar-subheading">
-                        Report panel usage
-                        <input type="checkbox" class="pull-right" checked>
-                      </label>
-          
-                      <p>
-                        Some information about this general settings option
-                      </p>
-                    </div>
-                    <!-- /.form-group -->
-          
-                    <div class="form-group">
-                      <label class="control-sidebar-subheading">
-                        Allow mail redirect
-                        <input type="checkbox" class="pull-right" checked>
-                      </label>
-          
-                      <p>
-                        Other sets of options are available
-                      </p>
-                    </div>
-                    <!-- /.form-group -->
-          
-                    <div class="form-group">
-                      <label class="control-sidebar-subheading">
-                        Expose author name in posts
-                        <input type="checkbox" class="pull-right" checked>
-                      </label>
-          
-                      <p>
-                        Allow the user to show his name in blog posts
-                      </p>
-                    </div>
-                    <!-- /.form-group -->
-          
-                    <h3 class="control-sidebar-heading">Chat Settings</h3>
-          
-                    <div class="form-group">
-                      <label class="control-sidebar-subheading">
-                        Show me as online
-                        <input type="checkbox" class="pull-right" checked>
-                      </label>
-                    </div>
-                    <!-- /.form-group -->
-          
-                    <div class="form-group">
-                      <label class="control-sidebar-subheading">
-                        Turn off notifications
-                        <input type="checkbox" class="pull-right">
-                      </label>
-                    </div>
-                    <!-- /.form-group -->
-          
-                    <div class="form-group">
-                      <label class="control-sidebar-subheading">
-                        Delete chat history
-                        <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                      </label>
-                    </div>
-                    <!-- /.form-group -->
-                  </form>
-                </div>
-                <!-- /.tab-pane -->
-              </div>
-            </aside>
-            
-            <div class="control-sidebar-bg"></div>
-          
-          </div>
-       
     </div>
     
 <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -250,5 +165,37 @@
     <script src="{{ asset('js/fastclick.js') }}"></script>
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
       <script src="{{ asset('js/demo.js') }}"></script>
+      <script>
+        function logout()
+        {
+          swal({
+            title   : "Logout",
+            text    : "Yakin Ingin Keluar?",
+            icon    : "warning",
+            buttons : [
+              "Batal",
+              "Logout",
+            ],
+          })
+          .then((logout) => {
+            if (logout) {
+              swal({
+                title  : "Logout",
+                text   : "Anda Telah Logout",
+                icon   : "success",
+                timer  : 2500,
+              });
+              window.location = "/logout";
+            } else {
+              swal({
+                title  : "Batal Logout",
+                text   : "Anda Batal Logout",
+                icon   : "info",
+                timer  : 2500,
+              })
+            }
+          });
+        }
+        </script>
 </body>
 </html>
