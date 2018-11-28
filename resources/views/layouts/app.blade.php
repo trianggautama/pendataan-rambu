@@ -8,12 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-      <!-- sweet alert -->
-
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.1/dist/sweetalert2.all.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -21,13 +15,13 @@
      <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
  
-  <link href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+ 
+  <script src="{{ asset('bower_components\sweetalert\sweetalert.min.js') }}"></script>
+  <link href="{{ asset('bower_components\bootstrap\bootsrtap4.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('bower_components\datatable\datatable.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}" rel="stylesheet">
       <link href="{{ asset('css/AdminLTE.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/_all-skins.min.css') }}" rel="stylesheet">
-          <link href="{{ asset('css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -45,7 +39,7 @@
               </a>
           
               <!-- Header Navbar: style can be found in header.less -->
-              <nav class="navbar navbar-static-top">
+              <nav class="navbar" style="height:50px!important;margin:0px!important;padding:0px!important;">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                   <span class="sr-only">Toggle navigation</span>
@@ -67,9 +61,6 @@
                                 {{ csrf_field() }}
                             </form>
                             
-                    </li>
-                    <li>
-                      <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
                   </ul>
                 </div>
@@ -143,59 +134,30 @@
               <!-- /.sidebar -->
             </aside>
             <!-- Content Wrapper. Contains page content -->
-            <main class="py-4">
+            <main  style="padding:0px!imposrtant">
             @yield('content')
+               <!-- /.content-wrapper -->
+               
             </main>
-            <!-- /.content-wrapper -->
-            <footer class="main-footer" style="margin-top:0px;">
-              <div class="pull-right hidden-xs">
-                <b>Version</b> 2.4.0
-              </div>
-              <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-              reserved.
-            </footer>
+         
           
             <!-- Control Sidebar -->
           
     </div>
     
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('js/jquery.slimscroll.min.js') }}"></script>
-    <script src="{{ asset('js/fastclick.js') }}"></script>
-    <script src="{{ asset('js/adminlte.min.js') }}"></script>
-      <script src="{{ asset('js/demo.js') }}"></script>
+<script src="{{ asset('js\jquery.min.js') }}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="{{ asset('js/jquery.slimscroll.min.js') }}"></script>
+<script src="{{ asset('js/fastclick.js') }}"></script>
+<script src="{{ asset('js/adminlte.min.js') }}"></script>
+<script src="{{ asset('bower_components\datatable\jquerrydatatable.min.js') }}"></script>
+<script src="{{ asset('bower_components\datatable\datatable.js') }}"></script>
+
+
       <script>
-        function logout()
-        {
-          swal({
-            title   : "Logout",
-            text    : "Yakin Ingin Keluar?",
-            icon    : "warning",
-            buttons : [
-              "Batal",
-              "Logout",
-            ],
-          })
-          .then((logout) => {
-            if (logout) {
-              swal({
-                title  : "Logout",
-                text   : "Anda Telah Logout",
-                icon   : "success",
-                timer  : 2500,
-              });
-              window.location = "/logout";
-            } else {
-              swal({
-                title  : "Batal Logout",
-                text   : "Anda Batal Logout",
-                icon   : "info",
-                timer  : 2500,
-              })
-            }
-          });
-        }
-        </script>
+        $(document).ready( function () {
+          $('#myTable').DataTable();
+      } );
+      </script>
 </body>
 </html>

@@ -7,6 +7,7 @@
     <section class="content">
     <div class="box">
         @include('layouts.errors')
+        @include('layouts.alert')
 
         <div class="box-header "style="padding:10px">
             <div class="row" >
@@ -24,10 +25,8 @@
                 </div>              
                   </div>
                 </div>   
-                @include('layouts.alert')
-            <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-hover">
+              <table id="#myTable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>ID</th>
@@ -97,6 +96,7 @@
     </div>
     <!-- /.content-wrapper -->
   
+    
 @endsection
 
 <script>
