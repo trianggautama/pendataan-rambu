@@ -17,12 +17,13 @@
               <div class="col-md-6"style="margin-top:20px;">
                 <div class="button" >
                     <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
-                    <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+                    <a href="{{route('laporan-kelurahan')}}" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
                 </div>
                 </div>              
                   </div>
                 </div>   
+                @include('layouts.alert')
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover">
@@ -43,7 +44,8 @@
                   <td>{{$kel->kecamatan->nama_kecamatan}}</td>
                   <td class="text-center">
                   <a href="{{route('kelurahan-detail', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('kelurahan-hapus', ['id' => IDCrypt::Encrypt( $kel->id)])}} " class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $kel->nama_kelurahan; ?>?')"> <i class=" fa fa-trash"></i></a>
+                  <button type="button" class="btn btn-danger"
+                      onclick="Hapus('{{Crypt::encryptString($kel->id)}}','{{$kel->nama_kelurahan}}')"><b><i class="fa fa-trash-o"></i></b></button>
                   </td>
                 </tr>
                 @endforeach
@@ -100,3 +102,46 @@
     <!-- /.content-wrapper -->
   
 @endsection
+
+<script>
+
+
+    function Hapus(id,nama_kelurahan)
+    {
+      const swalWithBootstrapButtons = swal.mixin({
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: false,
+    })
+    
+    swalWithBootstrapButtons({
+      title: 'Are you sure?',
+      text:  "Yakin Ingin Menghapus Data kelurahan '"+nama_kelurahan+"' ?",
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'hapus data',
+      cancelButtonText: 'batal',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        swalWithBootstrapButtons(
+          'Deleted!',
+          "Data kelurahan '"+nama_kelurahan+"' Akan di Hapus",
+          'success'
+        );
+         window.location = " /lokasi/kelurahan/hapus/"+id;
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons(
+          'Cancelled',
+          'data batal dihapus',
+          'error'
+        )
+      }
+    })
+      
+    }
+    </script>
+    

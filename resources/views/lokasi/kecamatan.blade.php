@@ -28,17 +28,7 @@
 
   
              {{-- ALERT !!! --}}
-    <script>
-        @if (session('success'))
-        swal({
-           position: 'top-end',
-           type: 'success',
-           title: '{{session('success')}}',
-           showConfirmButton: false,
-           timer: 1800
-        })
-        @endif
-        </script>
+             @include('layouts.alert')
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover">
@@ -56,7 +46,8 @@
                   <td>{{$k->nama_kecamatan}} </td>
                   <td class="text-center"> 
                       <a href="{{route('kecamatan-detail', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                      
+                      <a href="{{route('kecamatan-edit', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-sm btn-info"> <i class=" fa fa-edit"></i></a>
+                     
                       <button type="button" class="btn btn-danger"
                       onclick="Hapus('{{Crypt::encryptString($k->id)}}','{{$k->nama_kecamatan}}')"><b><i class="fa fa-trash-o"></i></b></button>
                     </td>
@@ -110,36 +101,6 @@
 
 function Hapus(id,nama_kecamatan)
 {
- /*
-})
-  swal({
-    title   : "Hapus",
-    text    : "Yakin Ingin Menghapus Data Kecamatan '"+nama_kecamatan+"' ?",
-    icon    : "warning",
-    showCancelButton: true,
-    buttons : [
-      "Batal",
-      "Hapus",
-    ],
-  })
-  .then((hapus) => {
-    if (hapus) {
-      swal({
-        title  : "Hapus",
-        text   : "Data Kecamatan '"+nama_kecamatan+"' Akan di Hapus",
-        icon   : "info",
-        timer  : 2500,
-      });
-      window.location = " /lokasi/kecamatan/hapus/"+id;
-    } else {
-      swal({
-        title  : "Batal Hapus",
-        text   : "Data Kecamatan '"+nama_kecamatan+"' Batal di Hapus",
-        icon   : "info",
-        timer  : 2500,
-      })
-    }
-  });*/ 
   const swalWithBootstrapButtons = swal.mixin({
   confirmButtonClass: 'btn btn-success',
   cancelButtonClass: 'btn btn-danger',
@@ -157,7 +118,7 @@ swalWithBootstrapButtons({
 }).then((result) => {
   if (result.value) {
     swalWithBootstrapButtons(
-      'Deleted!',
+      'info!',
       "Data Kecamatan '"+nama_kecamatan+"' Akan di Hapus",
       'success'
     );

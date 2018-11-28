@@ -2515,12 +2515,12 @@ a:hover, a:active, a:focus {
 }
 
 .btn-info {
-  background-color: #0064a7;
-  border-color: #0064a7
+  background-color: #00bca4;
+  border-color: #00bca4
 }
 
 .btn-info:hover, .btn-info:active, .btn-info.hover {
-  background-color: #0064a7
+  background-color: #18d4bb
 }
 
 .btn-danger {

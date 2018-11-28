@@ -10,18 +10,19 @@
             <div class="row" >
               <div class="col-md-6">
                   <div class="title">   
-                      <h2  style="margin-bottom:3px;"><b>Data</b> Kebutuhan Rambu</h2>
+                      <h2  style="margin-bottom:3px;"><b>Data</b>  Rambu Terpasang</h2>
                      </div>
               </div>     
               <div class="col-md-6"style="margin-top:20px;">
                 <div class="button" >
-                    <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
-                    <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+                    <a href="{{route('rambu-terpasang-tambah')}}" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
+                    <a href="{{route('laporan-rambu-terpasang')}}" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
                 </div>
                 </div>              
                   </div>
                 </div>   
+                @include('layouts.alert')
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
@@ -47,8 +48,9 @@
                   <td class="text-center">
                    <a href="{{route('rambu-terpasang-ubah', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-success"> Terpasang</a>
                   <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('lokasi-rambu-hapus', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini ?')"> <i class=" fa fa-trash"></i></a>
-                  </td>
+                  <button type="button" class="btn btn-danger"
+                  onclick="Hapus('{{Crypt::encryptString($lr->id)}}')"><b><i class="fa fa-trash-o"></i></b></button>
+              </td>
                 </tr>
                 @endforeach
                 </tfoot>
@@ -63,3 +65,46 @@
     <!-- /.content-wrapper -->
   
 @endsection
+
+<script>
+
+
+  function Hapus(id,)
+  {
+    const swalWithBootstrapButtons = swal.mixin({
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger',
+    buttonsStyling: false,
+  })
+  
+  swalWithBootstrapButtons({
+    title: 'Are you sure?',
+    text:  "Yakin Ingin Menghapus Data rambu terpasang ?",
+    type: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'hapus data',
+    cancelButtonText: 'batal',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.value) {
+      swalWithBootstrapButtons(
+        'Deleted!',
+        "Data Akan di Hapus",
+        'success'
+      );
+       window.location = " /lokasi/rambu_terpasang/hapus/"+id;
+    } else if (
+      // Read more about handling dismissals
+      result.dismiss === swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons(
+        'Cancelled',
+        'data batal dihapus',
+        'error'
+      )
+    }
+  })
+    
+  }
+  </script>
+  

@@ -46,7 +46,7 @@ class adminController extends Controller
         $rambu->gambar            = $gambar;
         $rambu->save();
        
-          return redirect(route('rambu-index'));
+          return redirect(route('rambu-index'))->with('success', 'Data rambu '.$request->nama_rambu.' Berhasil di Tambahkan');
       }//fungsi menambahkan data rambu
 
       
@@ -72,7 +72,7 @@ class adminController extends Controller
         $rambu->nama_rambu= $request->nama_rambu;
         $rambu->keterangan= $request->keterangan;
         $rambu->update();
-        return redirect(route('rambu-index'));
+        return redirect(route('rambu-index'))->with('success', 'Data Rambu '.$request->nama_rambu.' Berhasil di ubah');
        }//fungi mengubah data rambu 
 
        public function rambu_hapus($id){
@@ -80,7 +80,7 @@ class adminController extends Controller
         $rambu=rambu::findOrFail($id);
         File::delete('images/rambu/'.$rambu->gambar);
         $rambu->delete();
-        return redirect(route('rambu-index'));
+        return redirect(route('rambu-index'))->with('success', 'Data rambu Berhasil di hapus');
     }//fungsi menghapus data rambu
 
 
@@ -105,7 +105,7 @@ class adminController extends Controller
         $jenis_rambu->nama_jenis= $request->nama_jenis;
         $jenis_rambu->save();
        
-          return redirect(route('jenis-rambu-index'));
+          return redirect(route('jenis-rambu-index'))->with('success', 'Data Jenis rambu '.$request->nama_jenis.' Berhasil di Simpan');
       }//fungsi menambah data jenis rambu
 
       public function jenis_rambu_edit($id){
@@ -125,7 +125,7 @@ class adminController extends Controller
        ]);
        $jenis_rambu->nama_jenis= $request->nama_jenis;
        $jenis_rambu->update();
-       return redirect(route('jenis-rambu-index'));
+       return redirect(route('jenis-rambu-index'))->with('success', 'Data Jenis rambu '.$request->nama_rambu.' Berhasil di Ubah');
       }//fungsi mengubah data jenis rambu
 
     public function jenis_rambu_detail($id){
@@ -140,7 +140,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $jenis_rambu=jenis_rambu::findOrFail($id);
         $jenis_rambu->delete();
-        return redirect(route('jenis-rambu-index'));
+        return redirect(route('jenis-rambu-index'))->with('success', 'Data Jenis rambu  Berhasil di hapus');
     } //menghapus  data jenis rambu
 
 
@@ -191,7 +191,7 @@ class adminController extends Controller
        ]);
        $kecamatan->nama_kecamatan= $request->nama_kecamatan;
        $kecamatan->update();
-       return redirect(route('kecamatan-index'));
+       return redirect(route('kecamatan-index'))->with('success', 'Data kecamatan '.$request->nama_kecamatan.' Berhasil di Ubah');
       }//mengubah data kecamatan
 
        public function kecamatan_hapus($id){
@@ -228,7 +228,7 @@ class adminController extends Controller
 
         $kelurahan->save();
        
-          return redirect(route('kelurahan-index'));
+          return redirect(route('kelurahan-index'))->with('success', 'Data kelurahan '.$request->nama_kelurahan.' Berhasil di Tambahkan');
       }//menambah data kelurahan
 
       public function kelurahan_detail($id){
@@ -241,8 +241,9 @@ class adminController extends Controller
        public function kelurahan_hapus($id){
         $id = IDCrypt::Decrypt($id);
         $kelurahan=kelurahan::findOrFail($id);
+        $nama_kelurahan=$kelurahan->nama_kelurahan;
         $kelurahan->delete();
-        return redirect(route('kelurahan-index'));
+        return redirect(route('kelurahan-index'))->with('success', 'Data kecamatan '.$nama_kelurahan.' Berhasil di Hapus');
     } //menghapus data kelurahan
 
     
@@ -282,7 +283,7 @@ class adminController extends Controller
           $rambu_terpasang->alamat= $request->alamat;
           $rambu_terpasang->save();
          
-            return redirect(route('rambu-terpasang-index'));
+            return redirect(route('rambu-terpasang-index'))->with('success', 'Data Rambu Terpasang Berhasil di Tambahkan');
     }//menambah data rambu terpasang
 
     public function rambu_terpasang_ubah_status($id){
@@ -291,7 +292,7 @@ class adminController extends Controller
         $rambu_terasang->status_pasang = 0;
         $rambu_terasang->apbn = NULL;
         $rambu_terasang->save();
-        return redirect(route('rambu-terpasang-index'));
+        return redirect(route('rambu-terpasang-index'))->with('success', 'Status Data Rambu Terpasang  Berhasil di Ubah');
     }//mengubah status rambu terpasang menjadi belum terpasang
 
     public function rambu_terpasang_edit($id){
@@ -314,14 +315,14 @@ class adminController extends Controller
         $lokasi_rambu->status_pasang= $request->status_pasang;
         $lokasi_rambu->alamat= $request->alamat;
         $lokasi_rambu->update();
-        return redirect(route('rambu-terpasang-index'));
+        return redirect(route('rambu-terpasang-index'))->with('success', 'Data kecamatan Rambu Terpasang Berhasil di Ubah');
     }//mengubah data rambu terpasang
 
     public function lokasi_rambu_hapus($id){
         $id = IDCrypt::Decrypt($id);
         $lokasi_rambu=lokasi_rambu::findOrFail($id);
         $lokasi_rambu->delete();
-        return redirect(route('rambu-terpasang-index'));
+        return redirect(route('rambu-terpasang-index'))->with('success', 'Data Rambu Terpasang Berhasil di Hapus');
     }  //menghapus data lokasi rambu
 
        //kebutuhan rambu 
@@ -363,7 +364,7 @@ class adminController extends Controller
           $kebutuhan_rambu->alamat= $request->alamat;
           $kebutuhan_rambu->save();
          
-            return redirect(route('kebutuhan-rambu-index'));
+            return redirect(route('kebutuhan-rambu-index'))->with('success', 'Data Kebutuhan Rambu Berhasil di Tambahkan');
     }//menambah data kebutuhan rambu 
 
     public function kebutuhan_rambu_ubah($id){
@@ -372,7 +373,7 @@ class adminController extends Controller
         $lokasi_rambu->status_pasang = 1;
         $lokasi_rambu->apbn = Carbon::now()->format('Y');
         $lokasi_rambu->save();
-        return redirect(route('kebutuhan-rambu-index'));
+        return redirect(route('kebutuhan-rambu-index'))->with('success', 'Status Data Keutuhan Rambu Berhasil di diubah');
     }
 
     //

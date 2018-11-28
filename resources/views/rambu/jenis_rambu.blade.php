@@ -24,6 +24,7 @@
                 </div>              
                   </div>
                 </div>   
+                @include('layouts.alert')
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover">
@@ -40,10 +41,11 @@
                   <td>{{$jr->id}}</td>
                   <td>{{$jr->nama_jenis}} </td>
                   <td class="text-center"> 
-                  <a href="{{route('jenis-rambu-detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('jenis-rambu-edit', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-sm btn-info" > <i class=" fa fa-edit"></i></a>
-                  <a href="{{route('jenis-rambu-hapus',['id'=>$jr->id])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $jr->nama_jenis; ?>?')"> <i class=" fa fa-trash"></i></a>
-
+                  <a href="{{route('jenis-rambu-detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('jenis-rambu-edit', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-primary" > <i class=" fa fa-edit"></i></a>
+                  <button type="button" class="btn btn-danger"
+                      onclick="Hapus('{{Crypt::encryptString($jr->id)}}','{{$jr->nama_jenis}}')"><b><i class="fa fa-trash-o"></i></b></button>
+                 
                   </td>
                 </tr>
                 @endforeach
@@ -96,3 +98,46 @@
     <!-- /.content-wrapper -->
   
 @endsection
+
+<script>
+
+
+  function Hapus(id,nama_jenis)
+  {
+    const swalWithBootstrapButtons = swal.mixin({
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger',
+    buttonsStyling: false,
+  })
+  
+  swalWithBootstrapButtons({
+    title: 'Are you sure?',
+    text:  "Yakin Ingin Menghapus Data kelurahan '"+nama_jenis+"' ?",
+    type: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'hapus data',
+    cancelButtonText: 'batal',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.value) {
+      swalWithBootstrapButtons(
+        'Deleted!',
+        "Data kelurahan '"+nama_jenis+"' Akan di Hapus",
+        'success'
+      );
+       window.location = " /jenis-rambu/hapus/"+id;
+    } else if (
+      // Read more about handling dismissals
+      result.dismiss === swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons(
+        'Cancelled',
+        'data batal dihapus',
+        'error'
+      )
+    }
+  })
+    
+  }
+  </script>
+  

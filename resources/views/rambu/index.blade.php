@@ -24,6 +24,7 @@
                 </div>              
                   </div>
                 </div>   
+                @include('layouts.alert')
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered  table-hover">
@@ -44,8 +45,9 @@
                   <td>{{$r->jenis->nama_jenis}}</td>
                   <td class="text-center">
                   <a href="{{route('rambu-detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('rambu-hapus', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin akan menghapus data <?php echo $r->nama_rambu; ?>?')"> <i class=" fa fa-trash"></i></a>
-                  </td>
+                  <button type="button" class="btn btn-danger"
+                  onclick="Hapus('{{Crypt::encryptString($r->id)}}','{{$r->nama_rambu}}')"><b><i class="fa fa-trash-o"></i></b></button>
+             </td>
                 </tr>
                 @endforeach
                 </tfoot>
@@ -115,3 +117,46 @@
     <!-- /.content-wrapper -->
   
 @endsection
+
+<script>
+
+
+  function Hapus(id,nama_rambu)
+  {
+    const swalWithBootstrapButtons = swal.mixin({
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger',
+    buttonsStyling: false,
+  })
+  
+  swalWithBootstrapButtons({
+    title: 'Are you sure?',
+    text:  "Yakin Ingin Menghapus Data kelurahan '"+nama_rambu+"' ?",
+    type: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'hapus data',
+    cancelButtonText: 'batal',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.value) {
+      swalWithBootstrapButtons(
+        'Deleted!',
+        "Data kelurahan '"+nama_rambu+"' Akan di Hapus",
+        'success'
+      );
+       window.location = "/rambu/hapus/"+id;
+    } else if (
+      // Read more about handling dismissals
+      result.dismiss === swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons(
+        'Cancelled',
+        'data batal dihapus',
+        'error'
+      )
+    }
+  })
+    
+  }
+  </script>
+  
