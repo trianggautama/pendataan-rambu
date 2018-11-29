@@ -47409,33 +47409,24 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "table",
-      {
-        staticClass: "table table-bordered table-hover",
-        attrs: { id: "myTable" }
-      },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.kebutuhanrambus, function(kebutuhanrambu) {
-            return _c("tr", [
-              _c("td", [_vm._v(_vm._s(kebutuhanrambu.rambu.nama_rambu))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(kebutuhanrambu.alamat))]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(kebutuhanrambu.kelurahan.nama_kelurahan))
-              ]),
-              _vm._v(" "),
-              _vm._m(1, true)
-            ])
-          })
-        )
-      ]
-    )
+    _c("table", { staticClass: "table table-bordered table-hover" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.kebutuhanrambus, function(kebutuhanrambu) {
+          return _c("tr", [
+            _c("td", [_vm._v(_vm._s(kebutuhanrambu.rambu.nama_rambu))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(kebutuhanrambu.alamat))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(kebutuhanrambu.kelurahan.nama_kelurahan))]),
+            _vm._v(" "),
+            _vm._m(1, true)
+          ])
+        })
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -47494,4 +47485,15 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4a931fc4", modu
+    require("vue-hot-reload-api")      .rerender("data-v-4a931fc4", module.exports)
+  }
+}
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+/******/ ]);

@@ -1,6 +1,6 @@
 <template>
 <div>  
-     <table class="table table-bordered table-hover" id="myTable">
+     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Nama Rambu</th>

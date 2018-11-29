@@ -27,8 +27,8 @@ class adminController extends Controller
     public function rambu_tambah(Request $request){
 
         $this->validate(request(),[
-            'kode_rambu'=>'required',
-            'nama_rambu'=>'required',
+            'kode_rambu'=>'required|unique:rambu',
+            'nama_rambu'=>'required|unique:rambu',
             'jenis_id'=>'required',
             'gambar'=>'required'
         ]);
@@ -99,7 +99,7 @@ class adminController extends Controller
     public function jenis_rambu_tambah(Request $request){
 
         $this->validate(request(),[
-          'nama_jenis'=>'required'
+          'nama_jenis'=>'required|unique:jenis_rambu'
         ]);
         $jenis_rambu = new jenis_rambu;
         $jenis_rambu->nama_jenis= $request->nama_jenis;
@@ -157,7 +157,7 @@ class adminController extends Controller
     public function kecamatan_tambah(Request $request){
 
         $this->validate(request(),[
-          'nama_kecamatan'=>'required'
+          'nama_kecamatan'=>'required|unique:kecamatan'
         ]);
 
         $kecamatan = new kecamatan;
@@ -217,7 +217,7 @@ class adminController extends Controller
     public function kelurahan_tambah(Request $request){
 
         $this->validate(request(),[
-          'nama_kelurahan'=>'required',
+          'nama_kelurahan'=>'required|unique:kelurahan',
           'kecamatan_id'=>'required'
 
         ]);
@@ -268,8 +268,8 @@ class adminController extends Controller
             'kelurahan_id'=>'required',
             'rambu_id'=>'required',
             'apbn'=>'required',
-            'lat'=>'required',
-            'lang'=>'required',
+            'lat'=>'required|unique:lokasi_rambu',
+            'lang'=>'required|unique:lokasi_rambu',
             'alamat'=>'required'
           ]);
   
@@ -352,8 +352,8 @@ class adminController extends Controller
         $this->validate(request(),[
             'kelurahan_id'=>'required',
             'rambu_id'=>'required',
-            'lat'=>'required',
-            'lang'=>'required',
+            'lat'=>'required|unique:lokasi_rambu',
+            'lang'=>'required|unique:lokasi_rambu',
             'alamat'=>'required'
           ]);
           $kebutuhan_rambu = new lokasi_rambu;

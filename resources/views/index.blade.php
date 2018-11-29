@@ -15,17 +15,19 @@
             </div>
             <div class="row" style="padding:0px 50px 50px 50px">
                 <div class="col-md-8" style="padding:0px;">
-                    <div class="col-md-12">
+                    <div class="col-lg-12" style="padding:0px;">
                       
-                        <img class=" img-responsive dashboard-image "   style="width:99%" src="/images/dashboard/data_rambu.png"  >
+                        <img class=" img-responsive dashboard-image "   style="width:98%" src="/images/dashboard/data_rambu.png"  >
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-md-6" style="padding:0px; margin-top:1%; ">
-                            <img class=" img-responsive dashboard-image"  style="width:98%" src="/images/dashboard/rambu_terpasang.png"  >
-                        </div>
-                        <div class="col-md-6" style="padding:0px;  margin-top:1% ">
-                            <img class=" img-responsive dashboard-image"  style="width:98%" src="/images/dashboard/kebutuhan_rambu.png"  >
-                        </div>
+                    <div class="col-lg-12">
+                        <div class="row">
+                                <div class="col-lg-6" style="padding:0px; margin-top:1%; ">
+                                        <img class=" img-responsive dashboard-image"  style="width:96%" src="/images/dashboard/rambu_terpasang.png"  >
+                                    </div>
+                                    <div class="col-lg-6" style="padding:0px;  margin-top:1% ">
+                                            <img class=" img-responsive dashboard-image"  style="width:96%" src="/images/dashboard/kebutuhan_rambu.png"  >
+                                        </div>
+                                    </div>                  
                     </div>
                 </div>
                 <div class="col-md-4" style="padding:0px; margin:0px;">
