@@ -18,7 +18,7 @@
               </div>     
               <div class="col-md-6"style="margin-top:20px;">
                 <div class="button" >
-                    <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
+                    <a href="#tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
                     <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
                 </div>
@@ -62,7 +62,7 @@
                 <h4>Tambah Data</h4>
             </div>
             <div class="col-md-2">
-                <button type="button" class="close pull-right " data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close  " data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
             </div>

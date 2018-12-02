@@ -52,7 +52,7 @@
                         <!-- Control Sidebar Toggle Button
                         <button class="btn btn-default btn-flat" onclick="logout()">Logout</button>
                      -->
-                    <a style="color:#0064a7" href="{{ route('logout') }}" 
+                    <a style="color:#0064a7;margin-right:20px;" href="{{ route('logout') }}" 
                                 onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();" class="a_1"> <i class="fa fa-sign-out"></i>
                                 Logout
@@ -73,10 +73,8 @@
               <section class="sidebar">
                 <!-- Sidebar user panel -->
                 <div class="user-panel text-center">
-          
-                    <h4  style="padding:5px; color:white; ">Rekayasa Lalu lintas</h4>
-                    <hr>
-          
+                    <img class=" profile-img"  style="width:96%" src="/images/dashboard/icon.png"  >
+                    <p style="color:#fff;margin-top:5px;">nama admin</p>
                 </div>
                 <ul class="sidebar-menu" data-widget="tree">
                 <li class="treeview">
@@ -146,7 +144,7 @@
     </div>
     
 <script src="{{ asset('js\jquery.min.js') }}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="{{ asset('bower_components\bootstrap\bootstrap4.min.js') }}"></script>
 <script src="{{ asset('js/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('js/fastclick.js') }}"></script>
 <script src="{{ asset('js/adminlte.min.js') }}"></script>

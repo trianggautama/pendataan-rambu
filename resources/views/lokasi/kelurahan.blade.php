@@ -43,7 +43,7 @@
                   <td>{{$kel->nama_kelurahan}}</td>
                   <td>{{$kel->kecamatan->nama_kecamatan}}</td>
                   <td class="text-center">
-                  <a href="{{route('kelurahan-detail', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('kelurahan-detail', ['id' => IDCrypt::Encrypt( $kel->id)])}}" class="btn  btn-default"> <i class=" fa fa-eye"></i></a>
                   <button type="button" class="btn btn-danger"
                       onclick="Hapus('{{Crypt::encryptString($kel->id)}}','{{$kel->nama_kelurahan}}')"><b><i class="fa fa-trash-o"></i></b></button>
                   </td>

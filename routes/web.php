@@ -35,6 +35,10 @@ Route::put('/rambu/detail/{id}','adminController@rambu_update')
 ->name('rambu-update');
 Route::get('/rambu/hapus/{id}','adminController@rambu_hapus')
 ->name('rambu-hapus');
+Route::get('/laporan/rambu','adminController@laporan_rambu')
+->name('laporan-rambu');
+Route::get('/laporan/rambu-detail/{id}','adminController@laporan_rambu_detail')
+->name('laporan-rambu-detail');
 
 
 //jenis rambu

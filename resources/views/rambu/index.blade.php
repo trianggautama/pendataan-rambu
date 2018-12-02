@@ -17,8 +17,8 @@
               </div>     
               <div class="col-md-6"style="margin-top:20px;">
                 <div class="button" >
-                    <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
-                    <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+                    <a href="#tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
+                    <a href="{{route('laporan-rambu')}}" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
                 </div>
                 </div>              
@@ -44,7 +44,7 @@
                   <td>{{$r->nama_rambu}}</td>
                   <td>{{$r->jenis->nama_jenis}}</td>
                   <td class="text-center">
-                  <a href="{{route('rambu-detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('rambu-detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
                   <button type="button" class="btn btn-danger"
                   onclick="Hapus('{{Crypt::encryptString($r->id)}}','{{$r->nama_rambu}}')"><b><i class="fa fa-trash-o"></i></b></button>
              </td>

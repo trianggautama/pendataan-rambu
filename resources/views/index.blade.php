@@ -8,10 +8,10 @@
     <section class="content">
        <div class="box">
            <div class="box-body" style="margin-top:0px;" >
-            <div class="title" style="padding-left:52px;">   
-             <h2  style="margin-bottom:3px;"><b>Dinas</b> Perhubungan</h2>
-             <h4 style="margin-top:0px;">kota banjarbaru</h4>
+            <div class="title" style="padding-left:25px;">   
+             <h2  style="margin-bottom:0px;"><b>Dinas</b> Perhubungan kota banjarbaru</h2>
             </div>
+            <hr>
             </div>
             <div class="row" style="padding:0px 50px 50px 50px">
                 <div class="col-md-8" style="padding:0px;">

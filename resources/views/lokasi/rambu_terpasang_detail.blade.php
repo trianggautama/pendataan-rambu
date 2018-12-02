@@ -3,13 +3,13 @@
 
 @section('content')
 
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="margin-bottom:0px;">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Edit Data</h1>
+            <h4 class="m-0 text-dark">Edit Data</h4>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -18,13 +18,16 @@
     </div>
     <!-- /.content-header -->
     <!-- Main content -->
-    <div class="content" style="margin:0 15% 0 15%;">
+    <div class="content" style="padding-top:0px;" >
+      <div class="card" style="padding:5%;margin-top:0px;">
+
+     
         <div class="row">
-            <form  method="post" action="">
-                {{method_field('PUT') }}
-                {{ csrf_field() }}
+           
                 <div class="col-md-6">
-                    
+                    <form  method="post" action="">
+                        {{method_field('PUT') }}
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <p>Rambu</p>
                             <select multiple class="form-control" name="rambu_id" style="height:150px;">
@@ -63,18 +66,20 @@
                                             <p>Alamat</p>
                                     <textarea class="form-control" rows="3" placeholder="Enter ..." name="alamat" >{{$lokasi_rambu->alamat}}</textarea>
                                           </div>
+                                          <div class="text-right">
+                                              <a href="{{ route('jenis-rambu-index') }}" class="btn btn-warning" style="color:white;">  <i class="fa fa-arrow-circle-left"></i> Kembali</a>
+                                                <input class="btn btn-primary" type="submit" name="submit" value="Ubah">
+                                                {{csrf_field() }}   
+                                              </div>
+                                            </form>
                 </div>     
             
-              <div class="text-right">
-              <a href="{{ route('jenis-rambu-index') }}" class="btn btn-warning" style="color:white;">  <i class="fa fa-arrow-circle-left"></i> Kembali</a>
-                <input class="btn btn-primary" type="submit" name="submit" value="Ubah">
-                {{csrf_field() }}   
-              </div>
+             
             </div>
             
-            </form>
+
         </div>
-   
+      </div>
     </div>
     <!-- /.content -->
   </div>

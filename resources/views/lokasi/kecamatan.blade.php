@@ -45,8 +45,8 @@
                   <td>{{$k->id}}</td>
                   <td>{{$k->nama_kecamatan}} </td>
                   <td class="text-center"> 
-                      <a href="{{route('kecamatan-detail', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                      <a href="{{route('kecamatan-edit', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn btn-sm btn-info"> <i class=" fa fa-edit"></i></a>
+                      <a href="{{route('kecamatan-detail', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn  btn-default"> <i class=" fa fa-eye"></i></a>
+                      <a href="{{route('kecamatan-edit', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn  btn-primary"> <i class=" fa fa-edit"></i></a>
                      
                       <button type="button" class="btn btn-danger"
                       onclick="Hapus('{{Crypt::encryptString($k->id)}}','{{$k->nama_kecamatan}}')"><b><i class="fa fa-trash-o"></i></b></button>
@@ -110,6 +110,7 @@ swalWithBootstrapButtons({
   text:  "Yakin Ingin Menghapus Data Kecamatan '"+nama_kecamatan+"' ?",
   type: 'question',
   showCancelButton: true,
+  customClass: 'swal-wide',
   confirmButtonText: 'Yes, delete it!',
   cancelButtonText: 'No, cancel!',
   reverseButtons: true

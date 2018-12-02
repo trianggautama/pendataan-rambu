@@ -32,23 +32,29 @@
   </div>
   <!-- /.col -->
   <div class="col-md-8 pull-right col-xs-12" >
-    <div class="box">
-    <div class="nav-tabs-custom" style="height:350px;">
-      <ul class="nav nav-tabs" style="padding-right:7px; padding-top:5px">
-        <li ><a href="#activity" data-toggle="tab">Keterangan</a></li>
-        <li><a href="#settings" data-toggle="tab">Edit Data </a></li>
-      <a href="{{ route('rambu-index') }}" class="btn btn-bg btn-warning pull-right" stye="margin-top:3px;"><i class="fa fa-sign-out"></i> back</a>
-      </ul>
-      <div class="tab-content" >
-        <div class="active tab-pane" style="padding:10px;" id="activity">
-         <h4>Kode Rambu  : {{$rambu->kode_rambu}}</h4>
-         <h4>Nama Rambu  : {{$rambu->nama_rambu}}</h4>
-         <h4>Jenis Rambu : {{$rambu->jenis->nama_jenis}}</h4> 
-         <h4>Keterangan &nbsp : {{$rambu->keterangan}}</h4>
-        </div>
-
-        <div class="tab-pane" id="settings">
-          <form class="form-horizontal"  method="post" action="">
+    <div class="card">
+      <div class="card-header d-flex p-0" style="padding:0%!important;">
+        <ul class="nav nav-pills p-2">
+          <li class="nav-item">
+            <a class="nav-link active" href="#keterangan" data-toggle="tab">Keterangan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#edit-data" data-toggle="tab">Edit data</a>
+          </li>
+        </ul>
+      </div><!-- /.card-header -->
+      <div class="card-body" >
+        <div class="tab-content p-0">
+          <!-- Morris chart - Sales -->
+          <div class=" tab-pane active" id="keterangan"
+               style="position: relative; height: 255px;">
+               <h5>Kode Rambu  : {{$rambu->kode_rambu}}</h5>
+               <h5>Nama Rambu  : {{$rambu->nama_rambu}}</h5>
+               <h5>Jenis Rambu : {{$rambu->jenis->nama_jenis}}</h5> 
+               <h5>Keterangan &nbsp : {{$rambu->keterangan}}</h5>
+              </div>
+          <div class=" tab-pane" id="edit-data" style="position: relative; height: 255px;">
+            <form class="form-horizontal"  method="post" action="">
               {{method_field('PUT') }}
               {{ csrf_field() }}
             <div class="form-group">
@@ -63,25 +69,23 @@
             </div>
             <div class="form-group">
               <div class="col-sm-12">
-              <textarea name="keterangan"  class="form-control" id="" cols="102" rows="5" style="padding:10px;">{{$rambu->keterangan}}"</textarea>
+              <textarea name="keterangan"  class="form-control" id="" cols="102" rows="3" style="padding:10px;" >{{$rambu->keterangan}}"</textarea>
               </div>
             </div>
            
             <div class="form-group">
               <div class="col-sm-12">
-                <button type="submit" class="btn btn-info " style="margin-left:3px;">Ubah</button>
+                <button type="submit" class="btn btn-warning " style="margin-left:3px;">Ubah</button>
                 {{csrf_field() }}
 
               </div>
             </div>
           </form>
+          </div>
         </div>
-        <!-- /.tab-pane -->
-      </div>
-      <!-- /.tab-content -->
+      </div><!-- /.card-body -->
     </div>
-    <!-- /.nav-tabs-custom -->
-  </div>
+    <!-- /.card -->
 </div>
   <!-- /.col -->
 </div>
@@ -94,8 +98,7 @@
     <div class="box">
             <div class="box-header">
               <h3 class="box-title">Lokasi Rambu</h3>
-              <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
-
+              <a href="{{route('laporan-rambu-detail', ['id' => IDCrypt::Encrypt( $rambu->id)])}}" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
