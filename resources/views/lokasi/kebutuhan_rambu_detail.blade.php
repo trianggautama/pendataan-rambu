@@ -68,6 +68,8 @@
                                 {{csrf_field() }}
                              </div>
                             </form>       
+                            <a href="{{route('rambu-terpasang-ubah', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-warning">ubah status</a>
+
                 </div>
             </div>
             </div>

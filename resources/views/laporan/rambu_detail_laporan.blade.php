@@ -7,7 +7,6 @@
     <title>Document</title>
     <style>
         body{
-
         }
           table{
         border-collapse: collapse;
@@ -74,6 +73,8 @@
    
      .keterangan{
          float: right;
+         font-family: sans-serif;
+
      }
      .card{
          height: 300px;
@@ -110,18 +111,18 @@
 
             <table style="margin-bottom:20px;">
                 <tr>
-                    <td style="width:270px;">
+                    <td style="width:260px;">
                             <img  style="width:250px; height:auto" src="images/rambu/{{$rambu->gambar}}"  >
                     </td>
                     <td style="padding-left:20px !mportant; border:none;">
-                            <h5>Kode Rambu  : {{$rambu->kode_rambu}}</h5>
-                            <h5>Nama Rambu  : {{$rambu->nama_rambu}}</h5>
-                            <h5>Jenis Rambu : {{$rambu->jenis->nama_jenis}}</h5> 
-                            <h5>Keterangan &nbsp : {{$rambu->keterangan}}</h5>
+                            <h4>Kode Rambu  : {{$rambu->kode_rambu}}</h4>
+                            <h4>Nama Rambu  : {{$rambu->nama_rambu}}</h4>
+                            <h4>Jenis Rambu : {{$rambu->jenis->nama_jenis}}</h4> 
+                            <h4>Keterangan &nbsp : {{$rambu->keterangan}}</h4>
                     </td>
                 </tr>
             </table>
-            <h5>Lokasi Rambu & Kebutuhan Rambu</h5>
+            <h4>Lokasi Rambu & Kebutuhan Rambu</h4>
                 <table  class="table table-bordered table-hover">
                         <thead>
                         <tr>

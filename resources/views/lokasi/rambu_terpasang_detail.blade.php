@@ -25,7 +25,7 @@
         <div class="row">
            
                 <div class="col-md-6">
-                    <form  method="post" action="">
+                    <form  method="post" action="" enctype="multipart/form-data">
                         {{method_field('PUT') }}
                         {{ csrf_field() }}
                         <div class="form-group">
@@ -43,6 +43,12 @@
                         <div class="form-group">
                             <p>Langitude</p>
                             <input type="text" name="lang"  class="form-control" value="{{$lokasi_rambu->lang}}"/>
+                        </div>
+                        <div class="form-group">
+                         
+                            <p>Foto Lokasi</p>
+                            <input type="file" name="gambar"  class="form-control" />
+                            <label for="">isi jika ingin mengubah gambar</label>
                         </div>                
                 </div>
                 <div class="col-md-6">
@@ -69,9 +75,12 @@
                                           <div class="text-right">
                                               <a href="{{ route('jenis-rambu-index') }}" class="btn btn-warning" style="color:white;">  <i class="fa fa-arrow-circle-left"></i> Kembali</a>
                                                 <input class="btn btn-primary" type="submit" name="submit" value="Ubah">
+                                                <a href="{{route('rambu-terpasang-ubah', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn  btn-success"> ubah status</a>
+
                                                 {{csrf_field() }}   
                                               </div>
                                             </form>
+
                 </div>     
             
              

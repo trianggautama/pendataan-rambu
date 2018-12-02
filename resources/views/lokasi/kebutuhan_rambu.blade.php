@@ -15,7 +15,7 @@
               </div>     
               <div class="col-md-6"style="margin-top:20px;">
                 <div class="button" >
-                    <a href="{{route('rambu-terpasang-tambah')}}" class="btn  btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
+                    <a href="{{route('kebutuhan-rambu-tambah')}}" class="btn  btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
                     <a href="{{route('laporan-rambu-terpasang')}}" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
                 </div>
@@ -30,7 +30,6 @@
                 <tr>
                   <th>Nama Rambu</th>
                   <th>Jenis</th>
-                  <th class="text-center">Tahun APBN</th>
                   <th>Alamat</th>
                   <th>kelurahan</th>
                   <th class="text-center">Action</th>
@@ -42,12 +41,11 @@
                 <tr>
                   <td>{{$lr->rambu->nama_rambu}}</td>
                   <td>{{$lr->rambu->jenis->nama_jenis}}</td>
-                <td class="text-center">{{$lr->apbn}}</td>
                   <td>{{$lr->alamat}}</td>
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
                   <td class="text-center">
-                   <a href="{{route('rambu-terpasang-ubah', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-success"> Terpasang</a>
-                  <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                   <a href="{{route('rambu-terpasang-ubah', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-warning">ubah status</a>
+                  <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
                   <button type="button" class="btn btn-danger"
                   onclick="Hapus('{{Crypt::encryptString($lr->id)}}')"><b><i class="fa fa-trash-o"></i></b></button>
               </td>

@@ -277,6 +277,15 @@ class adminController extends Controller
           $rambu_terpasang->kelurahan_id= $request->kelurahan_id;
           $rambu_terpasang->rambu_id= $request->rambu_id;
           $rambu_terpasang->apbn= $request->apbn;
+          if ($request->gambar) {
+            $FotoExt  = $request->gambar->getClientOriginalExtension();
+            $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->lat;
+            $gambar     = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/lokasi_rambu', $gambar);
+            $rambu_terpasang->gambar= $gambar;
+        }else {
+            $rambu_terpasang->gambar = 'default.png';
+          }               
           $rambu_terpasang->lat= $request->lat;
           $rambu_terpasang->lang= $request->lang;
           $rambu_terpasang->status_pasang= $request->status_pasang;
@@ -310,6 +319,18 @@ class adminController extends Controller
         $lokasi_rambu->kelurahan_id= $request->kelurahan_id;
         $lokasi_rambu->rambu_id= $request->rambu_id;
         $lokasi_rambu->apbn= $request->apbn;
+        if ($request->gambar) {
+            if ($lokasi_rambu->gambar != 'default.png') {
+           // dd('gambar dihapus');
+              File::delete('images/lokasi_rambu/'.$lokasi_rambu->gambar);
+            }
+            //dd('gambar tidak dihapus');
+            $FotoExt  = $request->gambar->getClientOriginalExtension();
+            $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->lat;
+            $gambar     = $FotoName.'.'.$FotoExt;
+            $request->gambar->move('images/lokasi_rambu', $gambar);
+            $lokasi_rambu->gambar= $gambar;
+          }
         $lokasi_rambu->lat= $request->lat;
         $lokasi_rambu->lang= $request->lang;
         $lokasi_rambu->status_pasang= $request->status_pasang;
@@ -354,16 +375,28 @@ class adminController extends Controller
             'kelurahan_id'=>'required',
             'rambu_id'=>'required',
             'lat'=>'required|unique:lokasi_rambu',
-            'lang'=>'required|unique:lokasi_rambu   ',
+            'lang'=>'required|unique:lokasi_rambu',
             'alamat'=>'required'
           ]);
-          $kebutuhan_rambu = new lokasi_rambu;
-          $kebutuhan_rambu->kelurahan_id= $request->kelurahan_id;
-          $kebutuhan_rambu->rambu_id= $request->rambu_id;
-          $kebutuhan_rambu->lat= $request->lat;
-          $kebutuhan_rambu->lang= $request->lang;
-          $kebutuhan_rambu->alamat= $request->alamat;
-          $kebutuhan_rambu->save();
+  
+          $kebutuhanrambu = new lokasi_rambu;
+          $kebutuhanrambu->kelurahan_id= $request->kelurahan_id;
+          $kebutuhanrambu->rambu_id= $request->rambu_id;
+          $kebutuhanrambu->apbn= $request->apbn;
+          if ($request->gambar) {
+            $FotoExt  = $request->gambar->getClientOriginalExtension();
+            $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->lat;
+            $gambar     = $FotoName.'.'.$FotoExt;
+            $request->foto->move('images/lokasi_rambu', $gambar);
+            $kebutuhanrambu->gambar= $gambar;
+        }else {
+            $kebutuhanrambu->gambar = 'default.png';
+          }               
+          $kebutuhanrambu->lat= $request->lat;
+          $kebutuhanrambu->lang= $request->lang;
+          $kebutuhanrambu->status_pasang= $request->status_pasang;
+          $kebutuhanrambu->alamat= $request->alamat;
+          $kebutuhanrambu->save();
          
             return redirect(route('kebutuhan-rambu-index'))->with('success', 'Data Kebutuhan Rambu Berhasil di Tambahkan');
     }//menambah data kebutuhan rambu 

@@ -8,7 +8,7 @@ class lokasi_rambu extends Model
 {
     protected $table ='lokasi_rambu';
     protected $fillable = [
-        'kelurahan_id','rambu_id','apbn','lat','lang','alamat','status_pasang',
+        'kelurahan_id','rambu_id','apbn','gambar','lat','lang','alamat','status_pasang',
     ];
 
     public function kelurahan(){

@@ -25,7 +25,7 @@
             <div class="box-body" style="padding:25px;">
                 <div class="row">
                     <div class="col-lg-6">
-                            <form  method="post" action="">
+                            <form  method="post" action="" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                         <div class="form-group">
                             <p>Rambu</p>
@@ -42,6 +42,10 @@
                         <div class="form-group">
                             <p>Langitude</p>
                             <input type="text" name="lang"  class="form-control" />
+                        </div>    
+                         <div class="form-group">
+                            <p>Foto Lokasi</p>
+                            <input type="file" name="gambar"  class="form-control" />
                         </div>                
                     </div>
                     <div class="col-lg-6">
