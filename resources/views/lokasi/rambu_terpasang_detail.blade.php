@@ -1,95 +1,83 @@
-
 @extends('layouts.app')
 
 @section('content')
 
-  <div class="content-wrapper" style="margin-bottom:0px;">
+    <div class="content-wrapper" style="padding-bottom:0px;">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h4 class="m-0 text-dark">Edit Data</h4>
-          </div><!-- /.col -->
+    <section class="content-header">
+        <h1>
+       Lokasi Rambu Terpasang
+        </h1>
+        <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    <section class="content">
 
-        </div><!-- /.row -->
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-xs-12">
+
+    <!-- Profile Image -->
+    <div class="box box-primary text-center " >
+      <div class="box-body box-profile text-center" style="padding:10px;">
         <hr>
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <div class="content" style="padding-top:0px;" >
-      <div class="card" style="padding:5%;margin-top:0px;">
-
-     
-        <div class="row">
-           
-                <div class="col-md-6">
-                    <form  method="post" action="" enctype="multipart/form-data">
-                        {{method_field('PUT') }}
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <p>Rambu</p>
-                            <select multiple class="form-control" name="rambu_id" style="height:150px;">
-                                @foreach ($rambu as $r)
-                                    <option value="{{$r->id}}" {{$lokasi_rambu->rambu_id == $r->id ? 'selected' : ''}}>{{$r->nama_rambu}}</option>
-                                @endforeach  
-                                </select>
-                        </div>
-                        <div class="form-group">
-                            <p>Latitude</p>
-                            <input type="text" name="lat"  class="form-control" value="{{$lokasi_rambu->lat}}"/>
-                        </div>
-                        <div class="form-group">
-                            <p>Langitude</p>
-                            <input type="text" name="lang"  class="form-control" value="{{$lokasi_rambu->lang}}"/>
-                        </div>
-                        <div class="form-group">
-                         
-                            <p>Foto Lokasi</p>
-                            <input type="file" name="gambar"  class="form-control" />
-                            <label for="">isi jika ingin mengubah gambar</label>
-                        </div>                
-                </div>
-                <div class="col-md-6">
-                        <div class="form-group">
-                                <p>Kelurahan</p>
-                                <select multiple class="form-control" style="height:150px;" name="kelurahan_id">
-                                        @foreach ($kelurahan as $kel)
-                                        <option value="{{$kel->id}}" {{$lokasi_rambu->kelurahan_id == $kel->id ? 'selected' : ''}}>{{$kel->nama_kelurahan}}</option>
-                                    @endforeach  
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                    <p>APBN</p>
-                                    <input type="text" name="apbn"  class="form-control" value="{{$lokasi_rambu->apbn}}"/>
-                                </div>  
-                                <div class="form-group">
-                                 
-                                        <input type="hidden" name="status_pasang"  value="1" class="form-control" />
-                                    </div>    
-                                    <div class="form-group">
-                                            <p>Alamat</p>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..." name="alamat" >{{$lokasi_rambu->alamat}}</textarea>
-                                          </div>
-                                          <div class="text-right">
-                                              <a href="{{ route('jenis-rambu-index') }}" class="btn btn-warning" style="color:white;">  <i class="fa fa-arrow-circle-left"></i> Kembali</a>
-                                                <input class="btn btn-primary" type="submit" name="submit" value="Ubah">
-                                                <a href="{{route('rambu-terpasang-ubah', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn  btn-success"> ubah status</a>
-
-                                                {{csrf_field() }}   
-                                              </div>
-                                            </form>
-
-                </div>     
-            
-             
-            </div>
-            
-
-        </div>
+      <img class=" img-responsive" style="width:100%; height:auto" src="/images/lokasi_rambu/{{$lokasi_rambu->gambar}}"  >
+      <h4 style="margin-top:18px"><b>Gambar Lokasi</b></h4>
       </div>
+      <!-- /.box-body -->
+     
+    <!-- /.box -->
+    <div class="button" style="margin-bottom:20px;">
+            <a href="" class="btn btn-success"> <i class=" fa fa-print"></i> Cetak</a>
+            <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i>edit data</a>
+    <a href="{{route('rambu-terpasang-index')}}" class="btn btn-danger"> Kembali</a>
     </div>
-    <!-- /.content -->
+</div>
+
   </div>
+  <!-- /.col -->
+  <div class="col-md-8 pull-right col-xs-12" >
+    <div class="card">
+      <div class="card-header d-flex p-0" style="padding:0%!important;">
+        <ul class="nav nav-pills p-2">
+          <li class="nav-item">
+            <a class="nav-link " href="#keterangan" data-toggle="tab"><b>Keterangan</b></a>
+          </li>
+        </ul>
+      </div><!-- /.card-header -->
+      <div class="card-body" >
+        <div class="tab-content p-0">
+          <!-- Morris chart - Sales -->
+          <div class=" tab-pane active" id="keterangan"
+               style="position: relative; height: 370px;">
+               <p>Kode Rambu  : {{$lokasi_rambu->rambu->nama_rambu}}</p>
+               <hr>
+               <p>Nama Rambu  : {{$lokasi_rambu->rambu->jenis->nama_jenis}}</p>
+               <hr>
+               <p>Jenis Rambu : {{$lokasi_rambu->apbn}}</p> 
+               <hr>
+               <p>Keterangan &nbsp : {{$lokasi_rambu->alamat}}</p>
+               <hr>
+               <p>Kelurahan &nbsp : {{$lokasi_rambu->kelurahan->nama_kelurahan}}</p>
+               <hr>
+               <p>latitude &nbsp : {{$lokasi_rambu->lat}}</p>
+               <hr>
+               <p>langitude &nbsp : {{$lokasi_rambu->lang}}</p>
+
+              </div>
+        </div>
+      </div><!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
+
+</section>
+
+    </div>
+    <!-- /.content-wrapper -->
+  
 @endsection

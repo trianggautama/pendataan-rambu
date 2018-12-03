@@ -73,7 +73,7 @@
     
         <div class="modal-body">
           <!-- form login -->
-          <form  method="post" action=""enctype="multipart/form-data">
+          <form  method="post" action="" enctype="multipart/form-data">
  
             <div class="form-group">
               <input type="text" name="kode_rambu"  class="form-control"  placeholder="kode rambu"/>

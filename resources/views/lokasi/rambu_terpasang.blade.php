@@ -46,7 +46,8 @@
                   <td>{{$lr->alamat}}</td>
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
                   <td class="text-center">
-                  <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href=" {{route('rambu-terpasang-detail', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i></a>
                   <button type="button" class="btn btn-danger"
                   onclick="Hapus('{{Crypt::encryptString($lr->id)}}')"><b><i class="fa fa-trash-o"></i></b></button>
               </td>

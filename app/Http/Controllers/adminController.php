@@ -304,12 +304,20 @@ class adminController extends Controller
         return redirect(route('rambu-terpasang-index'))->with('success', 'Status Data Rambu Terpasang  Berhasil di Ubah');
     }//mengubah status rambu terpasang menjadi belum terpasang
 
-    public function rambu_terpasang_edit($id){
+    public function rambu_terpasang_detail($id){
         $id = IDCrypt::Decrypt($id);
         $lokasi_rambu = lokasi_rambu::findOrFail($id);
         $rambu = rambu::all();
         $kelurahan = kelurahan::all();
         return view('lokasi.rambu_terpasang_detail',compact('rambu','kelurahan','lokasi_rambu'));
+    }//menampikan halama edit rambu terpasang
+
+    public function rambu_terpasang_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $lokasi_rambu = lokasi_rambu::findOrFail($id);
+        $rambu = rambu::all();
+        $kelurahan = kelurahan::all();
+        return view('lokasi.rambu_terpasang_edit',compact('rambu','kelurahan','lokasi_rambu'));
     }//menampikan halama edit rambu terpasang
 
     public function rambu_terpasang_update(Request $request, $id){

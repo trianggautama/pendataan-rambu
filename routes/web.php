@@ -95,6 +95,8 @@ Route::POST('/lokasi/rambu_terpasang/tambah', 'adminController@rambu_terpasang_s
 ->name('rambu-terpasang-store');
 Route::get('/lokasi/rambu_terpasang/ubah/{id}', 'adminController@rambu_terpasang_ubah_status')
 ->name('rambu-terpasang-ubah');
+Route::get('/lokasi/rambu_terpasang/detail/{id}', 'adminController@rambu_terpasang_detail')
+->name('rambu-terpasang-detail');
 Route::get('/lokasi/rambu_terpasang/edit/{id}', 'adminController@rambu_terpasang_edit')
 ->name('rambu-terpasang-edit');
 Route::put('/lokasi/rambu_terpasang/edit/{id}','adminController@rambu_terpasang_update')
