@@ -418,6 +418,58 @@ class adminController extends Controller
         return redirect(route('kebutuhan-rambu-index'))->with('success', 'Status Data Keutuhan Rambu Berhasil di diubah');
     }
 
+    public function kebutuhan_rambu_detail($id){
+        $id = IDCrypt::Decrypt($id);
+        $lokasi_rambu = lokasi_rambu::findOrFail($id);
+        $rambu = rambu::all();
+        $kelurahan = kelurahan::all();
+        return view('lokasi.kebutuhan_rambu_detail',compact('rambu','kelurahan','lokasi_rambu'));
+    }//menampikan halama edit rambu terpasang
+
+    public function kebutuhan_rambu_edit($id){
+        $id = IDCrypt::Decrypt($id);
+        $lokasi_rambu = lokasi_rambu::findOrFail($id);
+        $rambu = rambu::all();
+        $kelurahan = kelurahan::all();
+        return view('lokasi.kebutuhan_rambu_edit',compact('rambu','kelurahan','lokasi_rambu'));
+    }//menampikan halama edit rambu terpasang
+
+    public function kebutuhan_rambu_update(Request $request, $id){
+       // dd($request->kelurahan_id);
+       $id = IDCrypt::Decrypt($id);
+        $lokasi_rambu = lokasi_rambu::findOrFail($id);
+        $lokasi_rambu->kelurahan_id= $request->kelurahan_id;
+        $lokasi_rambu->rambu_id= $request->rambu_id;
+        $lokasi_rambu->apbn= $request->apbn;
+        if ($request->gambar) {
+            if ($lokasi_rambu->gambar != 'default.png') {
+           // dd('gambar dihapus');
+              File::delete('images/lokasi_rambu/'.$lokasi_rambu->gambar);
+            }
+            //dd('gambar tidak dihapus');
+            $FotoExt  = $request->gambar->getClientOriginalExtension();
+            $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->lat;
+            $gambar     = $FotoName.'.'.$FotoExt;
+            $request->gambar->move('images/lokasi_rambu', $gambar);
+            $lokasi_rambu->gambar= $gambar;
+          }
+        $lokasi_rambu->lat= $request->lat;
+        $lokasi_rambu->lang= $request->lang;
+        $lokasi_rambu->status_pasang= $request->status_pasang;
+        $lokasi_rambu->alamat= $request->alamat;
+        $lokasi_rambu->update();
+        return redirect(route('kebutuhan-rambu-index'))->with('success', 'Data kecamatan Rambu Terpasang Berhasil di Ubah');
+    }//mengubah data rambu terpasang
+
+
+
+
+
+
+
+
+
+
     //
     //fungsi laporan 
     //

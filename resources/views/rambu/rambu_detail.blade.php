@@ -22,7 +22,7 @@
     <!-- Profile Image -->
     <div class="box box-primary text-center " >
       <div class="box-body box-profile text-center" style="padding:10px;">
-      <img class=" img-responsive" style="width:100%; height:auto" src="/images/rambu/{{$rambu->gambar}}"  >
+      <img class=" img-responsive" style="width:100%; height:auto" src="images/rambu/{{$rambu->gambar}}"  >
       <h4 style="margin-top:18px"><b>Gambar Rambu</b></h4>
       </div>
       <!-- /.box-body -->

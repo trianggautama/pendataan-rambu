@@ -6,78 +6,75 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Detail Lokasi Rambu Terpasang
+       Lokasi Rambu Terpasang
         </h1>
         <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
         </ol>
     </section>
-
-    <!-- Main content -->
     <section class="content">
-    <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Form Input</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-            <div class="row">
-                <div class="col-md-6">
-                        <form  method="post" action="" >
- 
-                        <div class="form-group">
-                            <p>Rambu</p>
-                            <select multiple class="form-control" name="rambu_id" style="height:150px;">
-                                @foreach ($rambu as $r)
-                                    <option value="{{$r->id}}">{{$r->nama_rambu}}</option>
-                                @endforeach  
-                                </select>
-                        </div>
-                        <div class="form-group">
-                                <p>Latitude</p>
-                                <input type="text" name="lat"  class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <p>Langitude</p>
-                                <input type="text" name="lang"  class="form-control" />
-                            </div>                              
-                  
-                </div>
-                <div class="col-md-6">
-                        <div class="form-group">
-                                <p>Kelurahan</p>
-                                <select multiple class="form-control" style="height:150px;" name="kelurahan_id">
-                                        @foreach ($kelurahan as $kel)
-                                        <option value="{{$kel->id}}">{{$kel->nama_kelurahan}}</option>
-                                    @endforeach  
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                 
-                                    <input type="hidden" name="status_pasang"  value="0" class="form-control" />
-                                </div>    
-                            <div class="form-group">
-                                    <p>Alamat</p>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..." name="alamat"></textarea>
-                                  </div>
-                              <div class="text-right">
-                                    <a href="{{ route('rambu-terpasang-index') }}"  class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-arrow-circle-left"></i> Kembali </a>
 
-                                <input class="btn btn-primary" type="submit" name="submit" value="Submit">
-                                {{csrf_field() }}
-                             </div>
-                            </form>       
-                            <a href="{{route('rambu-terpasang-ubah', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-warning">ubah status</a>
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-xs-12">
 
-                </div>
-            </div>
-            </div>
-            <!-- /.box-body -->
-   
+    <!-- Profile Image -->
+    <div class="box box-primary text-center " >
+      <div class="box-body box-profile text-center" style="padding:10px;">
+        <hr>
+      <img class=" img-responsive" style="width:100%; height:auto" src="images/lokasi_rambu/{{$lokasi_rambu->gambar}}"  >
+      <h4 style="margin-top:18px"><b>Gambar Lokasi</b></h4>
+      </div>
+      <!-- /.box-body -->
+     
+    <!-- /.box -->
+    <div class="button" style="margin-bottom:20px;">
+            <a href="" class="btn btn-success"> <i class=" fa fa-print"></i> Cetak</a>
+            <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i>edit data</a>
+    <a href="{{route('rambu-terpasang-index')}}" class="btn btn-danger"> Kembali</a>
+    </div>
+</div>
 
-    </section>
-    <!-- /.content -->
+  </div>
+  <!-- /.col -->
+  <div class="col-md-8 pull-right col-xs-12" >
+    <div class="card">
+      <div class="card-header d-flex p-0" style="padding:0%!important;">
+        <ul class="nav nav-pills p-2">
+          <li class="nav-item">
+            <a class="nav-link " href="#keterangan" data-toggle="tab"><b>Keterangan</b></a>
+          </li>
+        </ul>
+      </div><!-- /.card-header -->
+      <div class="card-body" >
+        <div class="tab-content p-0">
+          <!-- Morris chart - Sales -->
+          <div class=" tab-pane active" id="keterangan"
+               style="position: relative; height: 370px;">
+               <p>Kode Rambu  : {{$lokasi_rambu->rambu->nama_rambu}}</p>
+               <hr>
+               <p>Nama Rambu  : {{$lokasi_rambu->rambu->jenis->nama_jenis}}</p>
+               <hr>
+               <p>Keterangan &nbsp : {{$lokasi_rambu->alamat}}</p>
+               <hr>
+               <p>Kelurahan &nbsp : {{$lokasi_rambu->kelurahan->nama_kelurahan}}</p>
+               <hr>
+               <p>latitude &nbsp : {{$lokasi_rambu->lat}}</p>
+               <hr>
+               <p>langitude &nbsp : {{$lokasi_rambu->lang}}</p>
+
+              </div>
+        </div>
+      </div><!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>
+  <!-- /.col -->
+</div>
+<!-- /.row -->
+
+</section>
+
     </div>
     <!-- /.content-wrapper -->
   
