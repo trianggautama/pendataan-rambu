@@ -73,8 +73,8 @@
               <section class="sidebar">
                 <!-- Sidebar user panel -->
                 <div class="user-panel text-center">
-                    <img class=" profile-img"  style="width:96%" src="images/dashboard/icon.png"  >
-                    <p style="color:#fff;margin-top:5px;">nama admin</p>
+                    <img class=" profile-img"  style="width:96%" src="/images/dashboard/icon.png"  >
+                    <p style="color:#fff;margin-top:5px;">  {{ Auth::user()->name }}</p>
                 </div>
                 <ul class="sidebar-menu" data-widget="tree">
                 <li class="treeview">

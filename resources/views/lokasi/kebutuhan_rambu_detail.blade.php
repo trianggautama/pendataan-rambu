@@ -21,15 +21,14 @@
     <!-- Profile Image -->
     <div class="box box-primary text-center " >
       <div class="box-body box-profile text-center" style="padding:10px;">
-        <hr>
-      <img class=" img-responsive" style="width:100%; height:auto" src="images/lokasi_rambu/{{$lokasi_rambu->gambar}}"  >
+      <img class=" img-responsive" style="width:100%; height:auto" src="/images/lokasi_rambu/{{$lokasi_rambu->gambar}}"  >
       <h4 style="margin-top:18px"><b>Gambar Lokasi</b></h4>
       </div>
       <!-- /.box-body -->
      
     <!-- /.box -->
     <div class="button" style="margin-bottom:20px;">
-            <a href="" class="btn btn-success"> <i class=" fa fa-print"></i> Cetak</a>
+            <a href="{{route('laporan-kebutuhan-rambu-detail', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-success"> <i class=" fa fa-print"></i> Cetak</a>
             <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i>edit data</a>
     <a href="{{route('rambu-terpasang-index')}}" class="btn btn-danger"> Kembali</a>
     </div>
@@ -50,12 +49,12 @@
         <div class="tab-content p-0">
           <!-- Morris chart - Sales -->
           <div class=" tab-pane active" id="keterangan"
-               style="position: relative; height: 370px;">
+               style="position: relative; height: 360px;">
                <p>Kode Rambu  : {{$lokasi_rambu->rambu->nama_rambu}}</p>
                <hr>
                <p>Nama Rambu  : {{$lokasi_rambu->rambu->jenis->nama_jenis}}</p>
                <hr>
-               <p>Keterangan &nbsp : {{$lokasi_rambu->alamat}}</p>
+               <p>alamat &nbsp : {{$lokasi_rambu->alamat}}</p>
                <hr>
                <p>Kelurahan &nbsp : {{$lokasi_rambu->kelurahan->nama_kelurahan}}</p>
                <hr>

@@ -22,7 +22,7 @@
     <!-- Profile Image -->
     <div class="box box-primary text-center " >
       <div class="box-body box-profile text-center" style="padding:10px;">
-      <img class=" img-responsive" style="width:100%; height:auto" src="images/rambu/{{$rambu->gambar}}"  >
+      <img class=" img-responsive" style="width:100%; height:auto" src="/images/rambu/{{$rambu->gambar}}"  >
       <h4 style="margin-top:18px"><b>Gambar Rambu</b></h4>
       </div>
       <!-- /.box-body -->
@@ -53,7 +53,7 @@
                <h5>Jenis Rambu : {{$rambu->jenis->nama_jenis}}</h5> 
                <h5>Keterangan &nbsp : {{$rambu->keterangan}}</h5>
               </div>
-          <div class=" tab-pane" id="edit-data" style="position: relative; height: 255px;">
+          <div class=" tab-pane" id="edit-data" style="position: relative; height: 265px;">
             <form class="form-horizontal"  method="post" action="">
               {{method_field('PUT') }}
               {{ csrf_field() }}
@@ -107,8 +107,8 @@
                 <tr>
                   <th>Kelurahan</th>
                   <th>Alamat</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -116,17 +116,19 @@
                   <tr>
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
                   <td>{{$lr->alamat}}</td>
-                  <td>
+                  <td class="text-center">
                     @if ($lr->status_pasang == 0)
-                      <a href="#" class="btn btn-primary"> tidak terpasang</a>
+                      <a href="#" class="btn btn-sm btn-primary"> kebutuhan rambu</a>
                     @else
-                        <a href="#" class="btn btn-success"> terpasang</a>
+                        <a href="#" class="btn btn-sm btn-success"> rambu terpasang</a>
                     @endif
                   </td>
                       <td class="text-center"> 
-                      <a href="#" class="btn btn-sm btn-info"> <i class=" fa fa-eye"></i></a>
-                      <a href="#" class="btn btn-sm btn-danger"> <i class=" fa fa-trash"></i></a>
-    
+                          @if ($lr->status_pasang == 0)
+                          <a href="{{route('kebutuhan-rambu-detail', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                        @else
+                        <a href="{{route('rambu-terpasang-detail', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
+                        @endif    
                       </td>
                     </tr> 
                   @endforeach

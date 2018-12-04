@@ -125,6 +125,8 @@ Route::get('/lokasi/kebutuhan_rambu/detail/{id}', 'adminController@kebutuhan_ram
 ->name('kebutuhan-rambu-detail');
 Route::get('/laporan/kebutuhan_rambu','adminController@laporan_kebutuhan_rambu')
 ->name('laporan-kebutuhan-rambu');
+Route::get('/laporan/kebutuhan_rambu_detail/{id}','adminController@laporan_kebutuhan_rambu_detail')
+->name('laporan-kebutuhan-rambu-detail');
 
 //pejabbat strutural
 Route::get('/pejabat-struktural', 'HomeController@pejabat_struktural_index')

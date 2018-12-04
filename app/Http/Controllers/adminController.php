@@ -395,7 +395,7 @@ class adminController extends Controller
             $FotoExt  = $request->gambar->getClientOriginalExtension();
             $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->lat;
             $gambar     = $FotoName.'.'.$FotoExt;
-            $request->foto->move('images/lokasi_rambu', $gambar);
+            $request->gambar->move('/images/lokasi_rambu', $gambar);
             $kebutuhanrambu->gambar= $gambar;
         }else {
             $kebutuhanrambu->gambar = 'default.png';
@@ -460,7 +460,7 @@ class adminController extends Controller
         $lokasi_rambu->update();
         return redirect(route('kebutuhan-rambu-index'))->with('success', 'Data kecamatan Rambu Terpasang Berhasil di Ubah');
     }//mengubah data rambu terpasang
-
+ 
 
 
 
@@ -521,4 +521,21 @@ class adminController extends Controller
     $pdf->setPaper('a4', 'potrait');
      return $pdf->download('Laporan data per-rambu.pdf');
     }//fungsi membuat laporan rambu detail pdf
+
+    public function laporan_kebutuhan_rambu_detail($id){
+       $id = IDCrypt::Decrypt($id);
+      
+       $lokasi_rambu =lokasi_rambu::findOrFail($id);
+        
+       // $lokasi_rambu = lokasi_rambu::where('rambu_id', $id)->get();
+      
+        $tgl= Carbon::now()->format('d-m-Y');
+
+    $pdf =PDF::loadView('laporan.kebutuhan_rambu_detail_laporan', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl]);
+    $pdf->setPaper('a4', 'potrait');
+     return $pdf->download('kebutuhan rambu detail.pdf');
+   // dd($lokasi_rambu);
+    //return view('laporan.kebutuhan_rambu_detail_laporan',compact('tgl','lokasi_rambu'));
+    }//fungsi membuat laporan rambu detail pdf
+
 }
