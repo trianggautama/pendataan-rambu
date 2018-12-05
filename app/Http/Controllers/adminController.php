@@ -435,7 +435,7 @@ class adminController extends Controller
     }//menampikan halama edit rambu terpasang
 
     public function kebutuhan_rambu_update(Request $request, $id){
-       // dd($request->kelurahan_id);
+   // dd($request->kelurahan_id);
        $id = IDCrypt::Decrypt($id);
         $lokasi_rambu = lokasi_rambu::findOrFail($id);
         $lokasi_rambu->kelurahan_id= $request->kelurahan_id;

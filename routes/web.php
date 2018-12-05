@@ -121,6 +121,8 @@ Route::get('/lokasi/kebutuhan_rambu/ubah/{id}', 'adminController@kebutuhan_rambu
 ->name('kebutuhan-rambu-ubah');
 Route::get('/lokasi/kebutuhan_rambu/edit/{id}', 'adminController@kebutuhan_rambu_edit')
 ->name('kebutuhan-rambu-edit');
+Route::put('/lokasi/kebutuhan_rambu/edit/{id}','adminController@kebutuhan_rambu_update')
+->name('kebutuhan-rambu-update');
 Route::get('/lokasi/kebutuhan_rambu/detail/{id}', 'adminController@kebutuhan_rambu_detail')
 ->name('kebutuhan-rambu-detail');
 Route::get('/laporan/kebutuhan_rambu','adminController@laporan_kebutuhan_rambu')

@@ -29,7 +29,7 @@
     <!-- /.box -->
     <div class="button" style="margin-bottom:20px;">
             <a href="{{route('laporan-kebutuhan-rambu-detail', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-success"> <i class=" fa fa-print"></i> Cetak</a>
-            <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i>edit data</a>
+            <a href=" {{route('kebutuhan-rambu-edit', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i>edit data</a>
     <a href="{{route('rambu-terpasang-index')}}" class="btn btn-danger"> Kembali</a>
     </div>
 </div>
