@@ -14,5 +14,8 @@ class kelurahan extends Model
     public function kecamatan(){
         return $this->belongsTo('App\kecamatan');
       }
+      public function lokasi_rambu(){
+        return $this->hasMany('App\lokasi_rambu');
+      }
 
 }

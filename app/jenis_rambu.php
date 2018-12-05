@@ -10,4 +10,7 @@ class jenis_rambu extends Model
     protected $fillable = [
         'nama_jenis',
     ];
+    public function rambu(){
+        return $this->hasMany('App\rambu');
+      }
 }

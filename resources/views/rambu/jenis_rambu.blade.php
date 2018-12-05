@@ -111,8 +111,8 @@
   })
   
   swalWithBootstrapButtons({
-    title: 'Are you sure?',
-    text:  "Yakin Ingin Menghapus Data kelurahan '"+nama_jenis+"' ?",
+    title: 'apa anda yakin?',
+    text:  " Menghapus Data jenis rambu '"+nama_jenis+"'juga akan menghapus data rambu yang berelasi , tetap lanjutkan ?",
     type: 'question',
     showCancelButton: true,
     confirmButtonText: 'hapus data',
@@ -131,7 +131,7 @@
       result.dismiss === swal.DismissReason.cancel
     ) {
       swalWithBootstrapButtons(
-        'Cancelled',
+        'Dibatalkan',
         'data batal dihapus',
         'error'
       )

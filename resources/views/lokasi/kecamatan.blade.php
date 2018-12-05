@@ -107,12 +107,12 @@ function Hapus(id,nama_kecamatan)
 
 swalWithBootstrapButtons({
   title: 'Are you sure?',
-  text:  "Yakin Ingin Menghapus Data Kecamatan '"+nama_kecamatan+"' ?",
+  text:  " Menghapus Data Kecamatan '"+nama_kecamatan+"' juga akan menghapus data kelurahan yang berelasi , tetap lanjutkan ?",
   type: 'question',
   showCancelButton: true,
   customClass: 'swal-wide',
-  confirmButtonText: 'Yes, delete it!',
-  cancelButtonText: 'No, cancel!',
+  confirmButtonText: 'Hapus ',
+  cancelButtonText: 'Batal',
   reverseButtons: true
 }).then((result) => {
   if (result.value) {
@@ -127,9 +127,9 @@ swalWithBootstrapButtons({
     result.dismiss === swal.DismissReason.cancel
   ) {
     swalWithBootstrapButtons(
-      'Cancelled',
-      'Your imaginary file is safe :)',
-      'error'
+      'Dibatalkan',
+      'Data Batal di Hapus ',
+      'info'
     )
   }
 })

@@ -130,8 +130,8 @@
   })
   
   swalWithBootstrapButtons({
-    title: 'Are you sure?',
-    text:  "Yakin Ingin Menghapus Data kelurahan '"+nama_rambu+"' ?",
+    title: 'Apa anda yakin?',
+    text:  "Menghapus Data kelurahan '"+nama_rambu+"'juga akan menghapus data kelurahan yang berelasi , tetap lanjutkan ?",
     type: 'question',
     showCancelButton: true,
     confirmButtonText: 'hapus data',

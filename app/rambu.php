@@ -13,5 +13,9 @@ class rambu extends Model
 
     public function jenis(){
         return $this->belongsTo('App\jenis_rambu', 'jenis_rambu_id');
-      }   
+      } 
+
+    public function lokasi_rambu(){
+        return $this->hasMany('App\lokasi_rambu');
+      }  
 }

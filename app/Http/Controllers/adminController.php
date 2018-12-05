@@ -79,7 +79,9 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $rambu=rambu::findOrFail($id);
         File::delete('images/rambu/'.$rambu->gambar);
+        $rambu->lokasi_rambu()->delete();
         $rambu->delete();
+       
         return redirect(route('rambu-index'))->with('success', 'Data rambu Berhasil di hapus');
     }//fungsi menghapus data rambu
 
@@ -139,8 +141,9 @@ class adminController extends Controller
     public function jenis_rambu_hapus($id){
         $id = IDCrypt::Decrypt($id);
         $jenis_rambu=jenis_rambu::findOrFail($id);
+        $jenis_rambu->rambu()->delete();
         $jenis_rambu->delete();
-        return redirect(route('jenis-rambu-index'))->with('success', 'Data Jenis rambu  Berhasil di hapus');
+        return redirect(route('jenis-rambu-index'))->with('success', 'Data  Berhasil di hapus');
     } //menghapus  data jenis rambu
 
 
@@ -197,9 +200,9 @@ class adminController extends Controller
        public function kecamatan_hapus($id){
         $id = IDCrypt::Decrypt($id);
             $kecamatan=kecamatan::findOrFail($id);
-            $namakecamatan=$kecamatan->nama_kecamatan;
+            $kecamatan->kelurahan()->delete();
             $kecamatan->delete();
-            return redirect(route('kecamatan-index'))->with('success', 'Data Merk '.$namakecamatan.' Berhasil di Hapus');
+            return redirect(route('kecamatan-index'))->with('success', 'Data  Berhasil di Hapus');
        
     }  //menghapus data  kecamatan
 
@@ -242,6 +245,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $kelurahan=kelurahan::findOrFail($id);
         $nama_kelurahan=$kelurahan->nama_kelurahan;
+        $kelurahan->rambu()->delete();
         $kelurahan->delete();
         return redirect(route('kelurahan-index'))->with('success', 'Data kecamatan '.$nama_kelurahan.' Berhasil di Hapus');
     } //menghapus data kelurahan
@@ -350,6 +354,7 @@ class adminController extends Controller
     public function lokasi_rambu_hapus($id){
         $id = IDCrypt::Decrypt($id);
         $lokasi_rambu=lokasi_rambu::findOrFail($id);
+
         $lokasi_rambu->delete();
         return redirect(route('rambu-terpasang-index'))->with('success', 'Data Rambu Terpasang Berhasil di Hapus');
     }  //menghapus data lokasi rambu

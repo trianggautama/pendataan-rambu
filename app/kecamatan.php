@@ -10,4 +10,8 @@ class kecamatan extends Model
     protected $fillable = [
         'nama_kecamatan',
     ];
+
+    public function kelurahan(){
+        return $this->hasMany('App\kelurahan');
+      }
 }
