@@ -6,21 +6,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-        Tambah Lokasi Rambu Terpasang
+        Tambah Lokasi Kebutuhan Rambu
         </h1>
-        <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-        </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
     <div class="box">
             @include('layouts.errors')
-            <div class="box-header">
-              <h3 class="box-title">Tambah Data</h3>
-            </div>
             <!-- /.box-header -->
             <div class="box-body" style="padding:25px;">
                 <div class="row">

@@ -3,10 +3,10 @@
 @section('content')
 
             
-                    <form method="POST" class="boxes" action="{{ route('login') }}"  autocomplete="off">
+                    <form method="POST" class="boxes" action="{{ route('login') }}"  autocomplete="off" style="margin-top:25%;">
                         @csrf
-
-                   <h1>Login</h1>
+                        <h1>Login</h1>
+                 
                            
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="email" required autofocus>
 
@@ -29,14 +29,14 @@
                                     {{ __('Login') }}
                                 </button>
 
-                        
+                                <br>
                                   <!--  <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label> -->
-                                <a style="color:white;  text-decoration:none;"" href="{{ route('password.request') }}">
+                                <a style="color:white;  text-decoration:none;" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
-                          
+                          <br>
                           
                     </form>
                 </div>

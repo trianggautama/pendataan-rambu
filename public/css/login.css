@@ -2,25 +2,36 @@ body{
     margin:0px;
     padding:0px;
     font-family: sans-serif;
-    background-color: #white;
-   
+    background-image: url("/images/background.jpg");
+    background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .boxes{
-    width: 300px;
-    padding:40px;
+    width: 350px;
+    padding:30px;
+    padding-bottom:40px; 
     margin-top:20%;
-    margin-left:50%;
+    margin-left:70%;
     transform: translate(-50%,-50%);
-    background: #191919;
+    background:white;
     text-align: center;
-    border-radius: 25px;
-    box-shadow:4px 4px 10px grey;  
+    border-radius: 15px;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.3);
+    border: 0.2px solid #cfcfcf;
+
 }
-.boxes h1{
-    color:white;
+.boxes h1{ 
+    color:rgb(42, 42, 42);
     text-transform: uppercase;
+    font-weight: 400;
+}
+
+.boxes h3{ 
+    color:white;
     font-weight: 500;
 }
+
 .boxes input[type="email"],.boxes input[type = "password"],.boxes input[type = "text"]{
     border: 0;
     background: none;
@@ -31,17 +42,17 @@ body{
     padding:14px 10px;
     width:200px;
     outline:none;   
-    color:white;
+    color:rgb(56, 55, 55);
     border-radius:24px;
     transition: 0.25s;
 }
 .boxes input[type="email"]:focus,.boxes input[type = "password"]:focus,.boxes input[type = "text"]:focus{
   width: 280px; 
-  border-color:#2ecc71;
+  border-color:#0dc559;
 }
 .btn-input{
     border: 0;
-    background: none;
+    background: #3498db;
     display: block;
     margin: 20px auto;
     text-align: center;

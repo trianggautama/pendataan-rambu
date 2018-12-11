@@ -285,7 +285,7 @@ class adminController extends Controller
             $FotoExt  = $request->gambar->getClientOriginalExtension();
             $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->lat;
             $gambar     = $FotoName.'.'.$FotoExt;
-            $request->foto->move('images/lokasi_rambu', $gambar);
+            $request->gambar->move('images/lokasi_rambu', $gambar);
             $rambu_terpasang->gambar= $gambar;
         }else {
             $rambu_terpasang->gambar = 'default.png';
