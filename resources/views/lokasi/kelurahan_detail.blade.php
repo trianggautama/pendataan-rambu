@@ -8,8 +8,8 @@
     <div class="box">
             <div class="box-header">
             <h3 class="box-title"> Data rambu pada kelurahan {{$kelurahan->nama_kelurahan}}</h3>
-              <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
-
+              <a href="{{route('laporan-kebutuhan-rambu-kelurahan', ['id' => IDCrypt::Encrypt( $kelurahan->id)])}}" class="btn btn-primary pull-right"  style="margin-left:15px;"><i class="fa fa-print"></i> cetak kebutuhan rambu</a>
+              <a href="{{route('laporan-rambu-terpasang-kelurahan', ['id' => IDCrypt::Encrypt( $kelurahan->id)])}}" class="btn btn-warning pull-right"><i class="fa fa-print" style="margin-right:15px;"></i> cetak rambu terpasang</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

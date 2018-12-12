@@ -85,6 +85,11 @@ Route::get('/lokasi/kelurahan/hapus/{id}','adminController@kelurahan_hapus')
 ->name('kelurahan-hapus');
 Route::get('/laporan/kelurahan','adminController@laporan_kelurahan')
 ->name('laporan-kelurahan');
+Route::get('/laporan/kebutuhan-rambu/kelurahan/{id}','adminController@laporan_kebutuhan_rambu_kelurahan')
+->name('laporan-kebutuhan-rambu-kelurahan');
+Route::get('/laporan/rambu-terpasang/kelurahan/{id}','adminController@laporan_rambu_terpasang_kelurahan')
+->name('laporan-rambu-terpasang-kelurahan');
+
 
 //titik rambu terpasang
 Route::get('/lokasi/rambu_terpasang', 'adminController@rambu_terpasang_index')

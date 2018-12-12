@@ -60,12 +60,10 @@
          background-color: black;
         
      }
-     .tgl{
-         width:100%;
-         text-align:right;
-         margin-top:0px;
-         margin-bottom:50px;
-         margin-right:10%;
+     .ttd{
+         margin-left:70%;
+         text-align: center; 
+         text-transform: uppercase;
      }
     </style>
 </head>
@@ -80,9 +78,6 @@
                 <p style="margin:0px;">Alamat : Jl.Jend Sudirman No.3 Telp.(0511)6749034 Banjarbaru 70713</p>
             </div>
             <hr>
-            <div class="tgl">
-                    <p>Banjarbaru, {{$tgl}}</p>
-                  </div>
     </div>
  
     <div class="container">
@@ -107,6 +102,18 @@
                         @endforeach
                         </tfoot>
                       </table>
+                      <br>
+                      <br>
+                      <div class="ttd">
+                        <h5> <p>Banjarbaru, {{$tgl}}</p></h5>
+                        @foreach ($pejabat_struktural as $ps)
+                      <h5>{{$ps->jabatan}}</h5>
+                      <br>
+                      <br>
+                      <h5 style="text-decoration:underline;">{{$ps->nama}}</h5>
+                      <h5>{{$ps->NIP}}</h5>
+                      @endforeach
+                      </div>
                     </div>
                   
         </div>

@@ -13,6 +13,7 @@ use App\lokasi_rambu;
 use Carbon\Carbon;
 use App\kecamatan;
 use App\kelurahan;
+use App\pejabat_struktural;
 
 class adminController extends Controller
 {
@@ -478,11 +479,13 @@ class adminController extends Controller
     //
     //fungsi laporan 
     //
+
+
     public function laporan_kelurahan(){
         $kelurahan = kelurahan::all();
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
         $tgl= Carbon::now()->format('d-m-Y');
-
-    $pdf =PDF::loadView('laporan.kelurahan_laporan', ['kelurahan' => $kelurahan,'tgl'=>$tgl]);
+    $pdf =PDF::loadView('laporan.kelurahan_laporan', ['kelurahan' => $kelurahan,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
      return $pdf->download('Laporan Kelurahan.pdf');
     // return view('lokasi.kelurahan_laporan',compact('kelurahan','tgl'));
@@ -491,27 +494,30 @@ class adminController extends Controller
 
     public function laporan_kebutuhan_rambu(){
         $lokasi_rambu = lokasi_rambu::where('status_pasang', 0)->get();
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kepala dinas')->get();
         $tgl= Carbon::now()->format('d-m-Y');
 
-    $pdf =PDF::loadView('laporan.kebutuhan_rambu_laporan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl]);
+    $pdf =PDF::loadView('laporan.kebutuhan_rambu_laporan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
      return $pdf->download('Laporan kebutuhan rambu.pdf');
     }//fungsi membuat laporan kebutuhan rambu pdf
 
     public function laporan_rambu_terpasang(){
         $lokasi_rambu = lokasi_rambu::where('status_pasang', 1)->get();
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
         $tgl= Carbon::now()->format('d-m-Y');
 
-    $pdf =PDF::loadView('laporan.rambu_terpasang_laporan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl]);
+    $pdf =PDF::loadView('laporan.rambu_terpasang_laporan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
      return $pdf->download('Laporan rambu terpasang.pdf');
     }//fungsi membuat laporan rambu terpasang pdf
 
     public function laporan_rambu(){
         $rambu =rambu::all();
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
         $tgl= Carbon::now()->format('d-m-Y');
 
-    $pdf =PDF::loadView('laporan.rambu_laporan', ['rambu' => $rambu,'tgl'=>$tgl]);
+    $pdf =PDF::loadView('laporan.rambu_laporan', ['rambu' => $rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
      return $pdf->download('Laporan rambu.pdf');
     }//fungsi membuat laporan rambu  pdf
@@ -520,27 +526,57 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $rambu =rambu::findOrFail($id);
         $lokasi_rambu = lokasi_rambu::where('rambu_id', $id)->get();
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
         $tgl= Carbon::now()->format('d-m-Y');
 
-    $pdf =PDF::loadView('laporan.rambu_detail_laporan', ['rambu' => $rambu,'lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl]);
+    $pdf =PDF::loadView('laporan.rambu_detail_laporan', ['rambu' => $rambu,'lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
      return $pdf->download('Laporan data per-rambu.pdf');
     }//fungsi membuat laporan rambu detail pdf
 
     public function laporan_kebutuhan_rambu_detail($id){
        $id = IDCrypt::Decrypt($id);
-      
+       $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
        $lokasi_rambu =lokasi_rambu::findOrFail($id);
         
        // $lokasi_rambu = lokasi_rambu::where('rambu_id', $id)->get();
       
         $tgl= Carbon::now()->format('d-m-Y');
 
-    $pdf =PDF::loadView('laporan.kebutuhan_rambu_detail_laporan', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl]);
+    $pdf =PDF::loadView('laporan.kebutuhan_rambu_detail_laporan', ['lokasi_rambu'=>$lokasi_rambu,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
      return $pdf->download('kebutuhan rambu detail.pdf');
    // dd($lokasi_rambu);
     //return view('laporan.kebutuhan_rambu_detail_laporan',compact('tgl','lokasi_rambu'));
     }//fungsi membuat laporan rambu detail pdf
+
+    public function laporan_kebutuhan_rambu_kelurahan($id){
+        $id = IDCrypt::Decrypt($id);
+        $kelurahan = kelurahan::findOrFail($id);
+        $lokasi_rambu =lokasi_rambu::where([
+            'kelurahan_id' => $id,
+            'status_pasang' => 0
+     ])->get();
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
+        $tgl= Carbon::now()->format('d-m-Y');
+    $pdf =PDF::loadView('laporan.kebutuhan__rambu_kelurahan_laporan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
+    $pdf->setPaper('a4', 'potrait');
+     return $pdf->download('Laporan kebutuhan rambu perkelurahan.pdf');
+    }//fungsi membuat laporan kebutuhan rambu perkelurahan pdf
+
+    public function laporan_rambu_terpasang_kelurahan($id){
+        $id = IDCrypt::Decrypt($id);
+        $kelurahan = kelurahan::findOrFail($id);
+        $lokasi_rambu =lokasi_rambu::where([
+            'kelurahan_id' => $id,
+            'status_pasang' => 1
+     ])->get();
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
+        $tgl= Carbon::now()->format('d-m-Y');
+    $pdf =PDF::loadView('laporan.kebutuhan__rambu_kelurahan_laporan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
+    $pdf->setPaper('a4', 'potrait');
+     return $pdf->download('Laporan kebutuhan rambu perkelurahan.pdf');
+    }//fungsi membuat laporan kebutuhan rambu perkelurahan pdf
+
 
 }

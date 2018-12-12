@@ -16,7 +16,7 @@
               <div class="col-md-6"style="margin-top:20px;">
                 <div class="button" >
                     <a href="{{route('kebutuhan-rambu-tambah')}}" class="btn  btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
-                    <a href="{{route('laporan-rambu-terpasang')}}" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+                    <a href="{{route('laporan-kebutuhan-rambu')}}" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
                 </div>
                 </div>              

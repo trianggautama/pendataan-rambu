@@ -56,12 +56,10 @@
          background-color: black;
         
      }
-     .tgl{
-         width:100%;
-         text-align:right;
-         margin-top:0px;
-         margin-bottom:50px;
-         margin-right:10%;
+     .ttd{
+         margin-left:70%;
+         text-align: center; 
+         text-transform: uppercase;
      }
     </style>
 </head>
@@ -153,7 +151,19 @@
                 </tfoot>
               </table>
         <p>Demikian kami sampaikan mohon arahan dan petunjuk berikutnya.</p>
-        </div>      
+        </div> 
+        <br>
+        <br>
+        <div class="ttd">
+          <h5> <p>Banjarbaru, {{$tgl}}</p></h5>
+          @foreach ($pejabat_struktural as $ps)
+        <h5>{{$ps->jabatan}}</h5>
+        <br>
+        <br>
+        <h5 style="text-decoration:underline;">{{$ps->nama}}</h5>
+        <h5>{{$ps->NIP}}</h5>
+        @endforeach
+        </div>     
         </div>
        
             </body>
