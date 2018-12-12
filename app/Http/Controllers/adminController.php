@@ -246,7 +246,7 @@ class adminController extends Controller
         $id = IDCrypt::Decrypt($id);
         $kelurahan=kelurahan::findOrFail($id);
         $nama_kelurahan=$kelurahan->nama_kelurahan;
-        $kelurahan->rambu()->delete();
+        $kelurahan->lokasi_rambu()->delete();
         $kelurahan->delete();
         return redirect(route('kelurahan-index'))->with('success', 'Data kecamatan '.$nama_kelurahan.' Berhasil di Hapus');
     } //menghapus data kelurahan
@@ -401,7 +401,7 @@ class adminController extends Controller
             $FotoExt  = $request->gambar->getClientOriginalExtension();
             $FotoName = 'lokasi - '.$request->kelurahan_id.' - '. $request->lat;
             $gambar     = $FotoName.'.'.$FotoExt;
-            $request->gambar->move('/images/lokasi_rambu', $gambar);
+            $request->gambar->move('images/lokasi_rambu', $gambar);
             $kebutuhanrambu->gambar= $gambar;
         }else {
             $kebutuhanrambu->gambar = 'default.png';
@@ -483,11 +483,12 @@ class adminController extends Controller
 
     public function laporan_kelurahan(){
         $kelurahan = kelurahan::all();
-        $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kepala dinas')->get();
         $tgl= Carbon::now()->format('d-m-Y');
+
     $pdf =PDF::loadView('laporan.kelurahan_laporan', ['kelurahan' => $kelurahan,'tgl'=>$tgl,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
-     return $pdf->download('Laporan Kelurahan.pdf');
+     return $pdf->download('Laporan kelurahan.pdf');
     // return view('lokasi.kelurahan_laporan',compact('kelurahan','tgl'));
     }//fungsi membuat laporan kelurahan pdf
 
@@ -573,7 +574,7 @@ class adminController extends Controller
      ])->get();
         $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
         $tgl= Carbon::now()->format('d-m-Y');
-    $pdf =PDF::loadView('laporan.kebutuhan__rambu_kelurahan_laporan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
+    $pdf =PDF::loadView('laporan.rambu_terpasang_kelurahan_laporan', ['lokasi_rambu' => $lokasi_rambu,'tgl'=>$tgl,'kelurahan' => $kelurahan,'pejabat_struktural'=>$pejabat_struktural]);
     $pdf->setPaper('a4', 'potrait');
      return $pdf->download('Laporan kebutuhan rambu perkelurahan.pdf');
     }//fungsi membuat laporan kebutuhan rambu perkelurahan pdf

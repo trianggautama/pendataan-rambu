@@ -78,9 +78,7 @@
                 <p style="margin:0px;">Alamat : Jl.Jend Sudirman No.3 Telp.(0511)6749034 Banjarbaru 70713</p>
             </div>
             <hr>
-            <div class="tgl">
-                    <p>Banjarbaru, {{$tgl}}</p>
-                  </div>
+          
     </div>
  
     <div class="container">
