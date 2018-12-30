@@ -152,7 +152,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Source Sans Pro', sans-serif
+  font-family: 'roboto', sans-serif
 }
 
 a {
@@ -1658,12 +1658,12 @@ a:hover, a:active, a:focus {
 
 .box {
   position: relative;
-  border-radius: 10px;
+  border-radius: 7px;
   background: #ffffff;
   border-top: 3px solid #d2d6de;
   margin-bottom: 20px;
   width: 100%;
-  border:0.8px solid #d8d8d8;
+  border:none;
 }
 
 .box.box-primary {

@@ -26,7 +26,7 @@
                             
                     
                                 <button type="submit" class="btn-input">
-                                    {{ __('Login') }}
+                                   <b>Login</b>
                                 </button>
 
                                 <br>

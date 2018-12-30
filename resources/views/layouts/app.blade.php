@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Aplikasi Pengolahan data kebutuhan dan ketersediaan rambu</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -39,7 +39,7 @@
               </a>
           
               <!-- Header Navbar: style can be found in header.less -->
-              <nav class="navbar" style="height:50px!important;margin:0px!important;padding:0px!important;">
+              <nav class="navbar navbar-fixed" style="height:50px!important;margin:0px!important;padding:0px!important;">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                   <span class="sr-only">Toggle navigation</span>
@@ -122,7 +122,7 @@
                       </span>
                     </a>
                     <ul class="treeview-menu">
-                      <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> User</a></li>
+                      <li><a href="{{ route('users')}}"><i class="fa fa-circle-o"></i> User</a></li>
                     <li><a href="{{ route('pejabat-struktural-index')}}"><i class="fa fa-circle-o"></i> Pejabat Struktural</a></li>
                     </ul>
                   </li>

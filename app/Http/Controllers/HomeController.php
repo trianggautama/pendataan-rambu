@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\pejabat_struktural;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -66,5 +67,13 @@ class HomeController extends Controller
 
         return redirect(route('pejabat-struktural-index'));
     }
+
+    //users function
+    public function users_index()
+    {
+        $users = user::all();
+        return view('users/users',compact('users'));
+    }
+
 
 }

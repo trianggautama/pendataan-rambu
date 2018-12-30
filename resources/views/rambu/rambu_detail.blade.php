@@ -4,25 +4,15 @@
 
     <div class="content-wrapper" style="padding-bottom:0px;">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-        Jenis Rambu
-        <small>yang ada di kota Banjarbaru</small>
-        </h1>
-        <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-        </ol>
-    </section>
-    <section class="content">
+    <section class="content" style="padding-botom:5px !important;">
 
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-xs-12">
+<div class="row" >
+  <div class="col-lg-4 col-md-4 col-xs-12" >
 
     <!-- Profile Image -->
     <div class="box box-primary text-center " >
       <div class="box-body box-profile text-center" style="padding:10px;">
-      <img class=" img-responsive" style="width:100%; height:auto" src="/images/rambu/{{$rambu->gambar}}"  >
+      <img class=" img-responsive" style="width:90%; height:auto" src="/images/rambu/{{$rambu->gambar}}"  >
       <h4 style="margin-top:18px"><b>Gambar Rambu</b></h4>
       </div>
       <!-- /.box-body -->
@@ -91,10 +81,6 @@
 </div>
 <!-- /.row -->
 
-</section>
-<!-- /.content -->
-    <!-- Main content -->
-    <section class="content">
     <div class="box">
             <div class="box-header">
               <h3 class="box-title">Lokasi Rambu</h3>

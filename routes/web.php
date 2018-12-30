@@ -147,6 +147,9 @@ Route::put('/pejabat-struktural/edit/{id}', 'HomeController@pejabat_struktural_u
 Route::get('/pejabat-struktural/hapus/{id}', 'HomeController@pejabat_struktural_hapus')
 ->name('pejabat-struktural-hapus');
 
+//users
+Route::get('/users', 'HomeController@users_index')
+->name('users');
 
 
 });

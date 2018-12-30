@@ -466,16 +466,6 @@ class adminController extends Controller
         $lokasi_rambu->update();
         return redirect(route('kebutuhan-rambu-index'))->with('success', 'Data kecamatan Rambu Terpasang Berhasil di Ubah');
     }//mengubah data rambu terpasang
- 
-
-
-
-
-
-
-
-
-
     //
     //fungsi laporan 
     //

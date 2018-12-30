@@ -2,29 +2,26 @@ body{
     margin:0px;
     padding:0px;
     font-family: sans-serif;
-    background-image: url("/images/background.jpg");
-    background-position: bottom;
+    background-image: url("/images/background.png");
+    background-position: top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
 }
 .boxes{
     width: 350px;
     padding:30px;
-    padding-bottom:40px; 
+    padding-bottom:0px; 
     margin-top:20%;
     margin-left:70%;
     transform: translate(-50%,-50%);
-    background:white;
+    background:none;
     text-align: center;
-    border-radius: 15px;
-    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.3);
-    border: 0.2px solid #cfcfcf;
 
 }
 .boxes h1{ 
-    color:rgb(42, 42, 42);
-    text-transform: uppercase;
+    color:rgb(71, 71, 71);
     font-weight: 400;
+    font-size:40px;
 }
 
 .boxes h3{ 
@@ -34,29 +31,32 @@ body{
 
 .boxes input[type="email"],.boxes input[type = "password"],.boxes input[type = "text"]{
     border: 0;
-    background: none;
+    background:none;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border:2px solid #3498db;
+    border:1.5px solid #3498db;
     padding:14px 10px;
-    width:200px;
+    width:250px;
     outline:none;   
-    color:rgb(56, 55, 55);
+    color:rgb(80, 80, 80);
     border-radius:24px;
     transition: 0.25s;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+
 }
 .boxes input[type="email"]:focus,.boxes input[type = "password"]:focus,.boxes input[type = "text"]:focus{
-  width: 280px; 
+  width: 300px; 
   border-color:#0dc559;
 }
 .btn-input{
     border: 0;
-    background: #3498db;
+    background-color: #5d97f4; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, #5d97f4, #11dba5); 
     display: block;
     margin: 20px auto;
     text-align: center;
-    border:2px solid #3498db;
+    border:none;
     padding:14px 10px;
     width:140px;
     outline:none;
@@ -64,6 +64,9 @@ body{
     border-radius:24px;
     transition: 0.25s;
     cursor: pointer;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    
+
 }
 .btn-input:hover{
    background:#3498db;
