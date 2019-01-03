@@ -19,8 +19,8 @@
   <script src="{{ asset('bower_components\sweetalert\sweetalert.min.js') }}"></script>
   <link href="{{ asset('bower_components\bootstrap\bootsrtap4.min.css') }}" rel="stylesheet">
   <link href="{{ asset('bower_components\datatable\datatable.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-      <link href="{{ asset('css/AdminLTE.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="{{ asset('css/AdminLTE.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/_all-skins.min.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -39,10 +39,10 @@
               </a>
           
               <!-- Header Navbar: style can be found in header.less -->
-              <nav class="navbar navbar-fixed" style="height:50px!important;margin:0px!important;padding:0px!important;">
+              <nav class="navbar " style="height:50px!important;margin:0px!important;padding:0px!important;">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                  <span class="sr-only">Toggle navigation</span>
+                  <i class="fas fa-bars"></i>
                 </a>
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
@@ -54,7 +54,7 @@
                      -->
                     <a style="color:#0064a7;margin-right:20px;" href="{{ route('logout') }}" 
                                 onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();" class="a_1"> <i class="fa fa-sign-out"></i>
+                                         document.getElementById('logout-form').submit();" class="a_1"> <i class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -79,51 +79,51 @@
                 <ul class="sidebar-menu" data-widget="tree">
                 <li class="treeview">
                     <a href="#">
-                      <i class="fa fa-files-o"></i> <span>data Rambu </span>
+                      <i class="fas fa-file-alt"></i> <span>data Rambu </span>
                       <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                       </span>
                     </a>
                     <ul class="treeview-menu">
-                      <li><a href="{{ route('jenis-rambu-index') }}"><i class="fa fa-circle-o"></i> Data Jenis Rambu</a></li>
-                      <li><a href="{{ route('rambu-index') }}"><i class="fa fa-circle-o"></i> Data Rambu Keseluruhan</a></li>
+                      <li><a href="{{ route('jenis-rambu-index') }}"><i class="far fa-circle"></i> Data Jenis Rambu</a></li>
+                      <li><a href="{{ route('rambu-index') }}"><i class="far fa-circle"></i> Data Rambu Keseluruhan</a></li>
                     </ul>
                   </li>
                 <li class="treeview">
                     <a href="#">
-                      <i class="fa fa-files-o"></i> <span>Titik Rambu</span>
+                      <i class="far fa-map"></i> <span>Titik Rambu</span>
                       <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                       </span>
                     </a>
                     <ul class="treeview-menu">
-                      <li><a href="{{ route('kebutuhan-rambu-index') }}"><i class="fa fa-circle-o"></i> Data Kebutuhan Rambu</a></li>
-                      <li><a href="{{ route('rambu-terpasang-index') }}"><i class="fa fa-circle-o"></i> Data Rambu terpasang</a></li>
+                      <li><a href="{{ route('kebutuhan-rambu-index') }}"><i class="far fa-circle"></i> Data Kebutuhan Rambu</a></li>
+                      <li><a href="{{ route('rambu-terpasang-index') }}"><i class="far fa-circle"></i> Data Rambu terpasang</a></li>
                     </ul>
                   </li>
                   
                   <li class="treeview">
                     <a href="#">
-                      <i class="fa fa-map-marker"></i> <span>Data Lokasi</span>
+                      <i class="fas fa-map-marker-alt"></i> <span>Data Lokasi</span>
                       <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                       </span>
                     </a>
                     <ul class="treeview-menu">
-                      <li><a href="{{ route('kecamatan-index') }}"><i class="fa fa-circle-o"></i> Kecamatan</a></li>
-                      <li><a href="{{ route('kelurahan-index') }}"><i class="fa fa-circle-o"></i> Kelurahan</a></li>
+                      <li><a href="{{ route('kecamatan-index') }}"><i class="far fa-circle"></i> Kecamatan</a></li>
+                      <li><a href="{{ route('kelurahan-index') }}"><i class="far fa-circle"></i> Kelurahan</a></li>
                     </ul>
                   </li>
                   <li class="treeview">
                     <a href="#">
-                      <i class="fa fa-gears"></i>
+                      <i class="fas fa-users-cog"></i> 
                       <span>Manajemen Admin</span>
                       <span class="pull-right-container">
                       </span>
                     </a>
                     <ul class="treeview-menu">
-                      <li><a href="{{ route('users')}}"><i class="fa fa-circle-o"></i> User</a></li>
-                    <li><a href="{{ route('pejabat-struktural-index')}}"><i class="fa fa-circle-o"></i> Pejabat Struktural</a></li>
+                      <li><a href="{{ route('users')}}"><i class="far fa-circle"></i> User</a></li>
+                    <li><a href="{{ route('pejabat-struktural-index')}}"><i class="far fa-circle"></i> Pejabat Struktural</a></li>
                     </ul>
                   </li>
              

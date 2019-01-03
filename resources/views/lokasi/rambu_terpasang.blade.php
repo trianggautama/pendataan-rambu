@@ -14,7 +14,7 @@
                      </div>
               </div>     
               <div class="col-md-6"style="margin-top:20px;">
-                <div class="button" >
+                <div class="button text-right" >
                     <a href="{{route('rambu-terpasang-tambah')}}" class="btn  btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
                     <a href="{{route('laporan-rambu-terpasang')}}" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
@@ -47,9 +47,9 @@
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
                   <td class="text-center">
                   <a href=" {{route('rambu-terpasang-detail', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i></a>
+                  <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-primary"> <i class=" far fa-edit"></i></a>
                   <button type="button" class="btn btn-danger"
-                  onclick="Hapus('{{Crypt::encryptString($lr->id)}}')"><b><i class="fa fa-trash-o"></i></b></button>
+                  onclick="Hapus('{{Crypt::encryptString($lr->id)}}')"><b><i class="far fa-trash-alt"></i></b></button>
               </td>
                 </tr>
                 @endforeach

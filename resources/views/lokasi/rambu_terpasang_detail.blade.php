@@ -4,53 +4,41 @@
 
     <div class="content-wrapper" style="padding-bottom:0px;">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-       Lokasi Rambu Terpasang
-        </h1>
-        <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-        </ol>
-    </section>
     <section class="content">
 
 <div class="row">
   <div class="col-lg-4 col-md-4 col-xs-12">
-
+    <div class="card">
+ 
+      <div class="card-header d-flex p-0" style="padding:5%!important;">
+          <b>Detail Lokasi rambu terpasang</b>
+        </div><!-- /.card-header -->
     <!-- Profile Image -->
-    <div class="box box-primary text-center " >
-      <div class="box-body box-profile text-center" style="padding:10px;">
-        <hr>
+    <div class="card  text-center " >
+      <div class="card-body text-center" style="padding:10px;">
       <img class=" img-responsive" style="width:100%; height:auto" src="/images/lokasi_rambu/{{$lokasi_rambu->gambar}}"  >
       <h4 style="margin-top:18px"><b>Gambar Lokasi</b></h4>
-      </div>
+     
+    </div>
       <!-- /.box-body -->
      
     <!-- /.box -->
     <div class="button" style="margin-bottom:20px;">
-            <a href="" class="btn btn-success"> <i class=" fa fa-print"></i> Cetak</a>
             <a href=" {{route('rambu-terpasang-edit', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i>edit data</a>
     <a href="{{route('rambu-terpasang-index')}}" class="btn btn-danger"> Kembali</a>
     </div>
 </div>
-
+</div>
   </div>
   <!-- /.col -->
   <div class="col-md-8 pull-right col-xs-12" >
     <div class="card">
-      <div class="card-header d-flex p-0" style="padding:0%!important;">
-        <ul class="nav nav-pills p-2">
-          <li class="nav-item">
-            <a class="nav-link " href="#keterangan" data-toggle="tab"><b>Keterangan</b></a>
-          </li>
-        </ul>
+      <div class="card-header d-flex p-0" style="padding:3%!important;">
+       <b>Keterangan</b>
       </div><!-- /.card-header -->
       <div class="card-body" >
         <div class="tab-content p-0">
           <!-- Morris chart - Sales -->
-          <div class=" tab-pane active" id="keterangan"
-               style="position: relative; height: 370px;">
                <p>Kode Rambu  : {{$lokasi_rambu->rambu->nama_rambu}}</p>
                <hr>
                <p>Nama Rambu  : {{$lokasi_rambu->rambu->jenis->nama_jenis}}</p>
@@ -65,7 +53,6 @@
                <hr>
                <p>langitude &nbsp : {{$lokasi_rambu->lang}}</p>
 
-              </div>
         </div>
       </div><!-- /.card-body -->
     </div>

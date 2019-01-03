@@ -16,7 +16,7 @@
                      </div>
               </div>     
               <div class="col-md-6"style="margin-top:20px;">
-                <div class="button" >
+                <div class="button text-right" >
                     <a href="#tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
                     <a href="{{route('laporan-rambu')}}" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
@@ -44,9 +44,9 @@
                   <td>{{$r->nama_rambu}}</td>
                   <td>{{$r->jenis->nama_jenis}}</td>
                   <td class="text-center">
-                  <a href="{{route('rambu-detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
+                  <a href="{{route('rambu-detail', ['id' => IDCrypt::Encrypt( $r->id)])}}" class="btn btn-default"> <i class=" far fa-eye"></i></a>
                   <button type="button" class="btn btn-danger"
-                  onclick="Hapus('{{Crypt::encryptString($r->id)}}','{{$r->nama_rambu}}')"><b><i class="fa fa-trash-o"></i></b></button>
+                  onclick="Hapus('{{Crypt::encryptString($r->id)}}','{{$r->nama_rambu}}')"><b><i class="far fa-trash-alt"></i></b></button>
              </td>
                 </tr>
                 @endforeach
@@ -54,25 +54,18 @@
               </table>
             </div>
             <!-- /.box-body -->
-              
-  <div id="tambahdata" class="modal fade" tabindex="-1" role="dialog" >
-    <div class="modal-dialog" role="document" >
-      <div class="modal-content">
-          <div class="modal-header">
-              <div class="row">
-                <div class="col-md-10">
-                    <h4>Tambah Data</h4>
-                </div>
-                <div class="col-md-2">
-                    <button type="button" class="close pull-right " data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                </div>
-              </div>
-            </div>
-    
-        <div class="modal-body">
-          <!-- form login -->
+
+            <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  <!-- form login -->
           <form  method="post" action="" enctype="multipart/form-data">
  
             <div class="form-group">
@@ -106,10 +99,11 @@
 
           </form>
           <!-- end form login -->
-        </div>
-          </div>
-          <!-- /.box -->
-        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
     </section>
     <!-- /.content -->

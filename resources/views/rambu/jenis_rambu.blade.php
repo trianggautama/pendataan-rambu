@@ -17,7 +17,7 @@
                      </div>
               </div>     
               <div class="col-md-6"style="margin-top:20px;">
-                <div class="button" >
+                <div class="button text-right" >
                     <a href="#tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
                     <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                     
@@ -40,10 +40,10 @@
                   <td>{{$jr->id}}</td>
                   <td>{{$jr->nama_jenis}} </td>
                   <td class="text-center"> 
-                  <a href="{{route('jenis-rambu-detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
-                  <a href="{{route('jenis-rambu-edit', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-primary" > <i class=" fa fa-edit"></i></a>
+                  <a href="{{route('jenis-rambu-detail', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-default"> <i class=" far fa-eye"></i></a>
+                  <a href="{{route('jenis-rambu-edit', ['id' => IDCrypt::Encrypt( $jr->id)])}}" class="btn btn-primary" > <i class=" far fa-edit"></i></a>
                   <button type="button" class="btn btn-danger"
-                      onclick="Hapus('{{Crypt::encryptString($jr->id)}}','{{$jr->nama_jenis}}')"><b><i class="fa fa-trash-o"></i></b></button>
+                      onclick="Hapus('{{Crypt::encryptString($jr->id)}}','{{$jr->nama_jenis}}')"><b><i class="far fa-trash-alt"></i></b></button>
                  
                   </td>
                 </tr>
@@ -53,48 +53,36 @@
             </div>
             <!-- /.box-body -->
               
-  <div id="tambahdata" class="modal fade" tabindex="-1" role="dialog" >
-    <div class="modal-dialog" role="document" >
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="row">
-            <div class="col-md-10">
-                <h4>Tambah Data</h4>
+  
+            <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form  method="post" action="">
+                      <div class="form-group">
+                        <p>Jenis Rambu</p>
+                        <input type="text" name="nama_jenis"  class="form-control" />
+                      </div>
+                     
+                       <div class="text-right">
+          
+                         <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                         {{csrf_field() }}
+                       </div>
+                     </div>
+          
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-md-2">
-                <button type="button" class="close  " data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-            </div>
-          </div>
-        </div>
-    
-        <div class="modal-body">
-          <!-- form login -->
-          <form  method="post" action="">
-            <div class="form-group">
-              <p>Jenis Rambu</p>
-              <input type="text" name="nama_jenis"  class="form-control" />
-            </div>
-           
-             <div class="text-right">
 
-               <input class="btn btn-primary" type="submit" name="submit" value="Submit">
-               {{csrf_field() }}
-             </div>
-           </div>
-
-          </form>
-          <!-- end form login -->
-        </div>
-          </div>
-          <!-- /.box -->
-        </div>
-
-    </section>
-    <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
   
     
 @endsection

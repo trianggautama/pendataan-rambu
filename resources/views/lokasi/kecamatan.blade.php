@@ -17,7 +17,7 @@
                            </div>
                     </div>     
                     <div class="col-md-6"style="margin-top:20px;">
-                      <div class="button" >
+                      <div class="button text-right" >
                           <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-sm btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
                           <a href="#" class="btn btn-sm btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
                           
@@ -46,10 +46,10 @@
                   <td>{{$k->nama_kecamatan}} </td>
                   <td class="text-center"> 
                       <a href="{{route('kecamatan-detail', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn  btn-default"> <i class=" fa fa-eye"></i></a>
-                      <a href="{{route('kecamatan-edit', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn  btn-primary"> <i class=" fa fa-edit"></i></a>
+                      <a href="{{route('kecamatan-edit', ['id' => IDCrypt::Encrypt( $k->id)])}}" class="btn  btn-primary"> <i class=" far fa-edit"></i></a>
                      
                       <button type="button" class="btn btn-danger"
-                      onclick="Hapus('{{Crypt::encryptString($k->id)}}','{{$k->nama_kecamatan}}')"><b><i class="fa fa-trash-o"></i></b></button>
+                      onclick="Hapus('{{Crypt::encryptString($k->id)}}','{{$k->nama_kecamatan}}')"><b><i class="far fa-trash-alt"></i></b></button>
                     </td>
                 </tr>
                 @endforeach

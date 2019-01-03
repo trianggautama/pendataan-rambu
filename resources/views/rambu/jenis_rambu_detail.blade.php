@@ -7,9 +7,10 @@
     <section class="content">
     <div class="box">
             <div class="box-header">
-            <h3 class="box-title">Tabel Data Rambu {{$jenis_rambu->nama_jenis}}</h3>
-              <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
-
+            <h3>Tabel Data Rambu {{$jenis_rambu->nama_jenis}}</h3>
+            <div class="text-right">
+              <a href="#" class="btn btn-sm btn-primary "><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+            </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

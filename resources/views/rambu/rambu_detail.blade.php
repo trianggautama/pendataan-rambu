@@ -10,7 +10,7 @@
   <div class="col-lg-4 col-md-4 col-xs-12" >
 
     <!-- Profile Image -->
-    <div class="box box-primary text-center " >
+    <div class="box" >
       <div class="box-body box-profile text-center" style="padding:10px;">
       <img class=" img-responsive" style="width:90%; height:auto" src="/images/rambu/{{$rambu->gambar}}"  >
       <h4 style="margin-top:18px"><b>Gambar Rambu</b></h4>

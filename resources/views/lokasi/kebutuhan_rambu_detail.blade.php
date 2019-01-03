@@ -6,12 +6,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-       Lokasi Rambu Terpasang
+       Lokasi Kebutuhan Rambu
         </h1>
-        <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-        </ol>
     </section>
     <section class="content">
 
@@ -19,8 +15,8 @@
   <div class="col-lg-4 col-md-4 col-xs-12">
 
     <!-- Profile Image -->
-    <div class="box box-primary text-center " >
-      <div class="box-body box-profile text-center" style="padding:10px;">
+    <div class="card card-primary text-center " >
+      <div class="card-body text-center" style="padding:10px;">
       <img class=" img-responsive" style="width:100%; height:auto" src="/images/lokasi_rambu/{{$lokasi_rambu->gambar}}"  >
       <h4 style="margin-top:18px"><b>Gambar Lokasi</b></h4>
       </div>
