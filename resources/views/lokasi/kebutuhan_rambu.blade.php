@@ -32,6 +32,7 @@
                   <th>Jenis</th>
                   <th>Alamat</th>
                   <th>kelurahan</th>
+                  <th class="text-center">tahun survey</th>
                   <th class="text-center">Action</th>
                 </tr>
                 </thead>
@@ -43,6 +44,7 @@
                   <td>{{$lr->rambu->jenis->nama_jenis}}</td>
                   <td>{{$lr->alamat}}</td>
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
+                <td class="text-center">{{$lr->created_at->format('d-m-Y')}}</td>
                   <td class="text-center">
                   <a href=" {{route('kebutuhan-rambu-detail', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-default"> <i class=" fa fa-eye"></i></a>
                   <a href=" {{route('kebutuhan-rambu-edit', ['id' => IDCrypt::Encrypt( $lr->id)])}}" class="btn btn-primary"> <i class=" far fa-edit"></i></a>

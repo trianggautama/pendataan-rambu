@@ -8,13 +8,10 @@
     <div class="box">
             <div class="box-header">
             <h3>Tabel Data Rambu {{$jenis_rambu->nama_jenis}}</h3>
-            <div class="text-right">
-              <a href="#" class="btn btn-sm btn-primary "><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
-            </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-hover">
+              <table id="myTable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>ID</th>

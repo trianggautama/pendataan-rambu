@@ -4,25 +4,16 @@
 
     <div class="content-wrapper" style="padding-bottom:0px;">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-        Pejabat Struktural
-        <small>yang ada di Dishub  Kota Banjarbaru</small>
-        </h1>
-        <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-        </ol>
-    </section>
 
     <!-- Main content -->
     <section class="content">
     <div class="box">
         @include('layouts.errors')
             <div class="box-header">
-              <h3 class="box-title">Tabel Data</h3>
-              <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-warning pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
-              <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+              <h3>Pejabat Struktural yang bertanda tangan</h3>
+              <div class="button text-right">
+                <a href="##tambahdata" data-toggle="modal"data-target="#tambahdata" class="btn btn-success pull-right" style="margin-left:5px;"><i class="fa fa-plus"></i> tambah data </a>
+              </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

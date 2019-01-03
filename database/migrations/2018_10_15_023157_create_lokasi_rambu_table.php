@@ -23,6 +23,7 @@ class CreateLokasiRambuTable extends Migration
             $table->double('lang',12,9);
             $table->text('alamat');
             $table->tinyInteger('status_pasang')->default('0');      
+            $table->string('keterangan')->length(25);
             $table->timestamps();
         });
     }

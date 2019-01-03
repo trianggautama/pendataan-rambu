@@ -15,11 +15,16 @@
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
-                     
+                                
+                                
+                                <input id="NIP" type="text" class="form-control{{ $errors->has('NIP') ? ' is-invalid' : '' }}" name="NIP" value="{{ old('NIP') }}" autocomplete="off" placeholder="NIP / NRTK" required autofocus>
 
-                      
+                                @if ($errors->has('NIP'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('NIP') }}</strong>
+                                    </span>
+                                @endif
 
-                         
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" autocomplete="off" placeholder="e-mail" required>
 
                                 @if ($errors->has('email'))
@@ -27,7 +32,16 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                       
+                                
+                                <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" autocomplete="off" placeholder="username" required autofocus>
+
+                                @if ($errors->has('username'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                     
+
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="password" name="password" required>
 
                                 @if ($errors->has('password'))

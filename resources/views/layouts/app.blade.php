@@ -74,7 +74,8 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel text-center">
                     <img class=" profile-img"  style="width:96%" src="/images/dashboard/icon.png"  >
-                    <p style="color:#fff;margin-top:5px;">  {{ Auth::user()->name }}</p>
+                    <p style="color:#fff;margin-top:5px;margin-bottom:0px;">  {{ Auth::user()->name }}</p>
+                    <p style="color:grey;">  {{ Auth::user()->NIP }}</p>
                 </div>
                 <ul class="sidebar-menu" data-widget="tree">
                 <li class="treeview">
