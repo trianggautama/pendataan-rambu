@@ -181,9 +181,13 @@ class adminController extends Controller
       public function kecamatan_detail($id){
         $id = IDCrypt::Decrypt($id);
         $kecamatan = kecamatan::findOrFail($id);
-        $kelurahan = kelurahan::where('kecamatan_id',$id)->get();
-
-        return view('lokasi.kecamatan_detail',compact('kelurahan','kecamatan'));
+        $kelurahan = kelurahan:: with('lokasi_rambu')
+                                ->where('kecamatan_id',$id)
+                                ->get();
+        $lokasi= $kelurahan->flatten(2);
+        $lokasi->values()->all();
+        
+      return view('lokasi.kecamatan_detail',compact('lokasi','kecamatan'));
        }//melihat data kelurahan pada kecamatan tertentu
 
        public function kecamatan_update(Request $request, $id){
@@ -275,7 +279,8 @@ class adminController extends Controller
             'apbn'=>'required',
             'lat'=>'required|unique:lokasi_rambu',
             'lang'=>'required|unique:lokasi_rambu',
-            'alamat'=>'required'
+            'alamat'=>'required',
+            'keterangan'=>'required'
           ]);
   
           $rambu_terpasang = new lokasi_rambu;
@@ -295,6 +300,8 @@ class adminController extends Controller
           $rambu_terpasang->lang= $request->lang;
           $rambu_terpasang->status_pasang= $request->status_pasang;
           $rambu_terpasang->alamat= $request->alamat;
+          $rambu_terpasang->keterangan= $request->keterangan;
+
           $rambu_terpasang->save();
          
             return redirect(route('rambu-terpasang-index'))->with('success', 'Data Rambu Terpasang Berhasil di Tambahkan');
@@ -348,6 +355,7 @@ class adminController extends Controller
         $lokasi_rambu->lang= $request->lang;
         $lokasi_rambu->status_pasang= $request->status_pasang;
         $lokasi_rambu->alamat= $request->alamat;
+        $rambu_terpasang->keterangan= $request->keterangan;
         $lokasi_rambu->update();
         return redirect(route('rambu-terpasang-index'))->with('success', 'Data kecamatan Rambu Terpasang Berhasil di Ubah');
     }//mengubah data rambu terpasang
@@ -410,6 +418,8 @@ class adminController extends Controller
           $kebutuhanrambu->lang= $request->lang;
           $kebutuhanrambu->status_pasang= $request->status_pasang;
           $kebutuhanrambu->alamat= $request->alamat;
+          $kebutuhanrambu->keterangan= $request->keterangan;
+
           $kebutuhanrambu->save();
          
             return redirect(route('kebutuhan-rambu-index'))->with('success', 'Data Kebutuhan Rambu Berhasil di Tambahkan');
@@ -463,6 +473,7 @@ class adminController extends Controller
         $lokasi_rambu->lang= $request->lang;
         $lokasi_rambu->status_pasang= $request->status_pasang;
         $lokasi_rambu->alamat= $request->alamat;
+        $kebutuhanrambu->keterangan= $request->keterangan;
         $lokasi_rambu->update();
         return redirect(route('kebutuhan-rambu-index'))->with('success', 'Data kecamatan Rambu Terpasang Berhasil di Ubah');
     }//mengubah data rambu terpasang

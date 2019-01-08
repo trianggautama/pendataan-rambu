@@ -8,9 +8,12 @@
     <div class="box">
             <div class="box-header">
             <h3 class="box-title"> Data rambu pada kelurahan {{$kelurahan->nama_kelurahan}}</h3>
-              <a href="{{route('laporan-kebutuhan-rambu-kelurahan', ['id' => IDCrypt::Encrypt( $kelurahan->id)])}}" class="btn btn-primary pull-right"  style="margin-left:15px;"><i class="fa fa-print"></i> cetak kebutuhan rambu</a>
-              <a href="{{route('laporan-rambu-terpasang-kelurahan', ['id' => IDCrypt::Encrypt( $kelurahan->id)])}}" class="btn btn-warning pull-right"><i class="fa fa-print" style="margin-right:15px;"></i> cetak rambu terpasang</a>
+            <div class="button text-right">
+              <a href="{{route('laporan-kebutuhan-rambu-kelurahan', ['id' => IDCrypt::Encrypt( $kelurahan->id)])}}" class="btn btn-primary "  style="margin-left:0px;"><i class="fa fa-print"></i> cetak kebutuhan rambu</a>
+              <a href="{{route('laporan-rambu-terpasang-kelurahan', ['id' => IDCrypt::Encrypt( $kelurahan->id)])}}" class="btn btn-warning "><i class="fa fa-print" style="margin-right:0px;"></i> cetak rambu terpasang</a>
+        
             </div>
+                  </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover">

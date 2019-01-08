@@ -60,6 +60,13 @@
                                         <p>Alamat</p>
                                 <textarea class="form-control" rows="3" placeholder="Enter ..." name="alamat" ></textarea>
                                       </div>
+                                      <div class="form-group">
+                                        <p>keterangan prioritas</p>
+                                            <select class="form-control" name="keterangan">
+                                              <option value="baik">biasa</option>
+                                              <option value="perlu ehabilitasi">sangat prioritas</option>
+                                            </select>
+                                          </div>
                                       <div class="text-right">
                                             <a href="{{ route('jenis-rambu-index') }}" class="btn btn-warning" style="color:white;">  <i class="fa fa-arrow-circle-left"></i> Kembali</a>
                                               <input class="btn btn-primary" type="submit" name="submit" value="Simpan">
