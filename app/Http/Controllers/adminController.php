@@ -355,7 +355,7 @@ class adminController extends Controller
         $lokasi_rambu->lang= $request->lang;
         $lokasi_rambu->status_pasang= $request->status_pasang;
         $lokasi_rambu->alamat= $request->alamat;
-        $rambu_terpasang->keterangan= $request->keterangan;
+        $lokasi_rambu->keterangan= $request->keterangan;
         $lokasi_rambu->update();
         return redirect(route('rambu-terpasang-index'))->with('success', 'Data kecamatan Rambu Terpasang Berhasil di Ubah');
     }//mengubah data rambu terpasang
@@ -473,7 +473,7 @@ class adminController extends Controller
         $lokasi_rambu->lang= $request->lang;
         $lokasi_rambu->status_pasang= $request->status_pasang;
         $lokasi_rambu->alamat= $request->alamat;
-        $kebutuhanrambu->keterangan= $request->keterangan;
+        $lokasi_rambu->keterangan= $request->keterangan;
         $lokasi_rambu->update();
         return redirect(route('kebutuhan-rambu-index'))->with('success', 'Data kecamatan Rambu Terpasang Berhasil di Ubah');
     }//mengubah data rambu terpasang
@@ -580,5 +580,19 @@ class adminController extends Controller
      return $pdf->download('Laporan kebutuhan rambu perkelurahan.pdf');
     }//fungsi membuat laporan kebutuhan rambu perkelurahan pdf
 
-
+    public function laporan_rambu_kecamatan($id){
+        $id = IDCrypt::Decrypt($id);
+       
+        $kelurahan = kelurahan:: with('lokasi_rambu')
+                                ->where('kecamatan_id',$id)
+                                ->get();
+     $lokasi= $kelurahan->flatten(2);
+      $lokasi->values()->all();
+        $kecamatan = kecamatan::findOrFail($id);                
+        $pejabat_struktural =pejabat_struktural::where('jabatan','kasi reksa')->get();
+        $tgl= Carbon::now()->format('d-m-Y');
+    $pdf =PDF::loadView('laporan.kecamatan_detail', ['tgl'=>$tgl,'lokasi' => $lokasi,'kecamatan' => $kecamatan,'pejabat_struktural'=>$pejabat_struktural]);
+    $pdf->setPaper('a4', 'potrait');
+     return $pdf->download('Laporan kebutuhan rambu perkelurahan.pdf');
+    }//fungsi membuat laporan kebutuhan rambu perkelurahan pdf
 }

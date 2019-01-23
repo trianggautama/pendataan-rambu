@@ -16,35 +16,34 @@
                   </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-hover">
+              <table id="myTable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Jenis Rambu</th>
-                  <th>Nama Rambu</th>
-                  <th>Alamat </th>
-                  <th>Status</th>
-
-                  <th class="text-center">Action</th>
+                  <th>nama rambu</th>
+                  <th>kelurahan</th>
+                  <th>alamat</th>
+                  <th class="text-center">status</th>
                 </tr>
                 </thead>
-                <tbody>     
-                  @foreach ($lokasi_rambu as $lr)
+                <tbody>
+              @foreach($lokasi as $kel)
+                @foreach($kel->lokasi_rambu as $lr)
                   <tr>
-                  <td>{{$lr->rambu->jenis->nama_jenis}}</td>
-                  <td>{{$lr->rambu->nama_rambu}}</td>
-                  <td>{{$lr->alamat}}</td>
-                  <td>
-                      @if ($lr->status_pasang == 0)
-                        <a href="#" class="btn btn-primary"> tidak terpasang</a>
-                      @else
-                          <a href="#" class="btn btn-success"> terpasang</a>
-                      @endif
+                    <td>
+                      {{$lr->rambu->nama_rambu}}
                     </td>
-                      <td class="text-center"> 
-                        <a href="#" class="btn btn-sm btn-default"> <i class=" fa fa-eye"></i></a>
-                      </td>
-                    </tr>
-                  @endforeach   
+                    <td>{{$lr->kelurahan->nama_kelurahan}}</td>
+                  <td>{{$lr->alamat}}</td>
+                  <td class="text-center">
+                    @if ($lr->status_pasang == 0)
+                      <a href="#" class="btn btn-sm btn-primary"> kebutuhan rambu</a>
+                    @else
+                        <a href="#" class="btn btn-sm btn-success"> rambu terpasang</a>
+                    @endif
+                  </td>
+                  </tr>
+                @endforeach
+              @endforeach
                 </tfoot>
               </table>
             </div>

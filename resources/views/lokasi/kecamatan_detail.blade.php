@@ -9,7 +9,7 @@
             <div class="box-header">
             <h3 class="">Data lokasi pada  kecamatan {{$kecamatan->nama_kecamatan}}</h3>
             <div class="button text-right">
-                <a href="#" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
+                <a href="{{route('laporan-rambu-kecamatan', ['id' => IDCrypt::Encrypt( $kecamatan->id)])}}" class="btn btn-primary pull-right"><i class="fa fa-print" style="margin-right:5px;"></i> cetak </a>
             </div>
             </div>
             <!-- /.box-header -->

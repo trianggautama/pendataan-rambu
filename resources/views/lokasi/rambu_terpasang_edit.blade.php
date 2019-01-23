@@ -72,6 +72,15 @@
                                             <p>Alamat</p>
                                     <textarea class="form-control" rows="3" placeholder="Enter ..." name="alamat" >{{$lokasi_rambu->alamat}}</textarea>
                                           </div>
+
+                                          <div class="form-group">
+                                            <p>kondisi</p>
+                                                <select class="form-control" name="keterangan">
+                                                  <option value="baik" >baik</option>
+                                                  <option value="perlu ehabilitasi">perlu rehabilitasi</option>
+                                               
+                                                </select>
+                                              </div>
                                           <div class="text-right">
                                               <a href="{{ route('jenis-rambu-index') }}" class="btn btn-warning" style="color:white;">  <i class="fa fa-arrow-circle-left"></i> Kembali</a>
                                                 <input class="btn btn-primary" type="submit" name="submit" value="Ubah">

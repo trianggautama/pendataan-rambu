@@ -70,6 +70,9 @@ Route::put('/lokasi/kecamatan/edit/{id}','adminController@kecamatan_update')
 ->name('kecamatan-update');
 Route::get('/lokasi/kecamatan/hapus/{id}','adminController@kecamatan_hapus')
 ->name('kecamatan-hapus');
+Route::get('/laporan/rambu-terpasang/kecamatan/{id}','adminController@laporan_rambu_kecamatan')
+->name('laporan-rambu-kecamatan');
+
 
 
 // kelurahan

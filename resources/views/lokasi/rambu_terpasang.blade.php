@@ -29,7 +29,6 @@
                 <thead>
                 <tr>
                   <th>Nama Rambu</th>
-                  <th>Jenis</th>
                   <th class="text-center">Tahun APBN</th>
                   <th>Alamat</th>
                   <th>kelurahan</th>
@@ -40,8 +39,7 @@
                   @foreach ($lokasi_rambu as $lr)
                       
                 <tr>
-                  <td>{{$lr->rambu->nama_rambu}}</td>
-                  <td>{{$lr->rambu->jenis->nama_jenis}}</td>
+                  <td>{{$lr->rambu->jenis->nama_jenis.' - '.$lr->rambu->nama_rambu}}</td>
                 <td class="text-center">{{$lr->apbn}}</td>
                   <td>{{$lr->alamat}}</td>
                   <td>{{$lr->kelurahan->nama_kelurahan}}</td>
