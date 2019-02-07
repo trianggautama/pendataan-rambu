@@ -63,7 +63,7 @@
                              
                                     <input type="hidden" name="status_pasang"  value="1" class="form-control" />
                                 </div>    
-                                <div class="form-group">
+                                <div class="form-group"> 
                                         <p>Alamat</p>
                                 <textarea class="form-control" rows="2" placeholder="Enter ..." name="alamat" ></textarea>
                                       </div>

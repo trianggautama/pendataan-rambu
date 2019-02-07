@@ -17,7 +17,8 @@
     <!-- Profile Image -->
     <div class="card card-primary text-center " >
       <div class="card-body text-center" style="padding:10px;">
-      <img class=" img-responsive" style="width:100%; height:auto" src="/images/lokasi_rambu/{{$lokasi_rambu->gambar}}"  >
+      
+      <img class=" img-responsive" style="width:100%; height:auto" src="{{asset('/images/lokasi_rambu/'.$lokasi_rambu->gambar)}}">
       <h4 style="margin-top:18px"><b>Gambar Lokasi</b></h4>
       </div>
       <!-- /.box-body -->
@@ -26,7 +27,7 @@
     <div class="button" style="margin-bottom:20px;">
             <a href="{{route('laporan-kebutuhan-rambu-detail', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-success"> <i class=" fa fa-print"></i> Cetak</a>
             <a href=" {{route('kebutuhan-rambu-edit', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn btn-primary"> <i class=" fa fa-edit"></i>edit data</a>
-    <a href="{{route('rambu-terpasang-index')}}" class="btn btn-danger"> Kembali</a>
+    <a href="{{route('kebutuhan-rambu-index')}}" class="btn btn-danger"> Kembali</a>
     </div>
 </div>
 

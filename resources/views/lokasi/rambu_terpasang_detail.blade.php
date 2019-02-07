@@ -16,7 +16,7 @@
     <!-- Profile Image -->
     <div class="card  text-center " >
       <div class="card-body text-center" style="padding:10px;">
-      <img class=" img-responsive" style="width:100%; height:auto" src="/images/lokasi_rambu/{{$lokasi_rambu->gambar}}"  >
+      <img class=" img-responsive" style="width:100%; height:auto" src="{{asset('/images/lokasi_rambu/'.$lokasi_rambu->gambar)}}"  >
       <h4 style="margin-top:18px"><b>Gambar Lokasi</b></h4>
      
     </div>

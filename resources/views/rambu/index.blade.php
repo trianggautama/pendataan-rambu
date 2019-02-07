@@ -59,7 +59,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Rambu</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -90,6 +90,7 @@
                    <p>Keterangan</p>
                    <textarea class="form-control" rows="3" placeholder="Enter ..." name="keterangan" ></textarea>
                  </div>
+                 <hr>
              <div class="text-right">
 
                <input class="btn btn-primary" type="submit" name="submit" value="Submit">

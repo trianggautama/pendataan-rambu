@@ -3,19 +3,20 @@
 @section('content')
 
     <div class="content-wrapper" style="padding-bottom:0px;">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-        Tambah Lokasi Kebutuhan Rambu
-        </h1>
-    </section>
+
 
     <!-- Main content -->
     <section class="content">
     <div class="box">
+           <div class="card-header" style="padding-bottom:5px;">
+                <h2>
+                        Tambah Lokasi Kebutuhan Rambu
+                 </h2>
+           </div>
             @include('layouts.errors')
             <!-- /.box-header -->
             <div class="box-body" style="padding:25px;">
+                    
                 <div class="row">
                     <div class="col-lg-6">
                             <form  method="post" action="" enctype="multipart/form-data">
