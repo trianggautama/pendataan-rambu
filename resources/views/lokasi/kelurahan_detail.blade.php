@@ -26,8 +26,7 @@
                 </tr>
                 </thead>
                 <tbody>
-              @foreach($lokasi as $kel)
-                @foreach($kel->lokasi_rambu as $lr)
+                @foreach($lokasi_rambu as $lr)
                   <tr>
                     <td>
                       {{$lr->rambu->nama_rambu}}
@@ -42,7 +41,6 @@
                     @endif
                   </td>
                   </tr>
-                @endforeach
               @endforeach
                 </tfoot>
               </table>

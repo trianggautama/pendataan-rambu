@@ -58,6 +58,8 @@
                <p>latitude &nbsp : {{$lokasi_rambu->lat}}</p>
                <hr>
                <p>langitude &nbsp : {{$lokasi_rambu->lang}}</p>
+               <hr>
+               <p>Prioritas &nbsp : {{$lokasi_rambu->keterangan}}</p>
 
               </div>
         </div>

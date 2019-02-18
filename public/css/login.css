@@ -2,7 +2,7 @@ body{
     margin:0px;
     padding:0px;
     font-family: sans-serif;
-    background-image: url('{{asset('/images/background.png')}}');
+    background-image: url("/images/background.png");
     background-position: top;
   background-repeat: no-repeat;
   background-size: 100%;

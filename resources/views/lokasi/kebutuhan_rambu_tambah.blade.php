@@ -64,8 +64,8 @@
                                       <div class="form-group">
                                         <p>keterangan prioritas</p>
                                             <select class="form-control" name="keterangan">
-                                              <option value="baik">biasa</option>
-                                              <option value="perlu ehabilitasi">sangat prioritas</option>
+                                              <option value="biasa">biasa</option>
+                                              <option value="sangat prioritas">sangat prioritas</option>
                                             </select>
                                           </div>
                                       <div class="text-right">

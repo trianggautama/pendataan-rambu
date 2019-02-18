@@ -70,14 +70,14 @@
                                       <div class="form-group">
                                         <p>keterangan prioritas</p>
                                             <select class="form-control" name="keterangan">
-                                              <option value="baik">biasa</option>
-                                              <option value="perlu ehabilitasi">sangat prioritas</option>
+                                              <option value="biasa">biasa</option>
+                                              <option value="sangat prioritas">sangat prioritas</option>
                                             </select>
                                           </div>
                                       <div class="text-right">
                                           <a href="{{ route('jenis-rambu-index') }}" class="btn btn-warning" style="color:white;">  <i class="fa fa-arrow-circle-left"></i> Kembali</a>
                                             <input class="btn btn-primary" type="submit" name="submit" value="Ubah">
-                                            <a href="{{route('rambu-terpasang-ubah', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn  btn-success"> ubah status</a>
+                                            <a href="{{route('kebutuhan-rambu-ubah', ['id' => IDCrypt::Encrypt( $lokasi_rambu->id)])}}" class="btn  btn-success"> ubah status</a>
 
                                             {{csrf_field() }}   
                                           </div>
